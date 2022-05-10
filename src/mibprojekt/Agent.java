@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package mibprojekt;
+import java.time.LocalDate;
 
 /**
  *
  * @author Anton
  */
 public class Agent {
+private int agentID;
+private String namn;
+private int telefon;
+private LocalDate anstallningsdatum;
+private boolean administrator;
+private int omrade;
+
+public Agent()
+{
     
+}
 }
