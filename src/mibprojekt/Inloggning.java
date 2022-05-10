@@ -26,20 +26,40 @@ public class Inloggning extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        losenordsFalt = new javax.swing.JPasswordField();
+        anvandarNamnsFalt = new javax.swing.JTextField();
+        inloggningsKnapp = new javax.swing.JButton();
+        avbrytsKnapp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPasswordField1.setText("jPasswordField1");
+        losenordsFalt.setText("jPasswordField1");
+        losenordsFalt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                losenordsFaltActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("Användarnamn");
+        anvandarNamnsFalt.setText("Användarnamn");
+        anvandarNamnsFalt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anvandarNamnsFaltActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Logga in");
+        inloggningsKnapp.setText("Logga in");
+        inloggningsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inloggningsKnappActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Avbryt");
+        avbrytsKnapp.setText("Avbryt");
+        avbrytsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avbrytsKnappActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,39 +68,57 @@ public class Inloggning extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(214, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(anvandarNamnsFalt)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(avbrytsKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(inloggningsKnapp))
+                    .addComponent(losenordsFalt))
                 .addGap(267, 267, 267))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(213, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(266, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(116, 116, 116)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addComponent(anvandarNamnsFalt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addComponent(losenordsFalt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(inloggningsKnapp)
+                    .addComponent(avbrytsKnapp))
                 .addContainerGap(115, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(149, Short.MAX_VALUE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(149, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void avbrytsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avbrytsKnappActionPerformed
+        // Gör så att man kan avbryta inloggningen
+        System.exit(0);
+    }//GEN-LAST:event_avbrytsKnappActionPerformed
+
+    private void anvandarNamnsFaltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anvandarNamnsFaltActionPerformed
+        
+    }//GEN-LAST:event_anvandarNamnsFaltActionPerformed
+
+    private void losenordsFaltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_losenordsFaltActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_losenordsFaltActionPerformed
+
+    private void inloggningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inloggningsKnappActionPerformed
+        // Gör så att man kan logga in
+        String anvandare = anvandarNamnsFalt.getText();
+        
+        String losenord = losenordsFalt.getText();
+        
+        
+    }//GEN-LAST:event_inloggningsKnappActionPerformed
+
+    public void anvandarelogin() {
+    }
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -116,9 +154,9 @@ public class Inloggning extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField anvandarNamnsFalt;
+    private javax.swing.JButton avbrytsKnapp;
+    private javax.swing.JButton inloggningsKnapp;
+    private javax.swing.JPasswordField losenordsFalt;
     // End of variables declaration//GEN-END:variables
 }
