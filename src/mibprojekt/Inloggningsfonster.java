@@ -4,16 +4,19 @@
  */
 package mibprojekt;
 
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author johannilsson
  */
-public class Inloggning extends javax.swing.JFrame {
+public class Inloggningsfonster extends javax.swing.JFrame {
 
     /**
      * Creates new form Inloggning
      */
-    public Inloggning() {
+    public Inloggningsfonster() {
         initComponents();
     }
 
@@ -107,51 +110,29 @@ public class Inloggning extends javax.swing.JFrame {
     }//GEN-LAST:event_losenordsFaltActionPerformed
 
     private void inloggningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inloggningsKnappActionPerformed
-        // Gör så att man kan logga in
-        String anvandare = anvandarNamnsFalt.getText();
+        /* Gör så att man kan logga in, när man inte skriver in något får man 
+        felmeddelande samt vid fel användarnamn eller lösenord
+        */
         
+     
+           
+        String anvandare = anvandarNamnsFalt.getText();
+
         String losenord = losenordsFalt.getText();
+
+        if (anvandare.isEmpty() && losenord.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Prova skriv igen, rutorna är tomma");
+        } else {
+            JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
+        }
+
+
+       
         
         
     }//GEN-LAST:event_inloggningsKnappActionPerformed
 
-    public void anvandarelogin() {
-    }
-    /**
-     * 
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inloggning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inloggning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inloggning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inloggning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Inloggning().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anvandarNamnsFalt;
