@@ -4,17 +4,28 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author Anton
  */
 public class AlienInfoSök extends javax.swing.JFrame {
-
+ private static InfDB idb;
     /**
      * Creates new form AlienInfoSök
      */
     public AlienInfoSök() {
         initComponents();
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -26,21 +37,105 @@ public class AlienInfoSök extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        alienNamnet = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        alienInfoTable = new javax.swing.JTable();
+        tableSökKnapp = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        alienNamnet.setText("Ange AlienNamn här..");
+        alienNamnet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alienNamnetActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Vilken Alien?");
+
+        alienInfoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "AlienID", "Reg. Datum", "Lösenord", "Namn", "Telefon", "Plats", "Ansvarig Agent"
+            }
+        ));
+        jScrollPane2.setViewportView(alienInfoTable);
+
+        tableSökKnapp.setText("Sök");
+        tableSökKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableSökKnappActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alienNamnet, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(tableSökKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alienNamnet, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tableSökKnapp)
+                .addContainerGap(116, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void alienNamnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienNamnetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alienNamnetActionPerformed
+
+    private void tableSökKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableSökKnappActionPerformed
+        String alienNamn = "";
+        if(alienNamnet.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Rutan är tom");
+        }
+        else
+        {
+        try 
+        {
+        alienNamn = alienNamnet.getText();
+        String fraga ="Select * from Alien where Namn='" +alienNamn +"'";
+        idb.fetchColumn(fraga);
+            
+        System.out.println(fraga);
+        
+        }
+       
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Något gick fel, försök igen.");
+        }
+        }
+    }//GEN-LAST:event_tableSökKnappActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +173,10 @@ public class AlienInfoSök extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable alienInfoTable;
+    private javax.swing.JTextField alienNamnet;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton tableSökKnapp;
     // End of variables declaration//GEN-END:variables
 }
