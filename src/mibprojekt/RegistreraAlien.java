@@ -47,7 +47,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ändra");
+        jButton1.setText("Lägg till");
 
         jLabel1.setText("Registrera en Alien");
 
