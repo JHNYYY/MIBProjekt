@@ -5,6 +5,8 @@
 package mibprojekt;
 
 import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+
 
 
 /**
@@ -18,6 +20,9 @@ public class Inloggningsfonster extends javax.swing.JFrame {
      */
     public Inloggningsfonster() {
         initComponents();
+        
+        
+        
     }
 
     /**
