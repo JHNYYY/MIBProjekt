@@ -160,7 +160,6 @@ public class Inloggningsfonster extends javax.swing.JFrame {
     }//GEN-LAST:event_inloggningsKnappActionPerformed
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anvandarNamnsFalt;
     private javax.swing.JButton avbrytsKnapp;

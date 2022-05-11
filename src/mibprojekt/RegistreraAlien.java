@@ -51,7 +51,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
         jLabel1.setText("Registrera en Alien");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Namn");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
