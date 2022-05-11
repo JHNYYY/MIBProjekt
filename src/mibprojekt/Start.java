@@ -19,13 +19,23 @@ public class Start {
 
     /**
      * @param args the command line arguments
+     * @throws oru.inf.InfException
      */
     public static void main(String[] args) throws InfException {
         
+        new Inloggningsfonster().setVisible(true); 
+        
         try {
-            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey")
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
     }
     
-}
+
+    
+    
+    }
+    

@@ -5,7 +5,10 @@
 package mibprojekt;
 
 import javax.swing.JOptionPane;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 
 
@@ -15,13 +18,20 @@ import oru.inf.InfDB;
  */
 public class Inloggningsfonster extends javax.swing.JFrame {
 
+    private static InfDB idb;
+
     /**
      * Creates new form Inloggning
      */
     public Inloggningsfonster() {
         initComponents();
-        
-        
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
         
     }
 
@@ -118,23 +128,38 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         /* Gör så att man kan logga in, när man inte skriver in något får man 
         felmeddelande samt vid fel användarnamn eller lösenord
         */
-        
-     
-           
-        String anvandare = anvandarNamnsFalt.getText();
+       
+        String fraga1 = "";
+        String fraga2 = "";
+        String svar1 = "";
+        String svar2 = "";
 
-        String losenord = losenordsFalt.getText();
-
-        if (anvandare.isEmpty() && losenord.isEmpty()) {
+        /* if (anvandare.isEmpty() && losenord.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Prova skriv igen, rutorna är tomma");
-        } else {
-            JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
+        } */
+        
+        try {
+
+            fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarNamnsFalt.getText() + "'";
+
+            svar1 = idb.fetchSingle(fraga1);
+            fraga2 = "SELECT losenord FROM Agent where Agent_ID=" + svar1;
+            svar2 = idb.fetchSingle(fraga2);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Internt felmeddelande");
+
         }
 
+        if (losenordsFalt.getText().equals(svar2)) {
+            JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
+            // Loggas in i nytt fönster 
+            new AgentInloggningsVal().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
+            anvandarNamnsFalt.requestFocus();
 
-       
-        
-        
+        }
     }//GEN-LAST:event_inloggningsKnappActionPerformed
 
 
