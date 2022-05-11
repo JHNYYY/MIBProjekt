@@ -125,9 +125,7 @@ public class Inloggningsfonster extends javax.swing.JFrame {
     }//GEN-LAST:event_losenordsFaltActionPerformed
 
     private void inloggningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inloggningsKnappActionPerformed
-        /* Gör så att man kan logga in, när man inte skriver in något får man 
-        felmeddelande samt vid fel användarnamn eller lösenord
-        */
+        /* Gör så att man kan logga in */
        
         String fraga1 = "";
         String fraga2 = "";
@@ -141,7 +139,6 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         try {
 
             fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarNamnsFalt.getText() + "'";
-
             svar1 = idb.fetchSingle(fraga1);
             fraga2 = "SELECT losenord FROM Agent where Agent_ID=" + svar1;
             svar2 = idb.fetchSingle(fraga2);
