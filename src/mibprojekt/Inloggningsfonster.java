@@ -4,6 +4,7 @@
  */
 package mibprojekt;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +49,9 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         anvandarNamnsFalt = new javax.swing.JTextField();
         inloggningsKnapp = new javax.swing.JButton();
         avbrytsKnapp = new javax.swing.JButton();
+        LoggaInSomText = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,33 +83,56 @@ public class Inloggningsfonster extends javax.swing.JFrame {
             }
         });
 
+        LoggaInSomText.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        LoggaInSomText.setText(" Logga in som:");
+
+        jButton1.setText("Agent ");
+
+        jButton2.setText("Alien");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+                .addContainerGap(144, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(anvandarNamnsFalt)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(losenordsFalt)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(avbrytsKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inloggningsKnapp))
-                    .addComponent(losenordsFalt))
+                        .addComponent(inloggningsKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
                 .addGap(267, 267, 267))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LoggaInSomText, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(LoggaInSomText, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(anvandarNamnsFalt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(losenordsFalt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inloggningsKnapp)
-                    .addComponent(avbrytsKnapp))
-                .addContainerGap(115, Short.MAX_VALUE))
+                    .addComponent(avbrytsKnapp)
+                    .addComponent(inloggningsKnapp))
+                .addGap(76, 76, 76))
         );
 
         pack();
@@ -161,9 +188,12 @@ public class Inloggningsfonster extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LoggaInSomText;
     private javax.swing.JTextField anvandarNamnsFalt;
     private javax.swing.JButton avbrytsKnapp;
     private javax.swing.JButton inloggningsKnapp;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPasswordField losenordsFalt;
     // End of variables declaration//GEN-END:variables
 }
