@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/Start.java</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/Inloggningsfonster.java</file>
-            <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/Agent.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/RegistreraAlien.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/AlienInfoSök.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/MIBProjekt/src/mibprojekt/AgentInloggningsVal.java</file>
         </group>
     </open-files>
 </project-private>
