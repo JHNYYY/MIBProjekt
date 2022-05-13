@@ -5,8 +5,10 @@
 package mibprojekt;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -31,11 +33,23 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
-    String fraga1 = "Select Alien_ID from boglodite";
+    String fraga = "SELECT Namn from Alien";
     String fraga2 = "Select Alien_ID from squid";
     String fraga3 = "Select Alien_ID from worm";
     
     ArrayList<String> allaRaser;
+    
+    try {
+      
+        allaRaser = idb.fetchColumn(fraga);
+        
+        for  (String namn : allaRaser) {
+            cbValjRasNamn.addItem(namn);
+        }
+        
+    } catch(Exception e) {
+        JOptionPane.showMessageDialog(null, "Databasfel");
+    }
     }
 
     /**
@@ -48,19 +62,24 @@ public class AlienRasSök extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbValjRasNamn = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAreaVisaInfoRas = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Välj ras att söka information om:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbValjRasNamn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbValjRasNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbValjRasNamnActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaVisaInfoRas.setColumns(20);
+        txtAreaVisaInfoRas.setRows(5);
+        jScrollPane1.setViewportView(txtAreaVisaInfoRas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,7 +92,7 @@ public class AlienRasSök extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbValjRasNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,7 +101,7 @@ public class AlienRasSök extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbValjRasNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -90,6 +109,20 @@ public class AlienRasSök extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbValjRasNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValjRasNamnActionPerformed
+        txtAreaVisaInfoRas.setText("");
+        
+        ArrayList<HashMap<String, String>> soktaRaser;
+        
+        try {
+            
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+        
+        
+    }//GEN-LAST:event_cbValjRasNamnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,9 +161,9 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbValjRasNamn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtAreaVisaInfoRas;
     // End of variables declaration//GEN-END:variables
 }

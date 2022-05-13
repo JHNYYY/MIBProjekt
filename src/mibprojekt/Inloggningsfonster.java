@@ -45,13 +45,14 @@ public class Inloggningsfonster extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         losenordsFalt = new javax.swing.JPasswordField();
         anvandarNamnsFalt = new javax.swing.JTextField();
         inloggningsKnapp = new javax.swing.JButton();
         avbrytsKnapp = new javax.swing.JButton();
         LoggaInSomText = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AlienCheckBox = new javax.swing.JCheckBox();
+        AgentCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,11 +85,18 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         });
 
         LoggaInSomText.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        LoggaInSomText.setText(" Logga in som:");
+        LoggaInSomText.setText("Logga in ");
 
-        jButton1.setText("Agent ");
+        buttonGroup1.add(AlienCheckBox);
+        AlienCheckBox.setText("Alien");
 
-        jButton2.setText("Alien");
+        buttonGroup1.add(AgentCheckBox);
+        AgentCheckBox.setText("Agent");
+        AgentCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgentCheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,25 +113,24 @@ public class Inloggningsfonster extends javax.swing.JFrame {
                         .addComponent(inloggningsKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
                 .addGap(267, 267, 267))
             .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
+                .addGap(193, 193, 193)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LoggaInSomText, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(AgentCheckBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AlienCheckBox))
+                    .addComponent(LoggaInSomText, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(85, Short.MAX_VALUE)
                 .addComponent(LoggaInSomText, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(AgentCheckBox)
+                    .addComponent(AlienCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(anvandarNamnsFalt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,7 +171,7 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         } */
         
         try {
-
+        
             fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarNamnsFalt.getText() + "'";
             svar1 = idb.fetchSingle(fraga1);
             fraga2 = "SELECT losenord FROM Agent where Agent_ID=" + svar1;
@@ -186,14 +193,19 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inloggningsKnappActionPerformed
 
+    private void AgentCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgentCheckBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox AgentCheckBox;
+    private javax.swing.JCheckBox AlienCheckBox;
     private javax.swing.JLabel LoggaInSomText;
     private javax.swing.JTextField anvandarNamnsFalt;
     private javax.swing.JButton avbrytsKnapp;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton inloggningsKnapp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPasswordField losenordsFalt;
     // End of variables declaration//GEN-END:variables
 }
