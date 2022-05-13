@@ -33,14 +33,13 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
-    String fraga = "SELECT Namn from Alien";
-    String fraga2 = "Select Alien_ID from squid";
-    String fraga3 = "Select Alien_ID from worm";
+    String fraga = "select TABLE_NAME from information_schema.tables WHERE table_schema = 'mibdb'";
+
     
     ArrayList<String> allaRaser;
     
     try {
-      
+        
         allaRaser = idb.fetchColumn(fraga);
         
         for  (String namn : allaRaser) {
@@ -112,14 +111,23 @@ public class AlienRasSök extends javax.swing.JFrame {
 
     private void cbValjRasNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValjRasNamnActionPerformed
         txtAreaVisaInfoRas.setText("");
-        
-        ArrayList<HashMap<String, String>> soktaRaser;
-        
+
+        String fraga = "select TABLE_NAME from information_schema.tables WHERE table_schema = 'mibdb'";
+
+        ArrayList<String> allaRaser;
+
         try {
-            
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+
+            allaRaser = idb.fetchColumn(fraga);
+
+            for (String namn : allaRaser) {
+                cbValjRasNamn.addItem(namn);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Databasfel");
         }
+    
         
         
     }//GEN-LAST:event_cbValjRasNamnActionPerformed

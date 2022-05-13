@@ -27,7 +27,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     private void initComponents() {
 
         VisaRegistreringAlienKnapp = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        andraLosenOrdKnapp = new javax.swing.JButton();
         ÄndraInfoAlien = new javax.swing.JButton();
         PlatsSök = new javax.swing.JButton();
         RegAlienAvRas = new javax.swing.JButton();
@@ -46,11 +46,11 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setText("Ändra Lösenord");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        andraLosenOrdKnapp.setBackground(new java.awt.Color(204, 204, 255));
+        andraLosenOrdKnapp.setText("Ändra Lösenord");
+        andraLosenOrdKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                andraLosenOrdKnappActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                            .addComponent(andraLosenOrdKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
                         .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -134,7 +134,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(andraLosenOrdKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -161,9 +161,9 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ÄndraInfoAlienActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void andraLosenOrdKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLosenOrdKnappActionPerformed
+        new LosenordsAndringsRuta().setVisible(true);
+    }//GEN-LAST:event_andraLosenOrdKnappActionPerformed
 
     private void VisaRegistreringAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaRegistreringAlienKnappActionPerformed
         new RegistreraAlien().setVisible(true);
@@ -227,7 +227,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     private javax.swing.JButton RegistreraUtrustning;
     private javax.swing.JButton VisaRegistreringAlienKnapp;
     private javax.swing.JButton alienInfoSök;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton andraLosenOrdKnapp;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton ÄndraInfoAlien;
     // End of variables declaration//GEN-END:variables
