@@ -25,7 +25,6 @@ public class AlienPlatsSök extends javax.swing.JFrame {
      */
     public AlienPlatsSök() {
         initComponents();
-        fyllRuta();
         
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -34,30 +33,7 @@ public class AlienPlatsSök extends javax.swing.JFrame {
         }
         
     }
-    private void fyllRuta()
-        {
-        String fraga = "SELECT Plats from Alien";
-        ArrayList<String> allaPlatser;
-        
-        try 
-        {
-            allaPlatser = idb.fetchColumn(fraga);
-            for (String plats : allaPlatser)
-            {
-            cbPlats.addItem(plats);
-            }
-        }
-        catch (InfException e)
-        {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt fel");
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,"");
-            System.out.println("Internt felmeddelande");
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +53,7 @@ public class AlienPlatsSök extends javax.swing.JFrame {
 
         jLabel1.setText("Välj område:");
 
-        cbPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
         cbPlats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbPlatsActionPerformed(evt);
@@ -119,29 +95,32 @@ public class AlienPlatsSök extends javax.swing.JFrame {
 
     private void cbPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPlatsActionPerformed
      txtArea.setText("");
-      ArrayList<HashMap<String, String>> soktaPlatser;
-        
-        try
-        {
-            String valdPlats = cbPlats.getSelectedItem().toString();
-            String fraga = "SELECT * FROM Alien where Plats = '" + valdPlats + "' ORDER BY Alien_ID;";
-            soktaPlatser = idb.fetchRows(fraga);
-            
-            for (HashMap<String, String> Plats : soktaPlatser)
-                txtArea.append(Plats.get("Alien_ID") + "\t");
+     try
+     {
+     String fraga1 ="Select Namn from Alien where Plats = 1";
+     String sok1 = idb.fetchSingle(fraga1);
+     String fraga2 ="Select Namn from Alien where Plats = 2";
+     String sok2 = idb.fetchSingle(fraga2);
+     String fraga3 ="Select Namn from Alien where Plats = 4";
+     String sok3 = idb.fetchSingle(fraga3);
+     if(cbPlats.getSelectedItem().toString().equals("Svealand"))
+     {
+         txtArea.append(sok1);
+     }
+     else if(cbPlats.getSelectedItem().toString().equals("Götaland"))
+     {
+         txtArea.append(sok2);
+     }
+     else if(cbPlats.getSelectedItem().toString().equals("Norrland"))
+     {
+         txtArea.append(sok3);
+     }
                 
                 
     }//GEN-LAST:event_cbPlatsActionPerformed
-        catch(InfException e)
-                    {
-                    JOptionPane.showMessageDialog(null, "Databasfel");
-                    System.out.println("Internt felmeddelande.");
-                    }
-        catch(Exception e)
-        {
-        JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
-        System.out.println("Internt felmeddelande.");
-        }
+    catch(InfException e){
+        
+    }
     }
         
     /**
