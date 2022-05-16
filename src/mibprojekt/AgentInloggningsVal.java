@@ -179,7 +179,11 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_PlatsSökActionPerformed
 
     private void RegAlienAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegAlienAvRasActionPerformed
+<<<<<<< HEAD
         new AlienRasSök().setVisible(true);
+=======
+    new AlienRasSök().setVisible(true);
+>>>>>>> c10099b0e355fa54689351ab7d16ff8655ee6b51
     }//GEN-LAST:event_RegAlienAvRasActionPerformed
 
     private void alienInfoSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienInfoSökActionPerformed
