@@ -182,7 +182,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_alienInfoSökActionPerformed
 
     private void OmrådeschefSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmrådeschefSökActionPerformed
-        // TODO add your handling code here:
+        new OmrådesChefSök().setVisible(true);
     }//GEN-LAST:event_OmrådeschefSökActionPerformed
 
     /**
