@@ -170,7 +170,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_VisaRegistreringAlienKnappActionPerformed
 
     private void PlatsSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlatsSökActionPerformed
-        // TODO add your handling code here:
+    new AlienPlatsSök().setVisible(true);
     }//GEN-LAST:event_PlatsSökActionPerformed
 
     private void RegAlienAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegAlienAvRasActionPerformed
