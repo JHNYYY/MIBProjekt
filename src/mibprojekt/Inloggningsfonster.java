@@ -89,6 +89,11 @@ public class Inloggningsfonster extends javax.swing.JFrame {
 
         buttonGroup1.add(AlienCheckBox);
         AlienCheckBox.setText("Alien");
+        AlienCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlienCheckBoxActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(AgentCheckBox);
         AgentCheckBox.setText("Agent");
@@ -177,7 +182,7 @@ public class Inloggningsfonster extends javax.swing.JFrame {
             fraga2 = "SELECT losenord FROM Agent where Agent_ID=" + svar1;
             svar2 = idb.fetchSingle(fraga2);
 
-        } catch (Exception e) {
+        } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Internt felmeddelande");
 
         }
@@ -196,6 +201,10 @@ public class Inloggningsfonster extends javax.swing.JFrame {
     private void AgentCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AgentCheckBoxActionPerformed
+
+    private void AlienCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlienCheckBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
