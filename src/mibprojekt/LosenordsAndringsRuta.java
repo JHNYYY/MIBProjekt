@@ -151,7 +151,7 @@ public class LosenordsAndringsRuta extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord!");
             }
 
-        } catch (Exception e) {
+        } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
         }
 

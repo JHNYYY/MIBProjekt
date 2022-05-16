@@ -33,22 +33,21 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
-    String fraga = "select TABLE_NAME from information_schema.tables WHERE table_schema = 'mibdb'";
+        String fraga1 = "SELECT TABLE_NAME from information_schema.tables WHERE TABLE_NAME IN ('Worm', 'Squid', 'Boglodite')";
 
-    
-    ArrayList<String> allaRaser;
-    
-    try {
-        
-        allaRaser = idb.fetchColumn(fraga);
-        
-        for  (String namn : allaRaser) {
-            cbValjRasNamn.addItem(namn);
+        ArrayList<String> allaRaser;
+
+        try {
+
+            allaRaser = idb.fetchColumn(fraga1);
+
+            for (String namn : allaRaser) {
+                cbValjRasNamn.addItem(namn);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Databasfel");
         }
-        
-    } catch(Exception e) {
-        JOptionPane.showMessageDialog(null, "Databasfel");
-    }
     }
 
     /**
@@ -69,7 +68,7 @@ public class AlienRasSök extends javax.swing.JFrame {
 
         jLabel1.setText("Välj ras att söka information om:");
 
-        cbValjRasNamn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbValjRasNamn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj ras här" }));
         cbValjRasNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbValjRasNamnActionPerformed(evt);
@@ -110,23 +109,33 @@ public class AlienRasSök extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbValjRasNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValjRasNamnActionPerformed
-        txtAreaVisaInfoRas.setText("");
-
-        String fraga = "select TABLE_NAME from information_schema.tables WHERE table_schema = 'mibdb'";
-
-        ArrayList<String> allaRaser;
+        
 
         try {
+            
+           String fraga = "SELECT TABLE_NAME from information_schema.tables WHERE TABLE_NAME IN ('Worm', 'Squid', 'Boglodite') ORDER BY TABLE_NAME";
+           idb.fetchColumn(fraga); }
+        
+        catch(InfException e) {
+            JOptionPane.showMessageDialog(null, "Databasfel");
+        }
+        
+        
+ 
 
+        /* try {
             allaRaser = idb.fetchColumn(fraga);
+            ArrayList<String> allaRaser;
+
 
             for (String namn : allaRaser) {
                 cbValjRasNamn.addItem(namn);
+
             }
 
-        } catch (Exception e) {
+        } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Databasfel");
-        }
+        } */
     
         
         
