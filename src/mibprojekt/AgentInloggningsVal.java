@@ -174,7 +174,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_PlatsSökActionPerformed
 
     private void RegAlienAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegAlienAvRasActionPerformed
-            // TODO add your handling code here:
+    new AlienRasSök().setVisible(true);
     }//GEN-LAST:event_RegAlienAvRasActionPerformed
 
     private void alienInfoSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienInfoSökActionPerformed
