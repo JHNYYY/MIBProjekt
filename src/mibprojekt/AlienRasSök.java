@@ -118,16 +118,16 @@ public class AlienRasSök extends javax.swing.JFrame {
         String resultat3 = idb.fetchSingle(svar3);
         
         if(cbValjRasNamn.getSelectedItem().toString().equals("Worm")) {
-           txtAreaVisaInfoRas.append("Alien: " +resultat1 + "\n" + "AlienID: " +sokt1);
+           txtAreaVisaInfoRas.append("Aliens: " +resultat1 + "\n" + "AlienID: " +sokt1);
         }
         
         else if(cbValjRasNamn.getSelectedItem().toString().equals("Squid")) {
-            txtAreaVisaInfoRas.append("Alien: " +resultat2 + "\n" + "AlienID: " +sokt2);
+            txtAreaVisaInfoRas.append("Aliens: " +resultat2 + "\n" + "AlienID: " +sokt2);
             
         }
         
         else if (cbValjRasNamn.getSelectedItem().toString().equals("Boglodite")) {
-           txtAreaVisaInfoRas.append("Alien: " +resultat3 + "\n" + "AlienID: " +sokt3);
+           txtAreaVisaInfoRas.append("Aliens: " +resultat3 + "\n" + "AlienID: " +sokt3);
            
             
         }
