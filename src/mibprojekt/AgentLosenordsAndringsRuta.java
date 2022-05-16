@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author johannilsson
  */
-public class LosenordsAndringsRuta extends javax.swing.JFrame {
+public class AgentLosenordsAndringsRuta extends javax.swing.JFrame {
     
         private InfDB idb;
 
     /**
      * Creates new form LosenordsAndringsRuta
      */
-    public LosenordsAndringsRuta() {
+    public AgentLosenordsAndringsRuta() {
         initComponents();
         
         try {
@@ -175,20 +175,21 @@ public class LosenordsAndringsRuta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LosenordsAndringsRuta().setVisible(true);
+                new AgentLosenordsAndringsRuta().setVisible(true);
             }
         });
     }

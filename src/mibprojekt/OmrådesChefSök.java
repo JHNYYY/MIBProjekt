@@ -47,7 +47,7 @@ public class OmrådesChefSök extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Område:");
+        jLabel1.setText("Välj Område:");
 
         VäljOmrådesKnapp.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         VäljOmrådesKnapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Götaland", "Norrland", "Svealand" }));

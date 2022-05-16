@@ -27,7 +27,7 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
     private void initComponents() {
 
         andralosenordAlien = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        VisaInfoAnsvarigAgent = new javax.swing.JButton();
         TextKontoInstallningar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,7 +40,12 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Visa info om ansvarig agent");
+        VisaInfoAnsvarigAgent.setText("Visa information om ansvarig agent");
+        VisaInfoAnsvarigAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VisaInfoAnsvarigAgentActionPerformed(evt);
+            }
+        });
 
         TextKontoInstallningar.setBackground(new java.awt.Color(255, 255, 255));
         TextKontoInstallningar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -53,7 +58,7 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(518, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(TextKontoInstallningar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -62,9 +67,9 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
                         .addComponent(andralosenordAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(jButton1)
-                .addGap(0, 299, Short.MAX_VALUE))
+                .addGap(218, 218, 218)
+                .addComponent(VisaInfoAnsvarigAgent)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,17 +78,21 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
                 .addComponent(TextKontoInstallningar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(andralosenordAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(VisaInfoAnsvarigAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void andralosenordAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordAlienActionPerformed
-        // TODO add your handling code here:
+        new AlienLosenordsAndringsRuta().setVisible(true);
     }//GEN-LAST:event_andralosenordAlienActionPerformed
+
+    private void VisaInfoAnsvarigAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaInfoAnsvarigAgentActionPerformed
+        new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
+    }//GEN-LAST:event_VisaInfoAnsvarigAgentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,7 +131,7 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TextKontoInstallningar;
+    private javax.swing.JButton VisaInfoAnsvarigAgent;
     private javax.swing.JButton andralosenordAlien;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
