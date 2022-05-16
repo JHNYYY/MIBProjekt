@@ -61,8 +61,10 @@
     <Component class="javax.swing.JComboBox" name="cbValjRasNamn">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="V&#xe4;lj ras h&#xe4;r"/>
+          <StringArray count="3">
+            <StringItem index="0" value="Worm"/>
+            <StringItem index="1" value="Squid"/>
+            <StringItem index="2" value="Boglodite"/>
           </StringArray>
         </Property>
       </Properties>

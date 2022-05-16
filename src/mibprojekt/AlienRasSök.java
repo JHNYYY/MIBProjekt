@@ -23,7 +23,7 @@ public class AlienRasSök extends javax.swing.JFrame {
      */
     public AlienRasSök() {
             initComponents();
-            fyllRuta();
+            
         
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -33,21 +33,7 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
-        String fraga1 = "SELECT TABLE_NAME from information_schema.tables WHERE TABLE_NAME IN ('Worm', 'Squid', 'Boglodite')";
-
-        ArrayList<String> allaRaser;
-
-        try {
-
-            allaRaser = idb.fetchColumn(fraga1);
-
-            for (String namn : allaRaser) {
-                cbValjRasNamn.addItem(namn);
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Databasfel");
-        }
+       
     }
 
     /**
@@ -68,7 +54,7 @@ public class AlienRasSök extends javax.swing.JFrame {
 
         jLabel1.setText("Välj ras att söka information om:");
 
-        cbValjRasNamn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Välj ras här" }));
+        cbValjRasNamn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Worm", "Squid", "Boglodite" }));
         cbValjRasNamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbValjRasNamnActionPerformed(evt);
@@ -110,33 +96,47 @@ public class AlienRasSök extends javax.swing.JFrame {
 
     private void cbValjRasNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbValjRasNamnActionPerformed
         
-
+       
+        
+        txtAreaVisaInfoRas.setText("");
+        
         try {
             
-           String fraga = "SELECT TABLE_NAME from information_schema.tables WHERE TABLE_NAME IN ('Worm', 'Squid', 'Boglodite') ORDER BY TABLE_NAME";
-           idb.fetchColumn(fraga); }
+        String fraga1 = "SELECT * FROM Worm GROUP BY Alien_ID";
+        String sokt1 = idb.fetchSingle(fraga1);
+        String svar1 = "SELECT Namn from Alien Where Alien_ID = "+sokt1;
+        String resultat1 = idb.fetchSingle(svar1);
         
-        catch(InfException e) {
-            JOptionPane.showMessageDialog(null, "Databasfel");
+        String fraga2 = "SELECT Alien_ID FROM Squid";
+        String sokt2 = idb.fetchSingle(fraga2);
+        String svar2 = "SELECT Namn from Alien Where Alien_ID = "+sokt2;
+        String resultat2 = idb.fetchSingle(svar2);
+
+        String fraga3 = "SELECT Alien_ID FROM Boglodite";
+        String sokt3 = idb.fetchSingle(fraga3);
+        String svar3 = "SELECT Namn from Alien Where Alien_ID = "+sokt3;
+        String resultat3 = idb.fetchSingle(svar3);
+        
+        if(cbValjRasNamn.getSelectedItem().toString().equals("Worm")) {
+           txtAreaVisaInfoRas.append("Alien: " +resultat1 + "\n" + "AlienID: " +sokt1);
         }
         
+        else if(cbValjRasNamn.getSelectedItem().toString().equals("Squid")) {
+            txtAreaVisaInfoRas.append("Alien: " +resultat2 + "\n" + "AlienID: " +sokt2);
+            
+        }
         
- 
+        else if (cbValjRasNamn.getSelectedItem().toString().equals("Boglodite")) {
+           txtAreaVisaInfoRas.append("Alien: " +resultat3 + "\n" + "AlienID: " +sokt3);
+           
+            
+        }
+        
+        } catch(InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+        
 
-        /* try {
-            allaRaser = idb.fetchColumn(fraga);
-            ArrayList<String> allaRaser;
-
-
-            for (String namn : allaRaser) {
-                cbValjRasNamn.addItem(namn);
-
-            }
-
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Databasfel");
-        } */
-    
         
         
     }//GEN-LAST:event_cbValjRasNamnActionPerformed
