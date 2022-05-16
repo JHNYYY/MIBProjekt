@@ -68,7 +68,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
             }
         });
 
-        RegAlienAvRas.setText("Registrerade aliens av ras");
+        RegAlienAvRas.setText("Sök Registrerade Aliens (Ras)");
         RegAlienAvRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegAlienAvRasActionPerformed(evt);
@@ -89,6 +89,11 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
         });
 
         RegistreraUtrustning.setText("Registrera Utrustning");
+        RegistreraUtrustning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistreraUtrustningActionPerformed(evt);
+            }
+        });
 
         OmrådeschefSök.setText("Sök områdeschef för kontor");
         OmrådeschefSök.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +112,8 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(VisaRegistreringAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RegAlienAvRas, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
+                        .addComponent(RegAlienAvRas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(andraLosenOrdKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
@@ -124,7 +129,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
                                 .addComponent(ÄndraInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(OmrådeschefSök, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(407, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,11 +175,11 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_VisaRegistreringAlienKnappActionPerformed
 
     private void PlatsSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlatsSökActionPerformed
-    new AlienPlatsSök().setVisible(true);
+        new AlienPlatsSök().setVisible(true);
     }//GEN-LAST:event_PlatsSökActionPerformed
 
     private void RegAlienAvRasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegAlienAvRasActionPerformed
-            // TODO add your handling code here:
+        new AlienRasSök().setVisible(true);
     }//GEN-LAST:event_RegAlienAvRasActionPerformed
 
     private void alienInfoSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienInfoSökActionPerformed
@@ -184,6 +189,10 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     private void OmrådeschefSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmrådeschefSökActionPerformed
         new OmrådesChefSök().setVisible(true);
     }//GEN-LAST:event_OmrådeschefSökActionPerformed
+
+    private void RegistreraUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraUtrustningActionPerformed
+        new RegistreraUtrustning().setVisible(true);
+    }//GEN-LAST:event_RegistreraUtrustningActionPerformed
 
     /**
      * @param args the command line arguments
