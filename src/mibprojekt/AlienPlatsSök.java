@@ -53,7 +53,7 @@ public class AlienPlatsSök extends javax.swing.JFrame {
 
         jLabel1.setText("Välj område:");
 
-        cbPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Svealand", "Götaland", "Norrland" }));
+        cbPlats.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Örebro", "Västerås", "Vilhelmina", "Borås" }));
         cbPlats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbPlatsActionPerformed(evt);
@@ -101,19 +101,25 @@ public class AlienPlatsSök extends javax.swing.JFrame {
      String sok1 = idb.fetchSingle(fraga1);
      String fraga2 ="Select Namn from Alien where Plats = 2";
      String sok2 = idb.fetchSingle(fraga2);
-     String fraga3 ="Select Namn from Alien where Plats = 4";
+     String fraga3 ="Select Namn from Alien where Plats = 3";
      String sok3 = idb.fetchSingle(fraga3);
-     if(cbPlats.getSelectedItem().toString().equals("Svealand"))
+     String fraga4 ="Select Namn from Alien where Plats = 4";
+     String sok4 = idb.fetchSingle(fraga4);
+     if(cbPlats.getSelectedItem().toString().equals("Örebro"))
      {
          txtArea.append(sok1);
      }
-     else if(cbPlats.getSelectedItem().toString().equals("Götaland"))
+     else if(cbPlats.getSelectedItem().toString().equals("Västerås"))
      {
          txtArea.append(sok2);
      }
-     else if(cbPlats.getSelectedItem().toString().equals("Norrland"))
+     else if(cbPlats.getSelectedItem().toString().equals("Vilhelmina"))
      {
          txtArea.append(sok3);
+     }
+     else if(cbPlats.getSelectedItem().toString().equals("Borås"))
+     {
+         txtArea.append(sok4);
      }
                 
                 
