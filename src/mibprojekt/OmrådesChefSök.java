@@ -98,11 +98,16 @@ public class OmrådesChefSök extends javax.swing.JFrame {
         
         try {
          // SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Namn Like '%') 
-        String fraga1 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade)";
+         // SELECT Namn from Agent WHERE Omrade=1;
+        String fraga1 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Omrades_ID=2)";
         String svar1 = idb.fetchSingle(fraga1);
         
-        String fraga2 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade)";
+        String fraga2 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Omrades_ID=4)";
         String svar2 = idb.fetchSingle(fraga2);
+        
+        String fraga3 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Omrades_ID=1)";
+        String svar3 = idb.fetchSingle(fraga3);
+
         
         if(VäljOmrådesKnapp.getSelectedItem().toString().equals("Götaland")) {
            OmrådesChefTextRuta.append("Områdeschef: "+svar1);
@@ -114,6 +119,7 @@ public class OmrådesChefSök extends javax.swing.JFrame {
         }
         
         else if(VäljOmrådesKnapp.getSelectedItem().toString().equals("Svealand")) {
+            OmrådesChefTextRuta.append("Områdeschef: "+svar3);
             
         }
         

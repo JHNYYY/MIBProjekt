@@ -27,32 +27,32 @@
               <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jToggleButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SökInfoAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="jToggleButton9" min="-2" max="-2" attributes="0"/>
+                      <Component id="TaBortAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="andralosenordAlien" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="AndraLosenordAdminKnapp" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton10" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton11" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ÄndraInfoAgentKnapp" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="ÄndraOmrådeschefsKnapp" min="-2" max="-2" attributes="0"/>
+                          <Component id="ÄndraKontorsChefsKnapp" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistreraAgentKnapp" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="477" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton8" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistreraAlienKnapp" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="AdminStatusAgentKnapp" min="-2" max="-2" attributes="0"/>
+                          <Component id="ÄndraInfoAlienKnapp" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="TaBortUtrustningsKnapp" min="-2" max="-2" attributes="0"/>
+                          <Component id="TaBortAlienKnapp" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -72,31 +72,31 @@
               <Component id="TextKontoInstallningar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="andralosenordAlien" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="AndraLosenordAdminKnapp" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jToggleButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SökInfoAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton5" min="-2" max="-2" attributes="0"/>
+                      <Component id="RegistreraAlienKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton4" min="-2" max="-2" attributes="0"/>
+                      <Component id="ÄndraInfoAlienKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton6" min="-2" max="-2" attributes="0"/>
+                      <Component id="RegistreraAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton7" min="-2" max="-2" attributes="0"/>
+                      <Component id="ÄndraInfoAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton8" min="-2" max="-2" attributes="0"/>
+                      <Component id="AdminStatusAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton10" min="-2" max="-2" attributes="0"/>
+                      <Component id="ÄndraOmrådeschefsKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton11" min="-2" max="-2" attributes="0"/>
+                      <Component id="ÄndraKontorsChefsKnapp" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                      <Component id="jToggleButton9" min="-2" max="-2" attributes="0"/>
+                      <Component id="TaBortAgentKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="TaBortAlienKnapp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="TaBortUtrustningsKnapp" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="59" max="32767" attributes="0"/>
@@ -105,7 +105,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="andralosenordAlien">
+    <Component class="javax.swing.JButton" name="AndraLosenordAdminKnapp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -113,7 +113,7 @@
         <Property name="text" type="java.lang.String" value="&#xc4;ndra L&#xf6;senord"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andralosenordAlienActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndraLosenordAdminKnappActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="TextKontoInstallningar">
@@ -131,69 +131,93 @@
         <Property name="toolTipText" type="java.lang.String" value="Klicka p&#xe5; knapparna under f&#xf6;r att &#xe4;ndra dina kontoinst&#xe4;llningar."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="TaBortAlienKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort Alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaBortAlienKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+    <Component class="javax.swing.JToggleButton" name="TaBortUtrustningsKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort Utrustning"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaBortUtrustningsKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+    <Component class="javax.swing.JToggleButton" name="S&#xf6;kInfoAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="S&#xf6;k Information om Agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="S&#xf6;kInfoAgentKnappActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton4">
+    <Component class="javax.swing.JToggleButton" name="&#xc4;ndraInfoAlienKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra Information om Alien"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraInfoAlienKnappActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton6">
+    <Component class="javax.swing.JToggleButton" name="RegistreraAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera en Agent"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistreraAgentKnappActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton5">
+    <Component class="javax.swing.JToggleButton" name="RegistreraAlienKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrera en Alien"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistreraAlienKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton7">
+    <Component class="javax.swing.JToggleButton" name="&#xc4;ndraInfoAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra information om Agent"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraInfoAgentKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton8">
+    <Component class="javax.swing.JToggleButton" name="AdminStatusAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ge Adminstatus till Agent"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminStatusAgentKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton9">
+    <Component class="javax.swing.JToggleButton" name="TaBortAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort Agent"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaBortAgentKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton10">
+    <Component class="javax.swing.JToggleButton" name="&#xc4;ndraOmr&#xe5;deschefsKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschef "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraOmr&#xe5;deschefsKnappActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton11">
+    <Component class="javax.swing.JToggleButton" name="&#xc4;ndraKontorsChefsKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraKontorsChefsKnappActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

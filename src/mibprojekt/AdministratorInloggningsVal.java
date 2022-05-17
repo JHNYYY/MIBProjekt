@@ -26,27 +26,27 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        andralosenordAlien = new javax.swing.JButton();
+        AndraLosenordAdminKnapp = new javax.swing.JButton();
         TextKontoInstallningar = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
+        TaBortAlienKnapp = new javax.swing.JToggleButton();
+        TaBortUtrustningsKnapp = new javax.swing.JToggleButton();
+        SökInfoAgentKnapp = new javax.swing.JToggleButton();
+        ÄndraInfoAlienKnapp = new javax.swing.JToggleButton();
+        RegistreraAgentKnapp = new javax.swing.JToggleButton();
+        RegistreraAlienKnapp = new javax.swing.JToggleButton();
+        ÄndraInfoAgentKnapp = new javax.swing.JToggleButton();
+        AdminStatusAgentKnapp = new javax.swing.JToggleButton();
+        TaBortAgentKnapp = new javax.swing.JToggleButton();
+        ÄndraOmrådeschefsKnapp = new javax.swing.JToggleButton();
+        ÄndraKontorsChefsKnapp = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        andralosenordAlien.setBackground(new java.awt.Color(204, 204, 255));
-        andralosenordAlien.setText("Ändra Lösenord");
-        andralosenordAlien.addActionListener(new java.awt.event.ActionListener() {
+        AndraLosenordAdminKnapp.setBackground(new java.awt.Color(204, 204, 255));
+        AndraLosenordAdminKnapp.setText("Ändra Lösenord");
+        AndraLosenordAdminKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andralosenordAlienActionPerformed(evt);
+                AndraLosenordAdminKnappActionPerformed(evt);
             }
         });
 
@@ -56,42 +56,82 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
         TextKontoInstallningar.setText("Kontoinställningar");
         TextKontoInstallningar.setToolTipText("Klicka på knapparna under för att ändra dina kontoinställningar.");
 
-        jToggleButton1.setText("Ta bort Alien");
-
-        jToggleButton2.setText("Ta bort Utrustning");
-
-        jToggleButton3.setText("Sök Information om Agent");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        TaBortAlienKnapp.setText("Ta bort Alien");
+        TaBortAlienKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                TaBortAlienKnappActionPerformed(evt);
             }
         });
 
-        jToggleButton4.setText("Ändra Information om Alien");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+        TaBortUtrustningsKnapp.setText("Ta bort Utrustning");
+        TaBortUtrustningsKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
+                TaBortUtrustningsKnappActionPerformed(evt);
             }
         });
 
-        jToggleButton6.setText("Registrera en Agent");
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        SökInfoAgentKnapp.setText("Sök Information om Agent");
+        SökInfoAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                SökInfoAgentKnappActionPerformed(evt);
             }
         });
 
-        jToggleButton5.setText("Registrera en Alien");
+        ÄndraInfoAlienKnapp.setText("Ändra Information om Alien");
+        ÄndraInfoAlienKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ÄndraInfoAlienKnappActionPerformed(evt);
+            }
+        });
 
-        jToggleButton7.setText("Ändra information om Agent");
+        RegistreraAgentKnapp.setText("Registrera en Agent");
+        RegistreraAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistreraAgentKnappActionPerformed(evt);
+            }
+        });
 
-        jToggleButton8.setText("Ge Adminstatus till Agent");
+        RegistreraAlienKnapp.setText("Registrera en Alien");
+        RegistreraAlienKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistreraAlienKnappActionPerformed(evt);
+            }
+        });
 
-        jToggleButton9.setText("Ta bort Agent");
+        ÄndraInfoAgentKnapp.setText("Ändra information om Agent");
+        ÄndraInfoAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ÄndraInfoAgentKnappActionPerformed(evt);
+            }
+        });
 
-        jToggleButton10.setText("Ändra områdeschef ");
+        AdminStatusAgentKnapp.setText("Ge Adminstatus till Agent");
+        AdminStatusAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminStatusAgentKnappActionPerformed(evt);
+            }
+        });
 
-        jToggleButton11.setText("Ändra kontorschef");
+        TaBortAgentKnapp.setText("Ta bort Agent");
+        TaBortAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaBortAgentKnappActionPerformed(evt);
+            }
+        });
+
+        ÄndraOmrådeschefsKnapp.setText("Ändra områdeschef ");
+        ÄndraOmrådeschefsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ÄndraOmrådeschefsKnappActionPerformed(evt);
+            }
+        });
+
+        ÄndraKontorsChefsKnapp.setText("Ändra kontorschef");
+        ÄndraKontorsChefsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ÄndraKontorsChefsKnappActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,28 +141,28 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToggleButton3)
+                        .addComponent(SökInfoAgentKnapp)
                         .addGap(56, 56, 56)
-                        .addComponent(jToggleButton9)
+                        .addComponent(TaBortAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(andralosenordAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AndraLosenordAdminKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton7)
-                            .addComponent(jToggleButton10)
-                            .addComponent(jToggleButton11)
-                            .addComponent(jToggleButton6))
+                            .addComponent(ÄndraInfoAgentKnapp)
+                            .addComponent(ÄndraOmrådeschefsKnapp)
+                            .addComponent(ÄndraKontorsChefsKnapp)
+                            .addComponent(RegistreraAgentKnapp))
                         .addContainerGap(477, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton5)
-                            .addComponent(jToggleButton8)
-                            .addComponent(jToggleButton4))
+                            .addComponent(RegistreraAlienKnapp)
+                            .addComponent(AdminStatusAgentKnapp)
+                            .addComponent(ÄndraInfoAlienKnapp))
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton2)
-                            .addComponent(jToggleButton1))
+                            .addComponent(TaBortUtrustningsKnapp)
+                            .addComponent(TaBortAlienKnapp))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,51 +176,83 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 .addComponent(TextKontoInstallningar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(andralosenordAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AndraLosenordAdminKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jToggleButton3)
+                        .addComponent(SökInfoAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton5)
+                        .addComponent(RegistreraAlienKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton4)
+                        .addComponent(ÄndraInfoAlienKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton6)
+                        .addComponent(RegistreraAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton7)
+                        .addComponent(ÄndraInfoAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton8)
+                        .addComponent(AdminStatusAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton10)
+                        .addComponent(ÄndraOmrådeschefsKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton11))
+                        .addComponent(ÄndraKontorsChefsKnapp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(jToggleButton9)
+                        .addComponent(TaBortAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton1)
+                        .addComponent(TaBortAlienKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton2)))
+                        .addComponent(TaBortUtrustningsKnapp)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void andralosenordAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordAlienActionPerformed
+    private void AndraLosenordAdminKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraLosenordAdminKnappActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_andralosenordAlienActionPerformed
+    }//GEN-LAST:event_AndraLosenordAdminKnappActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    private void SökInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SökInfoAgentKnappActionPerformed
+       new SökInformationOmAgent().setVisible(true);
+    }//GEN-LAST:event_SökInfoAgentKnappActionPerformed
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+    private void ÄndraInfoAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraInfoAlienKnappActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
+    }//GEN-LAST:event_ÄndraInfoAlienKnappActionPerformed
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void RegistreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraAgentKnappActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+    }//GEN-LAST:event_RegistreraAgentKnappActionPerformed
+
+    private void TaBortAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentKnappActionPerformed
+        new TaBortAgent().setVisible(true);
+    }//GEN-LAST:event_TaBortAgentKnappActionPerformed
+
+    private void TaBortAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TaBortAlienKnappActionPerformed
+
+    private void TaBortUtrustningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortUtrustningsKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TaBortUtrustningsKnappActionPerformed
+
+    private void ÄndraKontorsChefsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraKontorsChefsKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ÄndraKontorsChefsKnappActionPerformed
+
+    private void ÄndraOmrådeschefsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraOmrådeschefsKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ÄndraOmrådeschefsKnappActionPerformed
+
+    private void AdminStatusAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminStatusAgentKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminStatusAgentKnappActionPerformed
+
+    private void ÄndraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraInfoAgentKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ÄndraInfoAgentKnappActionPerformed
+
+    private void RegistreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraAlienKnappActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistreraAlienKnappActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,18 +290,18 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton AdminStatusAgentKnapp;
+    private javax.swing.JButton AndraLosenordAdminKnapp;
+    private javax.swing.JToggleButton RegistreraAgentKnapp;
+    private javax.swing.JToggleButton RegistreraAlienKnapp;
+    private javax.swing.JToggleButton SökInfoAgentKnapp;
+    private javax.swing.JToggleButton TaBortAgentKnapp;
+    private javax.swing.JToggleButton TaBortAlienKnapp;
+    private javax.swing.JToggleButton TaBortUtrustningsKnapp;
     private javax.swing.JLabel TextKontoInstallningar;
-    private javax.swing.JButton andralosenordAlien;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JToggleButton ÄndraInfoAgentKnapp;
+    private javax.swing.JToggleButton ÄndraInfoAlienKnapp;
+    private javax.swing.JToggleButton ÄndraKontorsChefsKnapp;
+    private javax.swing.JToggleButton ÄndraOmrådeschefsKnapp;
     // End of variables declaration//GEN-END:variables
 }
