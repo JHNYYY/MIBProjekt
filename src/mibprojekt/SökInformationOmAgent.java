@@ -25,14 +25,42 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
      */
     public SökInformationOmAgent() {
         initComponents();
+        fyllRuta();
         
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+        
+          }
+    private void fyllRuta()
+    {
+        String fraga = "SELECT Namn from Agent";
+        ArrayList<String> allaAgenter;
+        
+        try 
+        {
+            allaAgenter = idb.fetchColumn(fraga);
+            for (String namn : allaAgenter)
+            {
+                VäljAgentSökKnapp.addItem(namn);
+            }
+        }
+        catch (InfException e)
+        {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt fel");
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"");
+            System.out.println("Internt felmeddelande");
+        }
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +75,13 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
         VäljAgentSökKnapp = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtVisaAgentInfo = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,19 +100,51 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
         txtVisaAgentInfo.setRows(5);
         jScrollPane1.setViewportView(txtVisaAgentInfo);
 
+        jLabel2.setText("Agent_ID");
+
+        jLabel3.setText("Namn");
+
+        jLabel4.setText("Telefon");
+
+        jLabel5.setText("Anställningsdatum");
+
+        jLabel6.setText("Lösenord");
+
+        jLabel7.setText("Admin?");
+
+        jLabel8.setText("Område");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                .addGap(107, 107, 107)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(VäljAgentSökKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(203, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(VäljAgentSökKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(571, 571, 571))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,8 +154,17 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(VäljAgentSökKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,30 +172,34 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
 
     private void VäljAgentSökKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VäljAgentSökKnappActionPerformed
         txtVisaAgentInfo.setText("");
+        ArrayList<HashMap<String, String>> soktaAgenter;
         
-
-        try {
+        try
+        {
+            String valdAgent = VäljAgentSökKnapp.getSelectedItem().toString();
+            String fraga = "SELECT * FROM Agent where Namn = '" + valdAgent + "' ORDER BY Agent_ID;";
+            soktaAgenter = idb.fetchRows(fraga);
             
-            String fraga = "SELECT Namn FROM Agent WHERE Namn='Agent O'";
-            String svar = idb.fetchSingle(fraga);
-
-            if(VäljAgentSökKnapp.getSelectedItem().toString().equals("Agent O"))
-                txtVisaAgentInfo.append(svar);
-            
-           
-                
-            else {
-                System.out.println("Hej");
-                    
+            for (HashMap<String, String> Agent : soktaAgenter)
+            {
+                txtVisaAgentInfo.append(Agent.get("Agent_ID") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Namn") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Telefon") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Anstallningsdatum") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Administrator") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Losenord") + "\t");
+                txtVisaAgentInfo.append(" " + Agent.get("Omrade") + "\n");
+            }
+        }
+        catch(InfException e)
+                    {
+                    JOptionPane.showMessageDialog(null, "Databasfel");
+                    System.out.println("Internt felmeddelande.");
                     }
-            
-            
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Databasfel");
-            System.out.println("Internt felmeddelande.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
-            System.out.println("Internt felmeddelande.");
+        catch(Exception e)
+        {
+        JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
+        System.out.println("Internt felmeddelande.");
         }
     }//GEN-LAST:event_VäljAgentSökKnappActionPerformed
 
@@ -161,6 +241,13 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> VäljAgentSökKnapp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtVisaAgentInfo;
     // End of variables declaration//GEN-END:variables
