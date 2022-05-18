@@ -21,9 +21,9 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
     /**
      * Creates new form AlienVisaInfoOmAnsvarigAgent
      */
-    public AlienVisaInfoOmAnsvarigAgent() throws InfException {
+    public AlienVisaInfoOmAnsvarigAgent() {
         initComponents();
-        fyllRuta();
+       
 
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
@@ -35,17 +35,7 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
     private void fyllRuta() throws InfException {
         
-        try {
-        String fraga1 = "SELECT Namn FROM Agent";
-        String svar1 = idb.fetchSingle(fraga1);
-        System.out.println(fraga1);
-        jTextArea1.setText(svar1);
-        
-        } catch(NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
-        } catch(InfException e) {
-            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
-        }
+      
     }
 
     /**
@@ -124,11 +114,8 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
-                } catch (InfException ex) {
-                    Logger.getLogger(AlienVisaInfoOmAnsvarigAgent.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
+
             }
         });
     }
