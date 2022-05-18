@@ -4,17 +4,48 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
+    private static InfDB idb;
+
     /**
      * Creates new form AlienVisaInfoOmAnsvarigAgent
      */
-    public AlienVisaInfoOmAnsvarigAgent() {
+    public AlienVisaInfoOmAnsvarigAgent() throws InfException {
         initComponents();
+        fyllRuta();
+
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void fyllRuta() throws InfException {
+        
+        try {
+        String fraga1 = "SELECT Namn FROM Agent";
+        String svar1 = idb.fetchSingle(fraga1);
+        System.out.println(fraga1);
+        jTextArea1.setText(svar1);
+        
+        } catch(NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
+        } catch(InfException e) {
+            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
+        }
     }
 
     /**
@@ -93,7 +124,11 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
+                try {
+                    new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
+                } catch (InfException ex) {
+                    Logger.getLogger(AlienVisaInfoOmAnsvarigAgent.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
