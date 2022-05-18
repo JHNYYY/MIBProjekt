@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -133,7 +134,7 @@ private static InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    idb.fetchRow(fraga2);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void skapaIDKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skapaIDKnappActionPerformed
@@ -149,9 +150,9 @@ private static InfDB idb;
      
      System.out.println(fraga2);
      }
-        catch (Exception e)
+        catch (InfException e)
         {
-            
+           JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
         }
     }//GEN-LAST:event_skapaIDKnappActionPerformed
 

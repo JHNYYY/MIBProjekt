@@ -165,35 +165,65 @@ public class Inloggningsfonster extends javax.swing.JFrame {
 
     private void inloggningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inloggningsKnappActionPerformed
         /* Gör så att man kan logga in */
-       
+
         String fraga1 = "";
         String fraga2 = "";
+        String fraga3 = "";
+        String fraga4 = "";
+        String fraga5 = "";
         String svar1 = "";
         String svar2 = "";
+        String svar3 = "";
+        String svar4 = "";
+        String svar5 = "";
+        
+        
+
 
         /* if (anvandare.isEmpty() && losenord.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Prova skriv igen, rutorna är tomma");
         } */
         
         try {
-        
+
             fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarNamnsFalt.getText() + "'";
             svar1 = idb.fetchSingle(fraga1);
             fraga2 = "SELECT losenord FROM Agent where Agent_ID=" + svar1;
             svar2 = idb.fetchSingle(fraga2);
 
+            fraga3 = "SELECT Alien_ID FROM Alien where namn='" + anvandarNamnsFalt.getText() + "'";
+            svar3 = idb.fetchSingle(fraga3);
+            fraga4 = "SELECT losenord FROM Alien where Alien_ID=" + svar3;
+            svar4 = idb.fetchSingle(fraga4);
+            
+            
+
+            // Vi kan använda svar1 för inloggningen
+            fraga5 = "Select Administrator FROM agent WHERE Agent_ID =" + svar1;
+            svar5 = idb.fetchSingle(fraga5);
+
+            if (AgentCheckBox.isSelected() && losenordsFalt.getText().equals(svar2) && svar5.equals("N")) {
+                JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
+                new AgentInloggningsVal().setVisible(true);
+
+            } else if (AlienCheckBox.isSelected() && losenordsFalt.getText().equals(svar4)) {
+                JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
+                new AlienInloggningsVal().setVisible(true);
+                
+            } else if (AgentCheckBox.isSelected() && losenordsFalt.getText().equals(svar2) && svar5.equals("J")) {
+                JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
+                new AdministratorInloggningsVal().setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
+                anvandarNamnsFalt.requestFocus();
+
+            }
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Du har tryckt i fel kategori");
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Internt felmeddelande");
-
-        }
-
-        if (losenordsFalt.getText().equals(svar2)) {
-            JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
-            // Loggas in i nytt fönster 
-            new AgentInloggningsVal().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
-            anvandarNamnsFalt.requestFocus();
 
         }
     }//GEN-LAST:event_inloggningsKnappActionPerformed
@@ -206,6 +236,38 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AlienCheckBoxActionPerformed
 
+    
+        public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RegistreraUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RegistreraUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RegistreraUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RegistreraUtrustning.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Inloggningsfonster().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox AgentCheckBox;
