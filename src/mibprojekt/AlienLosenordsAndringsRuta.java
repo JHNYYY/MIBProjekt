@@ -4,17 +4,31 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
+    private InfDB idb;
 
     /**
      * Creates new form AlienLosenordsAndringsRuta
      */
     public AlienLosenordsAndringsRuta() {
         initComponents();
+            
+        
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -30,10 +44,10 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        alienNamnRuta = new javax.swing.JTextField();
+        alienGammaltLösenordsRuta = new javax.swing.JPasswordField();
+        alienNyttLösenordsRuta = new javax.swing.JPasswordField();
+        alienÄndraLösenordsKnapp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,16 +63,21 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jLabel4.setText("Nytt Lösenord:");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        alienNamnRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        jPasswordField1.setText("jPasswordField1");
+        alienGammaltLösenordsRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        alienGammaltLösenordsRuta.setText("jPasswordField1");
 
-        jPasswordField2.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        jPasswordField2.setText("jPasswordField2");
+        alienNyttLösenordsRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        alienNyttLösenordsRuta.setText("jPasswordField2");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        jButton1.setText("Ändra Lösenord");
+        alienÄndraLösenordsKnapp.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        alienÄndraLösenordsKnapp.setText("Ändra Lösenord");
+        alienÄndraLösenordsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alienÄndraLösenordsKnappActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,7 +91,7 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(alienÄndraLösenordsKnapp)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2)
@@ -80,9 +99,9 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField1)
-                                    .addComponent(jPasswordField2)
-                                    .addComponent(jTextField1))))))
+                                    .addComponent(alienGammaltLösenordsRuta)
+                                    .addComponent(alienNyttLösenordsRuta)
+                                    .addComponent(alienNamnRuta))))))
                 .addContainerGap(274, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,22 +112,52 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1))
+                    .addComponent(alienNamnRuta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alienGammaltLösenordsRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(alienNyttLösenordsRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(alienÄndraLösenordsKnapp)
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void alienÄndraLösenordsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienÄndraLösenordsKnappActionPerformed
+        String anvandarnamn = alienNamnRuta.getText();
+        String gammaltLosenord = alienGammaltLösenordsRuta.getText();
+        String nyttLosenord = alienNyttLösenordsRuta.getText();
+
+        try {
+
+            String fraga1 = "SELECT Alien_ID FROM Alien where namn='" + anvandarnamn + "'";
+            String svar1 = idb.fetchSingle(fraga1);
+
+            String fraga2 = "SELECT losenord FROM Alien where Alien_ID=" + svar1;
+            String svar2 = idb.fetchSingle(fraga2);
+            
+
+            if (gammaltLosenord.equals(svar2) && !gammaltLosenord.equals(nyttLosenord)) {
+                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
+                idb.fetchSingle("UPDATE Alien SET Losenord = '" + nyttLosenord + "' WHERE Alien_ID = " + svar1);
+                new AlienInloggningsVal().setVisible(true);
+
+            } else if (gammaltLosenord.equals(nyttLosenord)) {
+                JOptionPane.showMessageDialog(null, "Ville du inte byta lösenord?");
+            } else {
+                JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord!");
+            }
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+    }//GEN-LAST:event_alienÄndraLösenordsKnappActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,13 +195,13 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPasswordField alienGammaltLösenordsRuta;
+    private javax.swing.JTextField alienNamnRuta;
+    private javax.swing.JPasswordField alienNyttLösenordsRuta;
+    private javax.swing.JButton alienÄndraLösenordsKnapp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
