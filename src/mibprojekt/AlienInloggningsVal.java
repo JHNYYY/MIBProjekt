@@ -4,17 +4,31 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class AlienInloggningsVal extends javax.swing.JFrame {
+    
+    private static InfDB idb;
+
 
     /**
      * Creates new form AlienInloggningsVal
      */
     public AlienInloggningsVal() {
         initComponents();
+        
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

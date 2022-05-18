@@ -13,6 +13,7 @@ import oru.inf.InfException;
  *
  * @author Johan Nilsson, Lukas Renström och Anton Rosengren.
  */
+
 public class Start {
 
     private static InfDB idb;

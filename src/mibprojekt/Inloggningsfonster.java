@@ -25,6 +25,9 @@ public class Inloggningsfonster extends javax.swing.JFrame {
      * Creates new form Inloggning
      */
     public Inloggningsfonster() {
+        
+        
+                
         initComponents();
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");

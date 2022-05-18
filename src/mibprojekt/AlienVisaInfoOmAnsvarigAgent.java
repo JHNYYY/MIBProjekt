@@ -33,7 +33,7 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
     }
 
-    private void fyllRuta() throws InfException {
+    private void fyllRuta() {
         
       
     }
@@ -114,8 +114,8 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
-
+                    new AlienVisaInfoOmAnsvarigAgent().setVisible(true);
+                
             }
         });
     }
