@@ -4,17 +4,32 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class TaBortUtrustning extends javax.swing.JFrame {
+    
+        private InfDB idb;
+
 
     /**
      * Creates new form TaBortUtrustning
      */
     public TaBortUtrustning() {
         initComponents();
+        
+         try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -34,6 +49,11 @@ public class TaBortUtrustning extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         taBortUtrustningsKnapp.setText("Ta bort");
+        taBortUtrustningsKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortUtrustningsKnappActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         jLabel1.setText("Ange namn:");
@@ -76,6 +96,35 @@ public class TaBortUtrustning extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void taBortUtrustningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortUtrustningsKnappActionPerformed
+        String utrustningsNamn = taBortUtrustningsTextFält.getText();
+        
+        
+
+        try {
+
+            String fraga2 = "SELECT Benamning FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
+            String svar2 = idb.fetchSingle(fraga2);
+            
+            String fraga1 = "DELETE FROM Utrustning WHERE Namn='" + utrustningsNamn + "'";
+            String svar1 = idb.fetchSingle(fraga1);
+            
+
+            if (utrustningsNamn.equals(svar2)) {
+                JOptionPane.showMessageDialog(null, "Utrustningen har tagits bort!");
+            }
+            
+            
+            else if (utrustningsNamn.equals(svar1)) {
+                JOptionPane.showMessageDialog(null, "Det finns ingen utrustning som heter så");
+
+            }
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+    }//GEN-LAST:event_taBortUtrustningsKnappActionPerformed
 
     /**
      * @param args the command line arguments

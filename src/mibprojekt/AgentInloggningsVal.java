@@ -191,7 +191,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_ÄndraInfoAlienActionPerformed
 
     private void andraLosenOrdKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLosenOrdKnappActionPerformed
-        new AgentLosenordsAndringsRuta().setVisible(true);
+        new AgentOchAdminLosenordsAndringsRuta().setVisible(true);
     }//GEN-LAST:event_andraLosenOrdKnappActionPerformed
 
     private void VisaRegistreringAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaRegistreringAlienKnappActionPerformed

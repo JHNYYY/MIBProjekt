@@ -15,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author johannilsson
  */
-public class AgentLosenordsAndringsRuta extends javax.swing.JFrame {
+public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
     
         private InfDB idb;
 
     /**
      * Creates new form LosenordsAndringsRuta
      */
-    public AgentLosenordsAndringsRuta() {
+    public AgentOchAdminLosenordsAndringsRuta() {
         initComponents();
         
         try {
@@ -175,21 +175,23 @@ public class AgentLosenordsAndringsRuta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentOchAdminLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentOchAdminLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentOchAdminLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgentLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgentOchAdminLosenordsAndringsRuta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgentLosenordsAndringsRuta().setVisible(true);
+                new AgentOchAdminLosenordsAndringsRuta().setVisible(true);
             }
         });
     }

@@ -227,11 +227,11 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_TaBortAgentKnappActionPerformed
 
     private void TaBortAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienKnappActionPerformed
-        // TODO add your handling code here:
+        new TaBortAlien().setVisible(true);
     }//GEN-LAST:event_TaBortAlienKnappActionPerformed
 
     private void TaBortUtrustningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortUtrustningsKnappActionPerformed
-        // TODO add your handling code here:
+        new TaBortUtrustning().setVisible(true);
     }//GEN-LAST:event_TaBortUtrustningsKnappActionPerformed
 
     private void ÄndraKontorsChefsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraKontorsChefsKnappActionPerformed
