@@ -115,9 +115,8 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
            
         try {
             
-        String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN ('" + datumett + "') AND ('" + datumtvå + "')";
+        String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "'";
         String svar = idb.fetchSingle(fraga);
-        System.out.println(svar);
             
         if(d.after(datumett) && d.before(datumtvå)) {
             visaRegistreradeAlienFält.setText(svar);

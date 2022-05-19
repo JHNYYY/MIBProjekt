@@ -4,17 +4,32 @@
  */
 package mibprojekt;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class TaBortAgent extends javax.swing.JFrame {
+    
+    private InfDB idb;
+
 
     /**
      * Creates new form TaBortAgent
      */
     public TaBortAgent() {
         initComponents();
+        
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -27,8 +42,8 @@ public class TaBortAgent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        taBortAgentNamnsFält = new javax.swing.JTextField();
+        taBortAgentKnapp = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -36,9 +51,19 @@ public class TaBortAgent extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setText("Ange namn på agenten:");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        taBortAgentNamnsFält.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        taBortAgentNamnsFält.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortAgentNamnsFältActionPerformed(evt);
+            }
+        });
 
-        jToggleButton1.setText("Ta Bort");
+        taBortAgentKnapp.setText("Ta Bort");
+        taBortAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                taBortAgentKnappActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Ta bort en agent");
@@ -48,17 +73,16 @@ public class TaBortAgent extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel2)))
+                        .addComponent(taBortAgentNamnsFält, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(taBortAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addComponent(jLabel2))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -68,14 +92,52 @@ public class TaBortAgent extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(taBortAgentKnapp)
+                    .addComponent(taBortAgentNamnsFält)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                 .addGap(205, 205, 205))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void taBortAgentNamnsFältActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAgentNamnsFältActionPerformed
+        
+    }//GEN-LAST:event_taBortAgentNamnsFältActionPerformed
+
+    private void taBortAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAgentKnappActionPerformed
+       
+        
+        String agentNamn = taBortAgentNamnsFält.getText();
+        
+        
+
+        try {
+
+            String fraga2 = "SELECT Namn FROM Agent WHERE Namn='" + agentNamn + "'";
+            String svar2 = idb.fetchSingle(fraga2);
+            
+            String fraga1 = "DELETE Losenord FROM Agent WHERE Namn='" + agentNamn + "'";
+            String svar1 = idb.fetchSingle(fraga1);
+            
+
+            if (agentNamn.equals(svar2)) {
+                JOptionPane.showMessageDialog(null, "Agenten har tagits bort!");
+            }
+            
+            
+            else if (agentNamn.equals(svar1)) {
+                JOptionPane.showMessageDialog(null, "Det finns ingen agent som heter så");
+
+            }
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+        }
+          
+
+        
+    }//GEN-LAST:event_taBortAgentKnappActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +177,7 @@ public class TaBortAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton taBortAgentKnapp;
+    private javax.swing.JTextField taBortAgentNamnsFält;
     // End of variables declaration//GEN-END:variables
 }

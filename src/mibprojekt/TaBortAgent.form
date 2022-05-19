@@ -24,19 +24,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="167" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="taBortAgentNamnsFält" min="-2" pref="113" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="taBortAgentKnapp" min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="152" max="32767" attributes="0"/>
           </Group>
@@ -49,9 +47,9 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jToggleButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="1" pref="20" max="32767" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" max="32767" attributes="0"/>
+                  <Component id="taBortAgentKnapp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="taBortAgentNamnsFält" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" pref="20" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
           </Group>
@@ -67,17 +65,23 @@
         <Property name="text" type="java.lang.String" value="Ange namn p&#xe5; agenten:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="taBortAgentNamnsF&#xe4;lt">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortAgentNamnsF&#xe4;ltActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="taBortAgentKnapp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta Bort"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taBortAgentKnappActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
