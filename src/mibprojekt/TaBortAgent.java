@@ -117,7 +117,7 @@ public class TaBortAgent extends javax.swing.JFrame {
             String fraga2 = "SELECT Namn FROM Agent WHERE Namn='" + agentNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             
-            String fraga1 = "DELETE Losenord FROM Agent WHERE Namn='" + agentNamn + "'";
+            String fraga1 = "DELETE FROM Agent WHERE Namn='" + agentNamn + "'";
             String svar1 = idb.fetchSingle(fraga1);
             
 
