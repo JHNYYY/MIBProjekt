@@ -243,7 +243,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_ÄndraOmrådeschefsKnappActionPerformed
 
     private void AdminStatusAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminStatusAgentKnappActionPerformed
-        // TODO add your handling code here:
+    new GeAgentAdminStatus().setVisible(true);
     }//GEN-LAST:event_AdminStatusAgentKnappActionPerformed
 
     private void ÄndraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraInfoAgentKnappActionPerformed

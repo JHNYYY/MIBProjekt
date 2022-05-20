@@ -49,11 +49,11 @@ public class AlienInfoSök extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt fel");
         }
-        catch (Exception e)
+        catch(Exception e)
         {
-            JOptionPane.showMessageDialog(null,"");
-            System.out.println("Internt felmeddelande");
+            System.out.println("");
         }
+        
     }
 
     /**
