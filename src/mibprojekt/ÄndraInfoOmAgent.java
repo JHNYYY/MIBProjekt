@@ -215,7 +215,7 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
      
         
      int AgentIDtal = Integer.parseInt(agent_IDtxt.getText());
-     String fraga ="Select Anstallningsdatum from Agent where Agent_ID=" + AgentIDtal; 
+     String fraga = "Select Anstallningsdatum from Agent where Agent_ID=" + AgentIDtal; 
      String datum = idb.fetchSingle(fraga);
      anställningsdatumAgenttxt.setText(datum);
      
@@ -223,8 +223,8 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
      String losen = idb.fetchSingle(fraga1);
      lösenordAgenttxt.setText(losen);
      
-     String fraga2= "Select Namn from Agent where Agent_ID=" + AgentIDtal;
-     String namnet=idb.fetchSingle(fraga2);
+     String fraga2 = "Select Namn from Agent where Agent_ID=" + AgentIDtal;
+     String namnet = idb.fetchSingle(fraga2);
      namnAgenttxt.setText(namnet);
      
      String fraga3 = "Select Telefon from Agent where Agent_ID=" + AgentIDtal;
@@ -249,17 +249,17 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
          
         try {
-         String uppdatera = "Update Agent "
-                 + "set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
+         String uppdatera = "UPDATE Agent "
+                 + "SET Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                  + " Losenord='" + lösenordAgenttxt.getText() + "'," 
                  + " Namn='" + namnAgenttxt.getText() + "'," 
                  + " Telefon='" + telefonAgenttxt.getText() + "',"
                  + " Omrade=" + omradeAgenttxt.getText() + ", "
                  + " Administrator='" + adminStatusAgenttxt.getText() + "'," 
-                 + " where Agent_ID= " + agent_IDtxt.getText();
+                 + " WHERE Agent_ID= " + agent_IDtxt.getText();
          System.out.println(uppdatera);
          idb.update(uppdatera);
-         String test = idb.fetchSingle("Select Namn from Agent where Agent_ID=" + agent_IDtxt.getText());
+         // String test = idb.fetchSingle("Select Namn from Agent where Agent_ID=" + agent_IDtxt.getText());
          JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          
          } catch(Exception e) 
