@@ -207,7 +207,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AndraLosenordAdminKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraLosenordAdminKnappActionPerformed
-        // TODO add your handling code here:
+        new AgentOchAdminLosenordsAndringsRuta().setVisible(true);
     }//GEN-LAST:event_AndraLosenordAdminKnappActionPerformed
 
     private void SökInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SökInfoAgentKnappActionPerformed
@@ -215,7 +215,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_SökInfoAgentKnappActionPerformed
 
     private void ÄndraInfoAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraInfoAlienKnappActionPerformed
-        // TODO add your handling code here:
+        new ÄndraInfoOmAlien().setVisible(true);
     }//GEN-LAST:event_ÄndraInfoAlienKnappActionPerformed
 
     private void RegistreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraAgentKnappActionPerformed
