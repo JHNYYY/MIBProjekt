@@ -49,16 +49,29 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        områdeschefsInfotxt = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        väljOmrådeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Områdeschefen för mitt område");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        områdeschefsInfotxt.setColumns(20);
+        områdeschefsInfotxt.setRows(5);
+        jScrollPane1.setViewportView(områdeschefsInfotxt);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setText("Välj Område:");
+
+        väljOmrådeComboBox.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        väljOmrådeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Götaland", "Norrland", "Svealand" }));
+        väljOmrådeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                väljOmrådeComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,23 +79,65 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(väljOmrådeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(väljOmrådeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void väljOmrådeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_väljOmrådeComboBoxActionPerformed
+        områdeschefsInfotxt.setText("");
+        
+        
+        
+        
+     try {
+    
+     String fraga1 ="Select * from Agent where Omrade = 1";
+     String sok1 = idb.fetchSingle(fraga1);
+     String fraga2 ="Select Namn from Alien where Plats = 2";
+     String sok2 = idb.fetchSingle(fraga2);
+     String fraga3 ="Select Namn from Alien where Plats = 3";
+     String sok3 = idb.fetchSingle(fraga3);
+
+     if(väljOmrådeComboBox.getSelectedItem().toString().equals("Svealand"))
+     {
+         områdeschefsInfotxt.append(sok1);
+     }
+     else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Norrland"))
+     {
+         områdeschefsInfotxt.append(sok2);
+     }
+     else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Götaland"))
+     {
+         områdeschefsInfotxt.append(sok3);
+     }
+     } catch(InfException e) {
+             
+             }
+    }//GEN-LAST:event_väljOmrådeComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,7 +177,9 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea områdeschefsInfotxt;
+    private javax.swing.JComboBox<String> väljOmrådeComboBox;
     // End of variables declaration//GEN-END:variables
 }
