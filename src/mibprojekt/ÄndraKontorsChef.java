@@ -4,17 +4,55 @@
  */
 package mibprojekt;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author johannilsson
  */
 public class ÄndraKontorsChef extends javax.swing.JFrame {
+private InfDB idb;
 
     /**
      * Creates new form ÄndraKontorsChef
      */
     public ÄndraKontorsChef() {
         initComponents();
+        fyllRuta();
+        try {
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+        } catch (InfException ex) {
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        private void fyllRuta()
+    {
+        String fraga = "SELECT Namn from Agent";
+        ArrayList<String> allaAgenter;
+        
+        try 
+        {
+            allaAgenter = idb.fetchColumn(fraga);
+            for (String namn : allaAgenter)
+            {
+                valjAgent.addItem(namn);
+            }
+        }
+        catch (InfException e)
+        {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt fel");
+        }
+        catch(Exception e)
+        {
+            System.out.println("");
+        }
     }
 
     /**
@@ -28,10 +66,10 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         ändraKontorsChefsKnapp = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        kontorsCB = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        valjAgent = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,16 +83,21 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-
-        jComboBox1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Örebrokontoret" }));
+        kontorsCB.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        kontorsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Örebrokontoret" }));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Ange namn på Agent:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Välj Kontor:");
+
+        valjAgent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agent O", "Agent K", "Agent J", "Agent Z" }));
+        valjAgent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valjAgentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,9 +117,9 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel3)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(kontorsCB, 0, 183, Short.MAX_VALUE)
+                            .addComponent(valjAgent, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -85,15 +128,15 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(valjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kontorsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addComponent(ändraKontorsChefsKnapp)
@@ -104,8 +147,38 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ändraKontorsChefsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraKontorsChefsKnappActionPerformed
-        // TODO add your handling code here:
+    try {
+            String valdagentNamn = valjAgent.getSelectedItem().toString();
+            String kontorsbeteckning = kontorsCB.getSelectedItem().toString();
+            
+            String fraga1 = "SELECT Agent_ID from Agent WHERE Namn='" + valdagentNamn + "'";
+            String agentNamnsID = idb.fetchSingle(fraga1);
+           
+            String fraga2 = "SELECT Agent_ID where Kontorsbeteckning ='" + valdagentNamn + "'";
+            String kontorschefensID = idb.fetchSingle(fraga2);
+            
+            String fraga3 = "SELECT Namn from Agent where Agent_ID ='" + kontorschefensID +"'";
+            String kontorschefensNamn = idb.fetchSingle(fraga3);
+            
+            String fraga4 = "UPDATE kontorschef SET Agent_ID=" + agentNamnsID + " WHERE Kontorsbeteckning=" + kontorsbeteckning +"";
+            
+            
+            if(valdagentNamn.equals(kontorschefensNamn))
+            {
+                JOptionPane.showMessageDialog(null, "" + valdagentNamn + " är redan kontorschef för detta kontor.");
+            }
+            else
+            {
+            idb.update(fraga4);
+            }   
+        } catch(InfException e) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+        }
     }//GEN-LAST:event_ändraKontorsChefsKnappActionPerformed
+
+    private void valjAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valjAgentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valjAgentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,11 +216,11 @@ public class ÄndraKontorsChef extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> kontorsCB;
+    private javax.swing.JComboBox<String> valjAgent;
     private javax.swing.JButton ändraKontorsChefsKnapp;
     // End of variables declaration//GEN-END:variables
 }
