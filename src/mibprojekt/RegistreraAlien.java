@@ -291,23 +291,26 @@ public class RegistreraAlien extends javax.swing.JFrame {
         
         
         try {
-            String AlienID = idb.getAutoIncrement("Alien", "Alien_ID");
+        String AlienID = idb.getAutoIncrement("Alien", "Alien_ID");
         
         String telefonnr = telefonAlien.getText();
         String nyttLosenord = LosenordAlien.getText();
         String Namnsatta = namnAlien.getText();
         
-        if (Namnsatta.equals("")) {
+        /* if (Namnsatta.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Vänligen fyll i namn");
         }
         
-        else if(nyttLosenord.equals("")) {
+        else if(nyttLosenord.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Vänligen fyll i ett lösenord");
         }
         
-        else if(telefonnr.equals("")) {
+        else if(telefonnr.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ett telefonnummer krävs");
-        }
+        } */
+         
+        
+        
         
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Något gick fel!");

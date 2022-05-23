@@ -242,14 +242,15 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
      
     }catch (InfException e)
     {
-        
+        JOptionPane.showMessageDialog(null, "Databasfel!");
     }
     }//GEN-LAST:event_sökKnappAgentÄndraInfoActionPerformed
 
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
          
         try {
-         String uppdatera = "UPDATE Agent "
+            
+        String uppdatera = "UPDATE Agent "
                  + "SET Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                  + " Losenord='" + lösenordAgenttxt.getText() + "'," 
                  + " Namn='" + namnAgenttxt.getText() + "'," 
@@ -262,7 +263,7 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
          // String test = idb.fetchSingle("Select Namn from Agent where Agent_ID=" + agent_IDtxt.getText());
          JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          
-         } catch(Exception e) 
+         } catch(InfException e) 
          {
            JOptionPane.showMessageDialog(null, "Något gick fel!");
              
