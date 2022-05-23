@@ -250,12 +250,12 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
          
         try {
          String uppdatera = "Update Agent "
-                 + "set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() +"',"
-                 + " Losenord='" + lösenordAgenttxt.getText() + "',"
-                 + " Namn='" + namnAgenttxt.getText() + "',"
+                 + "set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
+                 + " Losenord='" + lösenordAgenttxt.getText() + "'," 
+                 + " Namn='" + namnAgenttxt.getText() + "'," 
                  + " Telefon='" + telefonAgenttxt.getText() + "',"
-                 + " Administrator='" + adminStatusAgenttxt.getText() + "',"
-                 + " Omrade=" + omradeAgenttxt.getText() + ", "
+                 + " Omrade=" + omradeAgenttxt.getText()
+                 + " Administrator='" + adminStatusAgenttxt.getText() + "'," 
                  + " where Agent_ID= " + agent_IDtxt.getText();
          System.out.println(uppdatera);
          idb.update(uppdatera);

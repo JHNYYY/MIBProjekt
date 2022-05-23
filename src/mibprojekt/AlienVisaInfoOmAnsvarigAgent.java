@@ -108,15 +108,17 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void väljOmrådeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_väljOmrådeComboBoxActionPerformed
+        
+        
         områdeschefsInfotxt.setText("");
         
         
         
-        
+                
      try {
     
      String fraga1 ="Select * from Agent where Omrade = 1";
-     String sok1 = idb.fetchSingle(fraga1);
+     String sok1 = idb.fetchRows(fraga1);
      String fraga2 ="Select Namn from Alien where Plats = 2";
      String sok2 = idb.fetchSingle(fraga2);
      String fraga3 ="Select Namn from Alien where Plats = 3";
@@ -124,11 +126,14 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
      if(väljOmrådeComboBox.getSelectedItem().toString().equals("Svealand"))
      {
+         
          områdeschefsInfotxt.append(sok1);
      }
      else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Norrland"))
      {
          områdeschefsInfotxt.append(sok2);
+        
+
      }
      else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Götaland"))
      {
