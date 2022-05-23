@@ -203,15 +203,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
         try {
             
             String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
-                    
-            
-            /* String uppdatera = "INSERT INTO Agent VALUES("
-                    + Agent_IDtxt.getText() + ", '"
-                    + namnagenttxt.getText() + "', '"
-                    + telefontxt.getText() + "', '"
-                    + anställningsdatumtxt.getText() + "', '" 
-                    + lösenordsfälttxt.getText() + "', "
-                    + ValtOmradesID + ")"; */ 
             
             String uppdatera = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
                     + Agent_IDtxt.getText() + ", '"
@@ -222,19 +213,19 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     + ValtOmradesID + ")";
             
             String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnagenttxt.getText() + "'";
-            String inteAdmin = "INSERT INTO Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
+            String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
         
                 
  
             if(administratorComboBox.getSelectedItem().toString().equals("Ja")) {
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(admin);
-                JOptionPane.showMessageDialog(null, "Ändringen lyckades! Du har registrerat en admin!");
+                JOptionPane.showMessageDialog(null, "Du har registrerat en agent med administratörsstatus!");
             }
             
             
             else if(administratorComboBox.getSelectedItem().toString().equals("Nej")){
-                JOptionPane.showMessageDialog(null, "Ändringen lyckades! Du har inte registrerat en admin!");
+                JOptionPane.showMessageDialog(null, "Du har registrerat en agent utan administratörsstatus!");
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(inteAdmin);
             

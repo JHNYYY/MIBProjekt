@@ -118,7 +118,7 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
      try {
     
      String fraga1 ="Select * from Agent where Omrade = 1";
-     String sok1 = idb.fetchRows(fraga1);
+     String sok1 = idb.fetchSingle(fraga1);
      String fraga2 ="Select Namn from Alien where Plats = 2";
      String sok2 = idb.fetchSingle(fraga2);
      String fraga3 ="Select Namn from Alien where Plats = 3";
