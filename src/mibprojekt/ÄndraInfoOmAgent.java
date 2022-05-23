@@ -249,14 +249,9 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
          
         try {
-<<<<<<< HEAD
+
             
-        String uppdatera = "UPDATE Agent "
-                 + "SET Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
-=======
-         String uppdatera = "Update Agent "
-                 + "set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
->>>>>>> c74237143e60c3293e3c53bb2760f97be61e5389
+         String uppdatera = "UPDATE Agent SET Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                  + " Losenord='" + lösenordAgenttxt.getText() + "'," 
                  + " Namn='" + namnAgenttxt.getText() + "'," 
                  + " Telefon='" + telefonAgenttxt.getText() + "',"

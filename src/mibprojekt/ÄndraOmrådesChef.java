@@ -135,7 +135,7 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             if(agentNamn.equals("Agent O")) {
                 JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
                 System.out.println(svar3);
-                idb.update(svar3);
+                idb.fetchSingle(svar3);
             }
             
             else {
