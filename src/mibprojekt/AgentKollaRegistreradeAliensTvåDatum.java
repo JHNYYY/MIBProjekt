@@ -4,7 +4,9 @@
  */
 package mibprojekt;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -107,22 +109,49 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sökKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökKnappActionPerformed
+        visaRegistreradeAlienFält.setText("");
         String datumett = datumetttextfält.getText();
         String datumtvå = datumtvåtextfält.getText();
-        Date d = null;
         
-        
+        ArrayList<HashMap<String, String>> soktaAliens;
            
         try {
             
         String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "'";
-        String svar = idb.fetchSingle(fraga);
-        System.out.println(svar);
-        visaRegistreradeAlienFält.setText("Namn: " +svar);
+        
+        
+        visaRegistreradeAlienFält.setText("");
+        soktaAliens = idb.fetchRows(fraga);
+        // System.out.println(soktaAliens);
+        
+        for(int i = 0; i<soktaAliens.size(); i++) {
+            visaRegistreradeAlienFält.append("Namn: " + soktaAliens.get(i));
+        } 
+        /* ArrayList<HashMap<String, String>> soktaAliens;
+        
+         try {
             
-        } catch(InfException e) {
+        String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "'";
+        
+        soktaAliens = idb.fetchRows(fraga);
+        
+        for(HashMap<String, String> Alien : soktaAliens) {
+            String visaAlien = Alien.toString();
+            visaRegistreradeAlienFält.append("Registrerad alien: "+visaAlien+ "\n");
+            System.out.println(soktaAliens);
+        } 
+        
+        } */
+        
+        }
+        
+        catch(InfException e) {
             
         }
+        
+        
+        
+       
         
     }//GEN-LAST:event_sökKnappActionPerformed
 
