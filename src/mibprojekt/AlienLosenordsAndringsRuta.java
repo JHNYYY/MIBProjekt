@@ -66,10 +66,8 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
         alienNamnRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
 
         alienGammaltLösenordsRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        alienGammaltLösenordsRuta.setText("jPasswordField1");
 
         alienNyttLösenordsRuta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        alienNyttLösenordsRuta.setText("jPasswordField2");
 
         alienÄndraLösenordsKnapp.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         alienÄndraLösenordsKnapp.setText("Ändra Lösenord");
@@ -85,31 +83,31 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(alienÄndraLösenordsKnapp)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(148, 148, 148)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(alienNyttLösenordsRuta, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                .addComponent(alienGammaltLösenordsRuta)
+                                .addComponent(alienNamnRuta))
+                            .addGap(14, 14, 14)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(alienÄndraLösenordsKnapp)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(alienGammaltLösenordsRuta)
-                                    .addComponent(alienNyttLösenordsRuta)
-                                    .addComponent(alienNamnRuta))))))
-                .addContainerGap(274, Short.MAX_VALUE))
+                        .addGap(238, 238, 238)
+                        .addComponent(jLabel1)))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(alienNamnRuta))
@@ -121,9 +119,9 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(alienNyttLösenordsRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(alienÄndraLösenordsKnapp)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         pack();

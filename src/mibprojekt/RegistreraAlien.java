@@ -295,7 +295,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
             
                     
             String valdAgent = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn = '" + txtAnsvarigAgent.getText() + "'"); 
-            System.out.println(valdAgent);
             
             String uppdatera = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, "
                     + "Telefon, Plats, Ansvarig_Agent) VALUES(" 
@@ -306,8 +305,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     + telefonAlien.getText() + "', "
                     + valdPlats + ", "
                     + valdAgent + ")";
-            
-            System.out.println(uppdatera);
+
             idb.fetchSingle(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          

@@ -55,10 +55,6 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Ändra Lösenord");
 
-        nyttLosenordsRuta.setText("jPasswordField1");
-
-        gammaltLosenordsRuta.setText("jPasswordField1");
-
         jLabel2.setText("Användarnamn:");
 
         jLabel3.setText("Gammalt Lösenord:");
