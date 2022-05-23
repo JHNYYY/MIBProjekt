@@ -291,27 +291,21 @@ public class RegistreraAlien extends javax.swing.JFrame {
         
         try {
         
-        
-        /* if (Namnsatta.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Vänligen fyll i namn");
-        }
-        
-        else if(nyttLosenord.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Vänligen fyll i ett lösenord");
-        }
-        
-        else if(telefonnr.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ett telefonnummer krävs");
-        } */
-        
-            String uppdatera = "INSERT INTO Alien VALUES("
+            String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
+            
+                    
+            String valdAgent = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn = '" + txtAnsvarigAgent.getText() + "'"); 
+            System.out.println(valdAgent);
+            
+            String uppdatera = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, "
+                    + "Telefon, Plats, Ansvarig_Agent) VALUES(" 
                     + alienIDtxt.getText() + ", '"
                     + registreringsdatumAlien.getText() + "', '"
                     + LosenordAlien.getText() + "', '"
                     + namnAlien.getText() + "', '"
-                    + telefonAlien.getText() + "', '"
-                    + txtPlatsAgent.getText() + "', "
-                    + txtAnsvarigAgent.getText() + ")";
+                    + telefonAlien.getText() + "', "
+                    + valdPlats + ", "
+                    + valdAgent + ")";
             
             System.out.println(uppdatera);
             idb.fetchSingle(uppdatera);
