@@ -84,14 +84,14 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         jLabel8.setText("Område:");
 
-        administratorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "J", "N" }));
+        administratorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ja", "Nej" }));
         administratorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 administratorComboBoxActionPerformed(evt);
             }
         });
 
-        områdeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "4" }));
+        områdeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Götaland", "Norrland", "Svealand" }));
 
         registreraAgentKnapp.setText("Registrera");
         registreraAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
@@ -201,20 +201,52 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
     private void registreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentKnappActionPerformed
         try {
-            String uppdatera = "INSERT INTO Agent VALUES("
+            
+            String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
+                    
+            
+            /* String uppdatera = "INSERT INTO Agent VALUES("
                     + Agent_IDtxt.getText() + ", '"
                     + namnagenttxt.getText() + "', '"
                     + telefontxt.getText() + "', '"
-                    + anställningsdatumtxt.getText() + "', '"
-                    + administratorComboBox.getSelectedItem().toString() + "', '"
+                    + anställningsdatumtxt.getText() + "', '" 
                     + lösenordsfälttxt.getText() + "', "
-                    + områdeComboBox.getSelectedItem().toString() + ")";
-
-            idb.fetchSingle(uppdatera);
-            JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+                    + ValtOmradesID + ")"; */ 
+            
+            String uppdatera = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
+                    + Agent_IDtxt.getText() + ", '"
+                    + namnagenttxt.getText() + "', '"
+                    + telefontxt.getText() + "', '"
+                    + anställningsdatumtxt.getText() + "', '" 
+                    + lösenordsfälttxt.getText() + "', "
+                    + ValtOmradesID + ")";
+            
+            String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnagenttxt.getText() + "'";
+            String inteAdmin = "INSERT INTO Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
+        
+                
+ 
+            if(administratorComboBox.getSelectedItem().toString().equals("Ja")) {
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle(admin);
+                JOptionPane.showMessageDialog(null, "Ändringen lyckades! Du har registrerat en admin!");
+            }
+            
+            
+            else if(administratorComboBox.getSelectedItem().toString().equals("Nej")){
+                JOptionPane.showMessageDialog(null, "Ändringen lyckades! Du har inte registrerat en admin!");
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle(inteAdmin);
+            
+            }
+            
+            else {
+                JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
+            }
 
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
+
         }
     }//GEN-LAST:event_registreraAgentKnappActionPerformed
 
