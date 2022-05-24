@@ -114,7 +114,7 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         String datumett = datumetttextfält.getText();
         String datumtvå = datumtvåtextfält.getText();
         
-        ArrayList<HashMap<String, String>> soktaAliens;
+        /* ArrayList<String> soktaAliens = new ArrayList<String>();
            
         try {
             
@@ -126,13 +126,13 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         // System.out.println(soktaAliens);
         
         for(int i = 0; i<soktaAliens.size(); i++) {
-            visaRegistreradeAlienFält.append("Namn: " + soktaAliens.get(i));
-        } 
-        /* ArrayList<HashMap<String, String>> soktaAliens;
+            visaRegistreradeAlienFält.setText("Namn: " + soktaAliens.get(i));
+        } */
+        ArrayList<HashMap<String, String>> soktaAliens;
         
-         try {
+        try {
             
-        String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "'";
+        String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "' ORDER BY Namn";
         
         soktaAliens = idb.fetchRows(fraga);
         
@@ -142,15 +142,11 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
             System.out.println(soktaAliens);
         } 
         
-        } */
-        
         }
         
         catch(InfException e) {
             
         }
-        
-        
         
        
         

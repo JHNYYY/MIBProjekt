@@ -195,7 +195,9 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         String svar4 = "";
         String svar5 = "";
         
-        
+        if (Validering.textFaltHarVarde(anvandarNamnsFalt)) {
+            
+        if (Validering.textLösenordHarVärde(losenordsFalt))
 
         try {
 
@@ -239,6 +241,9 @@ public class Inloggningsfonster extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Internt felmeddelande");
 
         }
+        
+       
+} 
     }//GEN-LAST:event_inloggningsKnappActionPerformed
 
     private void AgentCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentCheckBoxActionPerformed
