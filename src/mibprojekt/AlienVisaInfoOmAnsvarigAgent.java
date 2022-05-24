@@ -4,6 +4,8 @@
  */
 package mibprojekt;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -109,38 +111,40 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
     private void väljOmrådeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_väljOmrådeComboBoxActionPerformed
         
-        
-        områdeschefsInfotxt.setText("");
-        
-        
-        
-                
+     String omradeschef = null;
+     områdeschefsInfotxt.setText("");
+     int OmradeschefsID = 0;
      try {
+     
     
-     String fraga1 ="Select * from Agent where Omrade = 1";
-     String sok1 = idb.fetchSingle(fraga1);
-     String fraga2 ="Select Namn from Alien where Plats = 2";
-     String sok2 = idb.fetchSingle(fraga2);
-     String fraga3 ="Select Namn from Alien where Plats = 3";
-     String sok3 = idb.fetchSingle(fraga3);
+       omradeschef = väljOmrådeComboBox.getSelectedItem().toString();
+       if(omradeschef.equals("Götaland")) {
+           OmradeschefsID = 2;
+       }
+       
+       else if(omradeschef.equals("Norrland")) {
+           OmradeschefsID = 4;
+       }
+       
+       else if(omradeschef.equals("Svealand")) {
+           OmradeschefsID = 1;
+       }
+       String områdesID = idb.fetchSingle("SELECT Agent_ID from omradeschef WHERE omrade =" + OmradeschefsID +"");
+       String fraga1 = ("SELECT * from Agent WHERE Agent_ID =" + områdesID);
+       ArrayList<HashMap<String, String>> omradesCheferna;            
+       omradesCheferna = idb.fetchRows(fraga1);
 
-     if(väljOmrådeComboBox.getSelectedItem().toString().equals("Svealand"))
-     {
          
-         områdeschefsInfotxt.append(sok1);
-     }
-     else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Norrland"))
-     {
-         områdeschefsInfotxt.append(sok2);
+         
+       for(HashMap<String,String> agenten : omradesCheferna) {
+          områdeschefsInfotxt.append(agenten.get("Agent_ID") + "\t");
+          områdeschefsInfotxt.append(agenten.get("Namn") + "\t");
+          områdeschefsInfotxt.append(agenten.get("Telefon") + "\n");
         
+     }
 
-     }
-     else if(väljOmrådeComboBox.getSelectedItem().toString().equals("Götaland"))
-     {
-         områdeschefsInfotxt.append(sok3);
-     }
      } catch(InfException e) {
-             
+             JOptionPane.showMessageDialog(null, "Något gick fel!");
              }
     }//GEN-LAST:event_väljOmrådeComboBoxActionPerformed
 

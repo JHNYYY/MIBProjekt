@@ -4,6 +4,7 @@
  */
 package mibprojekt;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,14 +25,34 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
      */
     public ÄndraOmrådesChef() {
         initComponents();
-        
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+        private void fyllRuta(){
+        String fraga = "SELECT Namn from Agent";
+        ArrayList<String> allaAgenter;
+        
+        try 
+        {
+            allaAgenter = idb.fetchColumn(fraga);
+            for (String namn : allaAgenter)
+            {
+                valjAgent.addItem(namn);
+            }
+        }
+        catch (InfException e)
+        {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt fel");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Något gick fel!");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,8 +66,9 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
         ändraKnappOmrådeschef = new javax.swing.JButton();
         områdeComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        agentNamnTxtFält = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        valjAgent = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,85 +89,76 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
 
         jLabel3.setText("Ange agentnamn:");
 
+        jButton1.setText("Uppdatera AgentLista");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 45, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(ändraKnappOmrådeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(områdeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(valjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ändraKnappOmrådeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(områdeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(agentNamnTxtFält, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(76, 76, 76)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                        .addComponent(jLabel1)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agentNamnTxtFält, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(områdeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel3)
+                    .addComponent(valjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(områdeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ändraKnappOmrådeschef)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ändraKnappOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraKnappOmrådeschefActionPerformed
-        
-        try {
-            String agentNamn = agentNamnTxtFält.getText();
-            
-            String fraga1 = "SELECT Agent_ID from Agent WHERE Namn='" + agentNamn + "'";
-            String svar1 = idb.fetchSingle(fraga1);
-            System.out.println(svar1);
-            
-            String fraga2 = "SELECT Omrades_ID FROM Omrade WHERE Benamning='" + områdeComboBox.getSelectedItem().toString() + "'";
-            String svar2 = idb.fetchSingle(fraga2);
-            System.out.println(svar2);
-            
-            String fraga3 = "UPDATE Omradeschef SET Agent_ID=" + svar1 + " WHERE Omrades_ID=" + svar2 +"";
-            String svar3 = idb.fetchSingle(fraga3);
-            System.out.println(fraga3);
-            
-               
-            if(agentNamn.equals("Agent O")) {
-                JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
-                System.out.println(svar3);
-                idb.fetchSingle(svar3);
-            }
-            
-            else {
-                JOptionPane.showMessageDialog(null, "Det finns ingen agent som heter så!");
-            }
-           
-        } catch(InfException e) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-        }
+    String valdAgent = valjAgent.getSelectedItem().toString();
+    
+    String fraga1 = "UPDATE Omrade SET Agent_ID=" +hej+ "WHERE Omrade=" +hej2 + ";
+    String svar1 = idb.fetchSingle(fraga1);
+    
+    
     }//GEN-LAST:event_ändraKnappOmrådeschefActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+fyllRuta();    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,11 +196,12 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField agentNamnTxtFält;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JComboBox<String> områdeComboBox;
+    private javax.swing.JComboBox<String> valjAgent;
     private javax.swing.JButton ändraKnappOmrådeschef;
     // End of variables declaration//GEN-END:variables
 }
