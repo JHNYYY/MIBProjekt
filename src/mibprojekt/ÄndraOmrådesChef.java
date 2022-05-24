@@ -150,15 +150,19 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
 
     private void ändraKnappOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraKnappOmrådeschefActionPerformed
     String valdAgent = valjAgent.getSelectedItem().toString();
+    String valdOmrade = områdeComboBox.getSelectedItem().toString();
     
-    String fraga1 = "UPDATE Omrade SET Agent_ID=" +hej+ "WHERE Omrade=" +hej2 + ";
+    try{
+    String fraga1 = "UPDATE Omrade SET Agent_ID=" + valdAgent + "WHERE Omrade=" + valdOmrade +"";
     String svar1 = idb.fetchSingle(fraga1);
-    
-    
+    idb.update(fraga1);
     }//GEN-LAST:event_ändraKnappOmrådeschefActionPerformed
-
+    catch(InfException e)
+    {
+        
+    }}
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-fyllRuta();    }//GEN-LAST:event_jButton1ActionPerformed
+        fyllRuta();    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
