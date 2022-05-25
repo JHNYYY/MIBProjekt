@@ -163,6 +163,7 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             
             String uppdatera = "UPDATE Omradeschef SET Agent_ID= " + agent_id + " WHERE Omrade=" + omrade + "";  
             idb.update(uppdatera);
+            JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
         }
         catch(Exception e)
         {
