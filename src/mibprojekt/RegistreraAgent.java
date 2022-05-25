@@ -57,6 +57,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         lösenordsfälttxt = new javax.swing.JTextField();
         områdeComboBox = new javax.swing.JComboBox<>();
         registreraAgentKnapp = new javax.swing.JButton();
+        agentIDlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +101,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
             }
         });
 
+        agentIDlabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        agentIDlabel.setText("...");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,9 +133,11 @@ public class RegistreraAgent extends javax.swing.JFrame {
                             .addComponent(administratorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(områdeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(registreraAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registreraAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(agentIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,7 +157,8 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(telefontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(agentIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -180,12 +187,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      try
      {
-     String namnet = Agent_IDtxt.getText();
+     // String namnet = Agent_IDtxt.getText();
      String fraga1 = "SELECT Agent_ID FROM Agent";
      ArrayList svar = idb.fetchRows(fraga1);
      int visadID = (svar.size() + 1);
      
-     Agent_IDtxt.setText(String.valueOf(visadID));
+     agentIDlabel.setText(String.valueOf(visadID));
      
      
      }
@@ -202,8 +209,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void registreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentKnappActionPerformed
         
                   boolean alltokej=false;
-                  
-                  if (Validering.textFaltHarVarde(Agent_IDtxt)){
                   
                     if (Validering.textFaltHarVarde(namnagenttxt)){
                   
@@ -226,7 +231,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                       }
                         }
                          }
-                          }  
+                            
                       
                    
                     alltokej=true;
@@ -238,7 +243,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
             String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
             
             String uppdatera = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
-                    + Agent_IDtxt.getText() + ", '"
+                    + agentIDlabel.getText() + ", '"
                     + namnagenttxt.getText() + "', '"
                     + telefontxt.getText() + "', '"
                     + anställningsdatumtxt.getText() + "', '" 
@@ -315,6 +320,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Agent_IDtxt;
     private javax.swing.JComboBox<String> administratorComboBox;
+    private javax.swing.JLabel agentIDlabel;
     private javax.swing.JTextField anställningsdatumtxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
