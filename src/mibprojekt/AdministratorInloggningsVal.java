@@ -39,7 +39,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
         ÄndraOmrådeschefsKnapp = new javax.swing.JToggleButton();
         ÄndraKontorsChefsKnapp = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         AndraLosenordAdminKnapp.setBackground(new java.awt.Color(204, 204, 255));
         AndraLosenordAdminKnapp.setText("Ändra Lösenord");

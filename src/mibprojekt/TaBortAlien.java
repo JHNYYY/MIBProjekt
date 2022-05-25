@@ -45,7 +45,7 @@ public class TaBortAlien extends javax.swing.JFrame {
         taBortAlienTextFält = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         taBortAlienKnapp.setText("Ta bort");
         taBortAlienKnapp.addActionListener(new java.awt.event.ActionListener() {

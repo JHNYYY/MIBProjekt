@@ -51,7 +51,7 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         datumetttextfält = new javax.swing.JTextField();
         datumtvåtextfält = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         visaRegistreradeAlienFält.setColumns(20);
         visaRegistreradeAlienFält.setRows(5);

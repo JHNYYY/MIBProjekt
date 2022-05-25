@@ -72,7 +72,7 @@ private InfDB idb;
         valjAgent = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Ändra Kontorschef");
@@ -99,7 +99,7 @@ private InfDB idb;
             }
         });
 
-        jButton1.setText("Uppdatera AgentLista");
+        jButton1.setText("Uppdatera Agentlista");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

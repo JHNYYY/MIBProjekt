@@ -44,7 +44,7 @@ public class AlienInloggningsVal extends javax.swing.JFrame {
         VisaInfoAnsvarigAgent = new javax.swing.JButton();
         TextKontoInstallningar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         andralosenordAlien.setBackground(new java.awt.Color(204, 204, 255));
         andralosenordAlien.setText("Ändra Lösenord");

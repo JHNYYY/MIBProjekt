@@ -51,7 +51,7 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
         OmrådeschefSök = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         VisaRegistreringAlienKnapp.setText("Registrera en alien");
