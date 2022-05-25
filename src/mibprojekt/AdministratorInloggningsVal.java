@@ -35,7 +35,6 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
         RegistreraAgentKnapp = new javax.swing.JToggleButton();
         RegistreraAlienKnapp = new javax.swing.JToggleButton();
         ÄndraInfoAgentKnapp = new javax.swing.JToggleButton();
-        AdminStatusAgentKnapp = new javax.swing.JToggleButton();
         TaBortAgentKnapp = new javax.swing.JToggleButton();
         ÄndraOmrådeschefsKnapp = new javax.swing.JToggleButton();
         ÄndraKontorsChefsKnapp = new javax.swing.JToggleButton();
@@ -105,13 +104,6 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
             }
         });
 
-        AdminStatusAgentKnapp.setText("Ge Adminstatus till Agent");
-        AdminStatusAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminStatusAgentKnappActionPerformed(evt);
-            }
-        });
-
         TaBortAgentKnapp.setText("Ta bort Agent");
         TaBortAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +149,6 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegistreraAlienKnapp)
-                            .addComponent(AdminStatusAgentKnapp)
                             .addComponent(ÄndraInfoAlienKnapp))
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,11 +179,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ÄndraInfoAgentKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AdminStatusAgentKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ÄndraOmrådeschefsKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ÄndraKontorsChefsKnapp))
+                        .addComponent(ÄndraOmrådeschefsKnapp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(TaBortAgentKnapp)
@@ -200,7 +187,9 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                         .addComponent(TaBortAlienKnapp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TaBortUtrustningsKnapp)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ÄndraKontorsChefsKnapp)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
@@ -219,7 +208,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }//GEN-LAST:event_ÄndraInfoAlienKnappActionPerformed
 
     private void RegistreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraAgentKnappActionPerformed
-        // TODO add your handling code here:
+        new RegistreraAgent().setVisible(true);
     }//GEN-LAST:event_RegistreraAgentKnappActionPerformed
 
     private void TaBortAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentKnappActionPerformed
@@ -242,16 +231,12 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     new ÄndraOmrådesChef().setVisible(true);
     }//GEN-LAST:event_ÄndraOmrådeschefsKnappActionPerformed
 
-    private void AdminStatusAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminStatusAgentKnappActionPerformed
-    new GeAgentAdminStatus().setVisible(true);
-    }//GEN-LAST:event_AdminStatusAgentKnappActionPerformed
-
     private void ÄndraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraInfoAgentKnappActionPerformed
-        // TODO add your handling code here:
+        new ÄndraInfoOmAgent().setVisible(true);
     }//GEN-LAST:event_ÄndraInfoAgentKnappActionPerformed
 
     private void RegistreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraAlienKnappActionPerformed
-        // TODO add your handling code here:
+        new RegistreraAlien().setVisible(true);
     }//GEN-LAST:event_RegistreraAlienKnappActionPerformed
 
     /**
@@ -290,7 +275,6 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton AdminStatusAgentKnapp;
     private javax.swing.JButton AndraLosenordAdminKnapp;
     private javax.swing.JToggleButton RegistreraAgentKnapp;
     private javax.swing.JToggleButton RegistreraAlienKnapp;
