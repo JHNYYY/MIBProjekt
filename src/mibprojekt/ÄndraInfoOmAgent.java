@@ -247,20 +247,24 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_sökKnappAgentÄndraInfoActionPerformed
 
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
+        
+         int agentid = Integer.parseInt(agent_IDtxt.getText());
+         int omrade = Integer.parseInt(omradeAgenttxt.getText());
+         
          
         try {
 
-            
-         String uppdatera = "UPDATE Agent SET Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
+         
+         String uppdatera = "Update Agent Set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                  + " Losenord='" + lösenordAgenttxt.getText() + "'," 
                  + " Namn='" + namnAgenttxt.getText() + "'," 
                  + " Telefon='" + telefonAgenttxt.getText() + "',"
-                 + " Omrade=" + omradeAgenttxt.getText()
-                 + " Administrator='" + adminStatusAgenttxt.getText() + "'," 
-                 + " where Agent_ID= " + agent_IDtxt.getText();
+                 + " Omrade=" + omrade + ","
+                 + " Administrator='" + adminStatusAgenttxt.getText() + "'"
+                 + " where Agent_ID="+agentid;
+
          System.out.println(uppdatera);
          idb.update(uppdatera);
-         String test = idb.fetchSingle("Select Namn from Agent where Agent_ID=" + agent_IDtxt.getText());
          JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          
          } catch(InfException e) 
