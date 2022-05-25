@@ -123,11 +123,16 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void andralosenordsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordsknappActionPerformed
-       
+         
+        
         String anvandarnamn = anvandarnamnsRuta.getText();
         String gammaltLosenord = gammaltLosenordsRuta.getText();
         String nyttLosenord = nyttLosenordsRuta.getText();
-
+        if (Validering.textFaltHarVarde(anvandarnamnsRuta))
+        if(Validering.textLösenordHarVärde(gammaltLosenordsRuta))
+        if(Validering.textLösenordHarVärde(nyttLosenordsRuta))
+        
+            
         try {
 
             String fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarnamn + "'";
@@ -137,9 +142,9 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
             String svar2 = idb.fetchSingle(fraga2);
             
 
-            if (gammaltLosenord.equals(svar2) && !gammaltLosenord.equals(nyttLosenord)) {
-                JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
-                idb.fetchSingle("UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + svar1);
+             if (gammaltLosenord.equals(svar2) && !gammaltLosenord.equals(nyttLosenord)) {
+                  JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
+                 idb.fetchSingle("UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + svar1);
 
             } else if (gammaltLosenord.equals(nyttLosenord)) {
                 JOptionPane.showMessageDialog(null, "Ville du inte byta lösenord?");

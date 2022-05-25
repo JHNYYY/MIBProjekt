@@ -110,6 +110,12 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sökKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökKnappActionPerformed
+        
+        if (Validering.kollaDatumTextField(datumetttextfält))
+        if (Validering.kollaDatumTextField(datumtvåtextfält))
+        
+        
+        
         visaRegistreradeAlienFält.setText("");
         String datumett = datumetttextfält.getText();
         String datumtvå = datumtvåtextfält.getText();

@@ -200,7 +200,30 @@ public class RegistreraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_administratorComboBoxActionPerformed
 
     private void registreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentKnappActionPerformed
+        
+                  boolean alltokej=false;
+                  
+                  if (Validering.textFaltHarVarde(Agent_IDtxt)){
+                  
+                    if (Validering.textFaltHarVarde(namnagenttxt)){
+                  
+                      if (Validering.kollaTelefonnummerTextField(telefontxt)){
+                  
+                        if (Validering.kollaDatumTextField(anställningsdatumtxt)){ 
+                  
+                          if (Validering.LosenordTextField(lösenordsfälttxt)){ 
+                    }
+                      }
+                        }
+                         }
+                          }  
+                      
+                   
+                    alltokej=true;
+                       
+                     if (alltokej==true){
         try {
+            
             
             String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
             
@@ -215,16 +238,16 @@ public class RegistreraAgent extends javax.swing.JFrame {
             String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnagenttxt.getText() + "'";
             String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
         
-                
+
  
-            if(administratorComboBox.getSelectedItem().toString().equals("Ja")) {
+            if(administratorComboBox.getSelectedItem().toString().equals("Ja") && (alltokej==true) ) {
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(admin);
                 JOptionPane.showMessageDialog(null, "Du har registrerat en agent med administratörsstatus!");
             }
             
             
-            else if(administratorComboBox.getSelectedItem().toString().equals("Nej")){
+            else if(administratorComboBox.getSelectedItem().toString().equals("Nej") && (alltokej==true)){
                 JOptionPane.showMessageDialog(null, "Du har registrerat en agent utan administratörsstatus!");
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(inteAdmin);
@@ -236,9 +259,12 @@ public class RegistreraAgent extends javax.swing.JFrame {
             }
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println(e);
 
         }
+        
+      }
+
     }//GEN-LAST:event_registreraAgentKnappActionPerformed
 
     /**
