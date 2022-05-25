@@ -113,6 +113,8 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         
         if (Validering.kollaDatumTextField(datumetttextfält))
         if (Validering.kollaDatumTextField(datumtvåtextfält))
+            if (Validering.inteSpace(datumetttextfält))
+                if (Validering.inteSpace(datumtvåtextfält))
         
         
         

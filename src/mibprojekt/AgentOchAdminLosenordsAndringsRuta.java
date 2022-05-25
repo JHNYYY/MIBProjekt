@@ -131,6 +131,9 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
         if (Validering.textFaltHarVarde(anvandarnamnsRuta))
         if(Validering.textLösenordHarVärde(gammaltLosenordsRuta))
         if(Validering.textLösenordHarVärde(nyttLosenordsRuta))
+            if (Validering.inteSpace(anvandarnamnsRuta))
+                if (Validering.inteSpaceLosenord(nyttLosenordsRuta))
+                    if (Validering.inteSpaceLosenord(gammaltLosenordsRuta))
         
             
         try {

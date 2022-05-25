@@ -211,8 +211,18 @@ public class RegistreraAgent extends javax.swing.JFrame {
                   
                         if (Validering.kollaDatumTextField(anställningsdatumtxt)){ 
                   
-                          if (Validering.LosenordTextField(lösenordsfälttxt)){ 
-                    }
+                        
+                              if (Validering.inteSpace(Agent_IDtxt)){
+                              if (Validering.inteSpace(namnagenttxt)){
+                              if (Validering.inteSpace(telefontxt))
+                                  if (Validering.inteSpace(anställningsdatumtxt)){
+                                  if (Validering.inteSpace(lösenordsfälttxt)){
+                                  
+                                  }
+                                  }
+                              }
+                              }
+                    
                       }
                         }
                          }

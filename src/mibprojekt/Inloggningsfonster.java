@@ -198,7 +198,8 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         if (Validering.textFaltHarVarde(anvandarNamnsFalt)) {
             
         if (Validering.textLösenordHarVärde(losenordsFalt))
-
+        if (Validering.inteSpace(anvandarNamnsFalt))
+            if (Validering.inteSpaceLosenord(losenordsFalt))
         try {
 
             fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarNamnsFalt.getText() + "'";
