@@ -41,6 +41,7 @@ public class AlienInfoSök extends javax.swing.JFrame {
             for (String namn : allaAliens)
             {
                 cbValjAlien.addItem(namn);
+                
             }
         }
         catch (InfException e)

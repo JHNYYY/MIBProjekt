@@ -149,18 +149,34 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ändraKnappOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraKnappOmrådeschefActionPerformed
-    String valdAgent = valjAgent.getSelectedItem().toString();
-    String valdOmrade = områdeComboBox.getSelectedItem().toString();
-    
-    try{
-    String fraga1 = "UPDATE Omrade SET Agent_ID=" + valdAgent + "WHERE Omrade=" + valdOmrade +"";
-    String svar1 = idb.fetchSingle(fraga1);
-    idb.update(fraga1);
+
+
+        try {
+            
+            String valdAgent = valjAgent.getSelectedItem().toString();
+            String valdOmrade = områdeComboBox.getSelectedItem().toString();
+            
+            String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
+            
+            String valtOmradesID = idb.fetchSingle("SELECT Omrades_ID from Omrade WHERE Benamning='" + valdOmrade + "'");
+
+
+            String uppdatera = "UPDATE Omradeschef SET Agent_ID=" + agent_id + "WHERE Omrades_ID=" + valtOmradesID + "";            
+           
+            idb.update(uppdatera);
+            JOptionPane.showMessageDialog(null, "Ändringen lyckades");
+            System.out.println(uppdatera);
+
+            
+        }
+            
+        catch(InfException e) {
+             System.out.println(e);
+           }
     }//GEN-LAST:event_ändraKnappOmrådeschefActionPerformed
-    catch(InfException e)
-    {
-        
-    }}
+    
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         fyllRuta();    }//GEN-LAST:event_jButton1ActionPerformed
 

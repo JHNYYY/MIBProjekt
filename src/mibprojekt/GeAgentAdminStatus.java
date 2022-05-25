@@ -31,6 +31,33 @@ public class GeAgentAdminStatus extends javax.swing.JFrame {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void fyllRuta() {
+                
+        String fraga = "SELECT Namn from Agent";
+        ArrayList<String> allaAgenter;
+        
+        
+        try {
+            allaAgenter = idb.fetchColumn(fraga);
+            
+            
+            for(String namn : allaAgenter) {
+                cbLista.addItem(namn);
+                allaAgenter.add(fraga);
+            }
+        }
+       
+        catch(InfException e)
+        {
+            System.out.println(e);
+        }
+        
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +76,7 @@ public class GeAgentAdminStatus extends javax.swing.JFrame {
 
         jLabel1.setText("Välj Agent att ge administratörsrättighet:");
 
+        cbLista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "." }));
         cbLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbListaActionPerformed(evt);
@@ -98,16 +126,7 @@ public class GeAgentAdminStatus extends javax.swing.JFrame {
     }//GEN-LAST:event_okKnappActionPerformed
 
     private void cbListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbListaActionPerformed
-        try{
-            
-        String valdAgent = cbLista.getSelectedItem().toString();
-        
-        }
-       
-        catch(Exception e)
-        {
-            
-        }
+
     }//GEN-LAST:event_cbListaActionPerformed
 
     /**
@@ -144,33 +163,7 @@ public class GeAgentAdminStatus extends javax.swing.JFrame {
             }
         });
     }
-    private void fyllRuta()
-    {
-        String fraga = "SELECT Namn from Agent";
-        ArrayList<String> allaAgenter;
-        
-        try 
-        {   
-            int i = 0;
-            allaAgenter = idb.fetchColumn(fraga);
-            while (i<allaAgenter.size())
-            {
-                cbLista.getItemAt(i);
-                System.out.println(allaAgenter.size());
-                i++;
-            }
-            
-        }
-        catch (InfException e)
-        {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt fel");
-        }
-        catch(Exception e)
-        {
-            System.out.println("");
-        }
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbLista;
