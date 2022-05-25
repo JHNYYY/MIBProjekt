@@ -9,6 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import java.lang.Integer; 
 
 /**
  *
@@ -22,6 +23,62 @@ public class Validering {
         
         {
         JOptionPane.showMessageDialog(null, "Vänligen ange ett namn");
+        
+        resultat = false;
+        }
+        
+        return resultat;
+               
+        
+    }
+    
+    public static boolean LosenordTextField(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()) 
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange ett lösenord");
+        
+        resultat = false;
+        }
+        
+        return resultat;
+               
+        
+    }
+    
+    
+    
+    
+
+    
+    
+     public static boolean kollaDatumTextField(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()) 
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange ett datum. EX.2020-10-10");
+        
+        resultat = false;
+        }
+        
+        return resultat;
+               
+        
+    }
+    
+    
+
+    public static boolean kollaTelefonnummerTextField(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()) 
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange ett telefonnummer. Ex. 555-5555");
         
         resultat = false;
         }
@@ -78,5 +135,25 @@ public class Validering {
                
         
     }
-}
+ 
+               
+        
+    }
+     
+     //public static boolean kollaStrangar(String Strang1, String Strang2){
+        // boolean strangKoll = false;
+         
+     //if (Strang1.equals(Strang2)) {
+     //JOptionPane.showMessageDialog(null, "Lösenordet matchar, vänligen välj olika lösenord");
+         //strangKoll=true;
+     
+     //}
+     
+     
+     //return strangKoll;
+     
+     //}
+     
+   
+
 

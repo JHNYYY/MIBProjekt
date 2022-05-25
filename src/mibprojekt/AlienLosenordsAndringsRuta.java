@@ -131,6 +131,9 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
         String anvandarnamn = alienNamnRuta.getText();
         String gammaltLosenord = alienGammaltLösenordsRuta.getText();
         String nyttLosenord = alienNyttLösenordsRuta.getText();
+        if (Validering.textFaltHarVarde(alienNamnRuta))
+        if (Validering.textLösenordHarVärde(alienNyttLösenordsRuta))
+        if(Validering.textLösenordHarVärde(alienGammaltLösenordsRuta)) 
 
         try {
 

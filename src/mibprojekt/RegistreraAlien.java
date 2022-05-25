@@ -288,7 +288,27 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
     private void registreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienKnappActionPerformed
         
-        
+        boolean alltokej=false;
+                  
+                  if (Validering.textFaltHarVarde(alienIDtxt)){
+                  
+                    if (Validering.textFaltHarVarde(namnAlien)){
+                  
+                      if (Validering.kollaTelefonnummerTextField(telefonAlien)){
+                  
+                        if (Validering.kollaDatumTextField(registreringsdatumAlien)){ 
+                  
+                          if (Validering.LosenordTextField(LosenordAlien)){ 
+                    }
+                      }
+                        }
+                         }
+                          }  
+                      
+                   
+                    alltokej=true;
+                       
+                     if (alltokej==true){
         try {
         
             String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
@@ -311,14 +331,14 @@ public class RegistreraAlien extends javax.swing.JFrame {
          
         
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println(e);
         }
         
             
         
         
         
-                                                 
+       }                                            
     }//GEN-LAST:event_registreraAlienKnappActionPerformed
 
     private void ÄndraPlatsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraPlatsComboBoxActionPerformed

@@ -156,12 +156,14 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             String valdAgent = valjAgent.getSelectedItem().toString();
             String valdOmrade = områdeComboBox.getSelectedItem().toString();
             
+            int omrade = Integer.parseInt(valdOmrade);
+            
             String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
             
             String valtOmradesID = idb.fetchSingle("SELECT Omrades_ID from Omrade WHERE Benamning='" + valdOmrade + "'");
 
 
-            String uppdatera = "UPDATE Omradeschef SET Agent_ID=" + agent_id + "WHERE Omrades_ID=" + valtOmradesID + "";            
+            String uppdatera = "UPDATE Omradeschef SET Agent_ID=" + agent_id + "WHERE Omrade=" + valtOmradesID + "";            
            
             idb.update(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades");
