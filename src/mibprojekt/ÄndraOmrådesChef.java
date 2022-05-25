@@ -160,10 +160,26 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             String valtOmradesID = idb.fetchSingle("SELECT Omrades_ID from Omrade WHERE Benamning='" + valdOmrade + "'");
             int omrade = Integer.parseInt(valtOmradesID);
             String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
+            String nuvarandeChef = idb.fetchSingle("SELECT Agent_ID from omradeschef WHERE Omrade= '" + omrade + "'");
+            String nuvarandeChefenNamn = idb.fetchSingle("Select Namn from Agent Where Agent_ID ='" + nuvarandeChef + "'");
+            
             
             String uppdatera = "UPDATE Omradeschef SET Agent_ID= " + agent_id + " WHERE Omrade=" + omrade + "";  
+            
+            if(valjAgent.equals(nuvarandeChefenNamn))
+            {
+            
+            
+            JOptionPane.showMessageDialog(null, "Denna agent är redan områdeschef för detta område!");
+            }
+            else
+            {
             idb.update(uppdatera);
+
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+            }
+            
+            
         }
         catch(Exception e)
         {
