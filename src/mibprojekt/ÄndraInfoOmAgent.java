@@ -230,10 +230,6 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
      String platsen = idb.fetchSingle(fraga4);
      omradeAgenttxt.setText(platsen);
      
-     /* String fraga5 = "Select Administrator from Agent where Namn='" + namnAgent + "'";
-     String administratorstatus = idb.fetchSingle(fraga5);
-     adminStatusAgenttxt.setText(administratorstatus); */
-     
      
     }catch (InfException e)
     {
@@ -242,53 +238,41 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_sökKnappAgentÄndraInfoActionPerformed
 
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
-        
-         int agentid = Integer.parseInt(AgentIDlabel.getText());
-         int omrade = Integer.parseInt(omradeAgenttxt.getText());
-         
-         
-        try {
-            
 
-         
-         String uppdatera = "Update Agent Set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
-                 + " Losenord='" + lösenordAgenttxt.getText() + "'," 
-                 + " Namn='" + namnAgenttxt.getText() + "'," 
-                 + " Telefon='" + telefonAgenttxt.getText() + "',"
-                 + " Omrade=" + omrade + ""
-                 + " where Agent_ID="+agentid;
-         
-         System.out.println(uppdatera);
-         
-         String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnAgenttxt.getText() + "'";
-         String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnAgenttxt.getText() + "'";
-         
-         if(adminstatusComboBox.getSelectedItem().toString().equals("Ja")) {
+        int agentid = Integer.parseInt(AgentIDlabel.getText());
+        int omrade = Integer.parseInt(omradeAgenttxt.getText());
+
+        try {
+
+            String uppdatera = "Update Agent Set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
+                    + " Losenord='" + lösenordAgenttxt.getText() + "',"
+                    + " Namn='" + namnAgenttxt.getText() + "',"
+                    + " Telefon='" + telefonAgenttxt.getText() + "',"
+                    + " Omrade=" + omrade + ""
+                    + " where Agent_ID=" + agentid;
+
+
+            String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnAgenttxt.getText() + "'";
+            String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnAgenttxt.getText() + "'";
+
+            if (adminstatusComboBox.getSelectedItem().toString().equals("Ja")) {
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(admin);
                 JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
-            }
-         
-         else if(adminstatusComboBox.getSelectedItem().toString().equals("Nej")){
-                JOptionPane.showMessageDialog(null, "Ändringarna lyckades och!");
+                
+            } else if (adminstatusComboBox.getSelectedItem().toString().equals("Nej")) {
+                JOptionPane.showMessageDialog(null, "Ändringarna lyckades!");
                 idb.fetchSingle(uppdatera);
                 idb.fetchSingle(inteAdmin);
-            
-            }
-         
-         else {
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
             }
 
-         /* System.out.println(uppdatera);
-         idb.update(uppdatera);
-         JOptionPane.showMessageDialog(null, "Ändringen lyckades!"); */
-         
-         } catch(InfException e) 
-         {
-           JOptionPane.showMessageDialog(null, "Något gick fel!");
-             
-    }
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
+
+        }
     }//GEN-LAST:event_ändraInfoAgentKnappActionPerformed
 
     /**

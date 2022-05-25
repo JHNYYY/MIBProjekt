@@ -43,7 +43,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
         registreraAlienKnapp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        alienIDtxt = new javax.swing.JTextField();
         registreringsdatumAlien = new javax.swing.JTextField();
         LosenordAlien = new javax.swing.JTextField();
         namnAlien = new javax.swing.JTextField();
@@ -62,6 +61,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         genereraIDAlien = new javax.swing.JButton();
         telefonAlien = new javax.swing.JTextField();
+        alienIDlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,13 +75,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Registrera en Alien");
-
-        alienIDtxt.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        alienIDtxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alienIDtxtActionPerformed(evt);
-            }
-        });
 
         registreringsdatumAlien.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         registreringsdatumAlien.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +161,9 @@ public class RegistreraAlien extends javax.swing.JFrame {
             }
         });
 
+        alienIDlabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        alienIDlabel.setText("...");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +171,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(64, 177, Short.MAX_VALUE)
+                        .addGap(64, 208, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel13))
@@ -197,15 +193,15 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     .addComponent(LosenordAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(namnAlien)
                     .addComponent(registreringsdatumAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                    .addComponent(alienIDtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                     .addComponent(ÄndraAnsvarigAgentComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(telefonAlien))
+                    .addComponent(telefonAlien)
+                    .addComponent(alienIDlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(genereraIDAlien)
                     .addComponent(OkKnappPlats)
                     .addComponent(OkKnappAnsvarigAgent))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -216,19 +212,17 @@ public class RegistreraAlien extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(alienIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(genereraIDAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(registreringsdatumAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(genereraIDAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(alienIDlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registreringsdatumAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LosenordAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -256,15 +250,11 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     .addComponent(OkKnappAnsvarigAgent))
                 .addGap(18, 18, 18)
                 .addComponent(registreraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void alienIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alienIDtxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alienIDtxtActionPerformed
 
     private void registreringsdatumAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreringsdatumAlienActionPerformed
         // TODO add your handling code here:
@@ -290,8 +280,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
         
         boolean alltokej=false;
                   
-                  if (Validering.textFaltHarVarde(alienIDtxt)){
-                  
                     if (Validering.textFaltHarVarde(namnAlien)){
                   
                       if (Validering.kollaTelefonnummerTextField(telefonAlien)){
@@ -301,7 +289,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
                       }
                         }
                          }
-                          }  
+                          
                       
                    
                     alltokej=true;
@@ -316,13 +304,15 @@ public class RegistreraAlien extends javax.swing.JFrame {
             
             String uppdatera = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, "
                     + "Telefon, Plats, Ansvarig_Agent) VALUES(" 
-                    + alienIDtxt.getText() + ", '"
+                    + alienIDlabel.getText() + ", '"
                     + registreringsdatumAlien.getText() + "', '"
                     + LosenordAlien.getText() + "', '"
                     + namnAlien.getText() + "', '"
                     + telefonAlien.getText() + "', "
                     + valdPlats + ", "
                     + valdAgent + ")";
+            
+            System.out.println(uppdatera);
 
             idb.fetchSingle(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
@@ -349,12 +339,12 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
     private void genereraIDAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genereraIDAlienActionPerformed
         try {
-            String namnet = alienIDtxt.getText();
+            
             String fraga1 = "SELECT Alien_ID FROM Alien";
             ArrayList svar = idb.fetchRows(fraga1);
             int visadID = (svar.size() + 1);
 
-            alienIDtxt.setText(String.valueOf(visadID));
+            alienIDlabel.setText(String.valueOf(visadID));
 
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
@@ -404,7 +394,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
     private javax.swing.JTextField LosenordAlien;
     private javax.swing.JButton OkKnappAnsvarigAgent;
     private javax.swing.JButton OkKnappPlats;
-    private javax.swing.JTextField alienIDtxt;
+    private javax.swing.JLabel alienIDlabel;
     private javax.swing.JButton genereraIDAlien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

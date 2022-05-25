@@ -89,7 +89,7 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
 
         jLabel3.setText("Ange agentnamn:");
 
-        jButton1.setText("Uppdatera AgentLista");
+        jButton1.setText("Uppdatera Agentlista");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

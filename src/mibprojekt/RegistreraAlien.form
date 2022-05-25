@@ -26,7 +26,7 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="64" pref="177" max="32767" attributes="0"/>
+                      <EmptySpace min="64" pref="208" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -53,9 +53,9 @@
                   <Component id="LosenordAlien" alignment="0" pref="148" max="32767" attributes="0"/>
                   <Component id="namnAlien" alignment="0" max="32767" attributes="0"/>
                   <Component id="registreringsdatumAlien" alignment="0" pref="148" max="32767" attributes="0"/>
-                  <Component id="alienIDtxt" alignment="0" pref="148" max="32767" attributes="0"/>
                   <Component id="ÄndraAnsvarigAgentComboBox" alignment="0" max="32767" attributes="0"/>
                   <Component id="telefonAlien" alignment="0" max="32767" attributes="0"/>
+                  <Component id="alienIDlabel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -63,7 +63,7 @@
                   <Component id="OkKnappPlats" min="-2" max="-2" attributes="0"/>
                   <Component id="OkKnappAnsvarigAgent" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -77,23 +77,20 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="26" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="alienIDtxt" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="genereraIDAlien" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="registreringsdatumAlien" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="genereraIDAlien" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="alienIDlabel" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel2" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="registreringsdatumAlien" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="jLabel14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LosenordAlien" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
@@ -126,7 +123,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="registreraAlienKnapp" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,16 +147,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Registrera en Alien"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="alienIDtxt">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="13" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alienIDtxtActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="registreringsdatumAlien">
       <Properties>
@@ -321,6 +308,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefonAlienActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="alienIDlabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="..."/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
