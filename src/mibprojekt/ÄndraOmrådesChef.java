@@ -159,10 +159,11 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
             
             String valtOmradesID = idb.fetchSingle("SELECT Omrades_ID from Omrade WHERE Benamning='" + valdOmrade + "'");
+            
+            int nummer = Integer.parseInt(valtOmradesID);
 
-
-            String uppdatera = "UPDATE Omradeschef SET Agent_ID=" + agent_id + "WHERE Omrades_ID=" + valtOmradesID + "";            
-           
+            String uppdatera = "UPDATE Omradeschef SET Agent_ID=" + agent_id + " WHERE Omrade= " + nummer + "";            
+            System.out.println(uppdatera);
             idb.update(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades");
             System.out.println(uppdatera);

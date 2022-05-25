@@ -66,7 +66,7 @@ private InfDB idb;
 
         jLabel1 = new javax.swing.JLabel();
         ändraKontorsChefsKnapp = new javax.swing.JButton();
-        kontorsCB = new javax.swing.JComboBox<>();
+        kontorComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         valjAgent = new javax.swing.JComboBox<>();
@@ -84,8 +84,8 @@ private InfDB idb;
             }
         });
 
-        kontorsCB.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        kontorsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Örebrokontoret" }));
+        kontorComboBox.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        kontorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Örebrokontoret" }));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Ange namn på Agent:");
@@ -126,7 +126,7 @@ private InfDB idb;
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(valjAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kontorsCB, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(kontorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -146,7 +146,7 @@ private InfDB idb;
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kontorsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kontorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(12, 12, 12)
                 .addComponent(ändraKontorsChefsKnapp)
@@ -158,29 +158,30 @@ private InfDB idb;
 
     private void ändraKontorsChefsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraKontorsChefsKnappActionPerformed
     try {
-            String valdagentNamn = valjAgent.getSelectedItem().toString();
-            String kontorsbeteckning = kontorsCB.getSelectedItem().toString();
+            String valdAgent = valjAgent.getSelectedItem().toString();
+            String valdOmrade = kontorComboBox.getSelectedItem().toString();
             
-            String fraga1 = "SELECT Agent_ID from Agent WHERE Namn='" + valdagentNamn + "'";
-            String agentNamnsID = idb.fetchSingle(fraga1);
-           
-            String fraga2 = "SELECT Agent_ID where Kontorsbeteckning ='" + valdagentNamn + "'";
-            String kontorschefensID = idb.fetchSingle(fraga2);
+            String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
             
-            String fraga3 = "SELECT Namn from Agent where Agent_ID ='" + kontorschefensID +"'";
-            String kontorschefensNamn = idb.fetchSingle(fraga3);
+            String uppdatera = "UPDATE Kontorschef SET Agent_ID=" + agent_id + " WHERE Kontorsbeteckning='" + valdOmrade + "'";  
+            idb.update(uppdatera);
+            JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+
+           /* String fragaKontorsChef = idb.fetchSingle("Select Agent_ID FROM kontorschef WHERE Kontorsbeteckning= " + valdOmrade +"");
+            String kontorschefensNamn = "Select Namn from Agent where Agent_ID = " + fragaKontorsChef +"";
             
-            String fraga4 = "UPDATE kontorschef SET Agent_ID=" + agentNamnsID + " WHERE Kontorsbeteckning=" + kontorsbeteckning +"";
-            
-            
-            if(valdagentNamn.equals(kontorschefensNamn))
+            if(valdAgent.equals(kontorschefensNamn))
             {
-                JOptionPane.showMessageDialog(null, "" + valdagentNamn + " är redan kontorschef för detta kontor.");
+                JOptionPane.showMessageDialog(null, "" + valdAgent + " är redan kontorschef för detta kontor.");
             }
-            else if(!valdagentNamn.equals(kontorschefensNamn))
+            else if(!valdAgent.equals(kontorschefensNamn))
             {
-            idb.update(fraga4);
-            }   
+            idb.update(uppdatera);
+            JOptionPane.showMessageDialog(null, "Ändringen lyckades");
+            System.out.println(valdAgent);
+            System.out.println(kontorschefensNamn);
+            }
+            */
         } catch(InfException e) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
         }
@@ -233,7 +234,7 @@ private InfDB idb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JComboBox<String> kontorsCB;
+    private javax.swing.JComboBox<String> kontorComboBox;
     private javax.swing.JComboBox<String> valjAgent;
     private javax.swing.JButton ändraKontorsChefsKnapp;
     // End of variables declaration//GEN-END:variables
