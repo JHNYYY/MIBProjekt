@@ -141,12 +141,14 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "' ORDER BY Namn";
         
         soktaAliens = idb.fetchRows(fraga);
-        
+        String fel = "{";
+        String fel2 = "}";
         for(HashMap<String, String> Alien : soktaAliens) {
-            String visaAlien = Alien.toString();
-            visaRegistreradeAlienFält.append("Registrerad alien: "+visaAlien+ "\n");
+            
+            visaRegistreradeAlienFält.append("Registrerad alien: " + Alien.toString().replaceFirst(fel, " ")+ "\n");
             System.out.println(soktaAliens);
-        } 
+        }             
+
         
         }
         
