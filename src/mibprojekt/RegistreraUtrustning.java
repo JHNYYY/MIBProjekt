@@ -42,7 +42,7 @@ private static InfDB idb;
 
         uNamn = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registrerautrustningsknapp = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         skapaIDKnapp = new javax.swing.JButton();
@@ -54,10 +54,10 @@ private static InfDB idb;
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Registrera Utrustning ");
 
-        jButton1.setText("Registrera");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registrerautrustningsknapp.setText("Registrera");
+        registrerautrustningsknapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registrerautrustningsknappActionPerformed(evt);
             }
         });
 
@@ -103,7 +103,7 @@ private static InfDB idb;
                 .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registrerautrustningsknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(268, 268, 268))
         );
         layout.setVerticalGroup(
@@ -126,29 +126,47 @@ private static InfDB idb;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(registrerautrustningsknapp)
                         .addGap(48, 48, 48))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registrerautrustningsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrerautrustningsknappActionPerformed
+             
+             String namnet = uNamn.getText();
+             
+             
+             try {
+              
+             int nummer = Integer.parseInt(idText.getText());
+             
+             String fraga2 = "INSERT INTO utrustning VALUES (" + nummer + ",'" + namnet + "')";
+             JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + " som utrustning!");
+             System.out.println(fraga2);
+             idb.fetchSingle(fraga2);
+             
+             } catch(Exception e) {
+                 System.out.println(e);
+             }
+             
+             
+             
+             
+             
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_registrerautrustningsknappActionPerformed
 
     private void skapaIDKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skapaIDKnappActionPerformed
    try
      {
-     String namnet = uNamn.getText();
      String fraga1 = "SELECT Utrustnings_ID FROM utrustning";
      ArrayList svar = idb.fetchRows(fraga1);
      int visadID = (svar.size() + 1);
      
      idText.setText(String.valueOf(visadID));
-     String fraga2 = "INSERT INTO utrustning VALUES ('" + visadID + ',' + namnet + "')";
-     
-     System.out.println(fraga2);
+
      }
         catch (InfException e)
         {
@@ -194,11 +212,11 @@ private static InfDB idb;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea idText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton registrerautrustningsknapp;
     private javax.swing.JButton skapaIDKnapp;
     private javax.swing.JTextField uNamn;
     // End of variables declaration//GEN-END:variables

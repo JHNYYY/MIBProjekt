@@ -50,9 +50,19 @@ public class Validering {
     
     
     
+    public static boolean inteSpace(JTextField rutaAttKolla){
+    boolean resultat=true;
+    {
     
-
-    
+    String ruta = rutaAttKolla.getText();
+    if (ruta.trim().equals("")){
+    JOptionPane.showMessageDialog(null, "Space fungerar inte, vänligen ange någonting till");
+    resultat = false;
+    rutaAttKolla.requestFocus();
+    }
+   }
+    return resultat;
+  }
     
      public static boolean kollaDatumTextField(JTextField rutaAttKolla) {
         boolean resultat = true;
