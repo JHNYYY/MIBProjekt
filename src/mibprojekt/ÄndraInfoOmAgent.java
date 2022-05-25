@@ -40,11 +40,9 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        agent_IDtxt = new javax.swing.JTextField();
         namnAgenttxt = new javax.swing.JTextField();
         anställningsdatumAgenttxt = new javax.swing.JTextField();
         telefonAgenttxt = new javax.swing.JTextField();
-        adminStatusAgenttxt = new javax.swing.JTextField();
         lösenordAgenttxt = new javax.swing.JTextField();
         omradeAgenttxt = new javax.swing.JTextField();
         ändraInfoAgentKnapp = new javax.swing.JButton();
@@ -57,14 +55,10 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         sökKnappAgentÄndraInfo = new javax.swing.JButton();
+        AgentIDlabel = new javax.swing.JLabel();
+        adminstatusComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        agent_IDtxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agent_IDtxtActionPerformed(evt);
-            }
-        });
 
         anställningsdatumAgenttxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +77,7 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
         jLabel2.setText("Agent_ID:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("Namn:");
+        jLabel3.setText("Agentens namn:");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel4.setText("Telefon:");
@@ -92,7 +86,7 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
         jLabel5.setText("Anställningsdatum:");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel6.setText("Admin status:");
+        jLabel6.setText("Administratör:");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel7.setText("Lösenord:");
@@ -103,12 +97,17 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Ändra information om Agent");
 
-        sökKnappAgentÄndraInfo.setText("Ok");
+        sökKnappAgentÄndraInfo.setText("Sök");
         sökKnappAgentÄndraInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sökKnappAgentÄndraInfoActionPerformed(evt);
             }
         });
+
+        AgentIDlabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        AgentIDlabel.setText("...");
+
+        adminstatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ja", "Nej" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,31 +132,31 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(lösenordAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(209, Short.MAX_VALUE)
+                                .addContainerGap(178, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
                                             .addComponent(jLabel3)
-                                            .addComponent(jLabel4))
+                                            .addComponent(jLabel2))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(namnAgenttxt, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                            .addComponent(telefonAgenttxt)
-                                            .addComponent(agent_IDtxt)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(anställningsdatumAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(telefonAgenttxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                            .addComponent(namnAgenttxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                            .addComponent(AgentIDlabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
-                                        .addComponent(adminStatusAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(adminstatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(anställningsdatumAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ändraInfoAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sökKnappAgentÄndraInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,26 +165,26 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agent_IDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(sökKnappAgentÄndraInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(sökKnappAgentÄndraInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(namnAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(namnAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addComponent(AgentIDlabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefonAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(16, 16, 16)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(anställningsdatumAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adminStatusAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adminstatusComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lösenordAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -194,15 +193,11 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
                     .addComponent(omradeAgenttxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(ändraInfoAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(152, 152, 152))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void agent_IDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agent_IDtxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_agent_IDtxtActionPerformed
 
     private void anställningsdatumAgenttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anställningsdatumAgenttxtActionPerformed
         // TODO add your handling code here:
@@ -213,31 +208,31 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
         
      try {
      
-        
-     int AgentIDtal = Integer.parseInt(agent_IDtxt.getText());
-     String fraga ="Select Anstallningsdatum from Agent where Agent_ID=" + AgentIDtal; 
+     
+     String namnAgent = namnAgenttxt.getText();
+     String fraga ="Select Anstallningsdatum from Agent where Namn='" + namnAgent +"'"; 
      String datum = idb.fetchSingle(fraga);
      anställningsdatumAgenttxt.setText(datum);
      
-     String fraga1 = "Select Losenord from Agent where Agent_ID=" + AgentIDtal;
+     String fraga1 = "Select Losenord from Agent where Namn='" + namnAgent + "'";
      String losen = idb.fetchSingle(fraga1);
      lösenordAgenttxt.setText(losen);
      
-     String fraga2= "Select Namn from Agent where Agent_ID=" + AgentIDtal;
+     String fraga2= "Select Agent_ID from Agent where Namn='" + namnAgent + "'";
      String namnet=idb.fetchSingle(fraga2);
-     namnAgenttxt.setText(namnet);
+     AgentIDlabel.setText(namnet);
      
-     String fraga3 = "Select Telefon from Agent where Agent_ID=" + AgentIDtal;
+     String fraga3 = "Select Telefon from Agent where Namn='" + namnAgent + "'";
      String telefonen = idb.fetchSingle(fraga3);
      telefonAgenttxt.setText(telefonen);
      
-     String fraga4 = "Select Omrade from Agent where Agent_ID=" + AgentIDtal;
+     String fraga4 = "Select Omrade from Agent where Namn='" + namnAgent + "'";
      String platsen = idb.fetchSingle(fraga4);
      omradeAgenttxt.setText(platsen);
      
-     String fraga5 = "Select Administrator from Agent where Agent_ID=" + AgentIDtal;
+     /* String fraga5 = "Select Administrator from Agent where Namn='" + namnAgent + "'";
      String administratorstatus = idb.fetchSingle(fraga5);
-     adminStatusAgenttxt.setText(administratorstatus);
+     adminStatusAgenttxt.setText(administratorstatus); */
      
      
     }catch (InfException e)
@@ -248,24 +243,46 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
 
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
         
-         int agentid = Integer.parseInt(agent_IDtxt.getText());
+         int agentid = Integer.parseInt(AgentIDlabel.getText());
          int omrade = Integer.parseInt(omradeAgenttxt.getText());
          
          
         try {
+            
 
          
          String uppdatera = "Update Agent Set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                  + " Losenord='" + lösenordAgenttxt.getText() + "'," 
                  + " Namn='" + namnAgenttxt.getText() + "'," 
                  + " Telefon='" + telefonAgenttxt.getText() + "',"
-                 + " Omrade=" + omrade + ","
-                 + " Administrator='" + adminStatusAgenttxt.getText() + "'"
+                 + " Omrade=" + omrade + ""
                  + " where Agent_ID="+agentid;
-
+         
          System.out.println(uppdatera);
+         
+         String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnAgenttxt.getText() + "'";
+         String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnAgenttxt.getText() + "'";
+         
+         if(adminstatusComboBox.getSelectedItem().toString().equals("Ja")) {
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle(admin);
+                JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+            }
+         
+         else if(adminstatusComboBox.getSelectedItem().toString().equals("Nej")){
+                JOptionPane.showMessageDialog(null, "Ändringarna lyckades och!");
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle(inteAdmin);
+            
+            }
+         
+         else {
+                JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
+            }
+
+         /* System.out.println(uppdatera);
          idb.update(uppdatera);
-         JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+         JOptionPane.showMessageDialog(null, "Ändringen lyckades!"); */
          
          } catch(InfException e) 
          {
@@ -310,8 +327,8 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField adminStatusAgenttxt;
-    private javax.swing.JTextField agent_IDtxt;
+    private javax.swing.JLabel AgentIDlabel;
+    private javax.swing.JComboBox<String> adminstatusComboBox;
     private javax.swing.JTextField anställningsdatumAgenttxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

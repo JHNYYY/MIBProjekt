@@ -297,9 +297,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
                       if (Validering.kollaTelefonnummerTextField(telefonAlien)){
                   
                         if (Validering.kollaDatumTextField(registreringsdatumAlien)){ 
-                  
-                          if (Validering.LosenordTextField(LosenordAlien)){ 
-                    }
+
                       }
                         }
                          }
