@@ -32,6 +32,22 @@ public class Validering {
         
     }
     
+    public static boolean isValidPassword(JPasswordField password) {
+        boolean isValid = true;
+        
+        if(password.getText().length() > 6) 
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange ett lösenord som innehåller mindre än 6 karaktärer!");
+        
+        isValid = false;
+        }
+        
+        return isValid;
+               
+        
+    }
+    
      
     public static boolean LosenordTextField(JPasswordField rutaAttKolla) {
         boolean resultat = true;

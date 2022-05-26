@@ -63,7 +63,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         telefonAlien = new javax.swing.JTextField();
         alienIDlabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         registreraAlienKnapp.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         registreraAlienKnapp.setText("Registrera");
