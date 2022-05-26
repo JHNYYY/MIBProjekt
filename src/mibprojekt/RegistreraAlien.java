@@ -294,7 +294,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
                    
                     alltokej=true;
                        
-                     if (alltokej==true){
+                     if (alltokej==false){
         try {
         
             String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
@@ -312,13 +312,22 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     + valdPlats + ", "
                     + valdAgent + ")";
             
+            if(alltokej==true) {
             idb.fetchSingle(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
+            
+            }
+            else if(alltokej==false) {
+                JOptionPane.showMessageDialog(null, "Du har inte registrerat en alien!");
+            }
+            
          
         
         } catch (InfException e) {
             System.out.println(e);
         }
+        
+        
         
             
         

@@ -134,7 +134,7 @@ public class AgentKollaRegistreradeAliensTvåDatum extends javax.swing.JFrame {
         try {
             
         String fraga = "SELECT Namn FROM Alien WHERE Registreringsdatum BETWEEN '" + datumett + "' AND '" + datumtvå + "' ORDER BY Namn";
-        
+     
         soktaAliens = idb.fetchRows(fraga);
         String fel = "{";
         String fel2 = "}";
