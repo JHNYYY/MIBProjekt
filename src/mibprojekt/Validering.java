@@ -63,7 +63,51 @@ public class Validering {
                
         
     }
-    
+    public static boolean isOmrade(JTextField omrade) {
+        boolean isValid = true;
+        
+        if(omrade.getText().isEmpty())
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange område!");
+        
+        isValid = false;
+        }
+        
+        return isValid;
+        
+    }
+        
+     public static boolean isPlats(JTextField plats) {
+        boolean isValid = true;
+        
+        if(plats.getText().isEmpty())
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange plats!");
+        
+        isValid = false;
+        }
+        
+        return isValid;
+               
+        
+    }
+    public static boolean AnsvarigAgent(JTextField agent) {
+        boolean isValid = true;
+        
+        if(agent.getText().isEmpty())
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange en agent!");
+        
+        isValid = false;
+        }
+        
+        return isValid;
+               
+        
+    }
      
     public static boolean LosenordTextField(JPasswordField rutaAttKolla) {
         boolean resultat = true;

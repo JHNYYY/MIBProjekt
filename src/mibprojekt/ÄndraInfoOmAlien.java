@@ -192,7 +192,8 @@ private static InfDB idb;
     }//GEN-LAST:event_txtRegistreringsdatumActionPerformed
 
     private void btnSökActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSökActionPerformed
-                                    
+ 
+        
     try {
      
      String alienNamn = txtNamn.getText();
@@ -230,7 +231,22 @@ private static InfDB idb;
     }//GEN-LAST:event_btnSökActionPerformed
 
     private void btnLäggtillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLäggtillActionPerformed
-    try {
+                
+        if (Validering.textFaltHarVarde(txtNamn))
+            if (Validering.losenordetharvarde(txtLosenord))
+                if (Validering.isPlats(txtPlats))
+                    if (Validering.kollaDatumTextField(txtRegistreringsdatum))
+                        if (Validering.AnsvarigAgent(txtAnsvarigagent))
+                            if (Validering.kollaTelefonnummerTextField(txtTelefon))
+                            if (Validering.inteSpace(txtLosenord))
+                                if (Validering.inteSpace(txtNamn))
+                                    if (Validering.inteSpace(txtPlats))
+                                        if (Validering.inteSpace(txtRegistreringsdatum))
+                                            if (Validering.inteSpace(txtAnsvarigagent))
+                                                if (Validering.inteSpace(txtTelefon))
+                                            
+        
+        try {
          String uppdatera = "Update Alien "
                  + "set Registreringsdatum='" + txtRegistreringsdatum.getText() +"',"
                  + " Losenord='" + txtLosenord.getText() + "'," 
@@ -244,9 +260,12 @@ private static InfDB idb;
          
          } catch(InfException e) 
          {
-             
-             System.out.println(e.getMessage());
-    }
+            JOptionPane.showMessageDialog(null, "Dubbelkolla om du angett en siffra på plats eller ansvarig agent");
+        }
+        
+        catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Dubbelkolla om du angett en siffra på plats eller ansvarig agent");
+        }
 
     }//GEN-LAST:event_btnLäggtillActionPerformed
 

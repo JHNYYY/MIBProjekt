@@ -239,10 +239,24 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
 
     private void ändraInfoAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ändraInfoAgentKnappActionPerformed
 
-        int agentid = Integer.parseInt(AgentIDlabel.getText());
-        int omrade = Integer.parseInt(omradeAgenttxt.getText());
+        if (Validering.textFaltHarVarde(namnAgenttxt))
+            if (Validering.losenordetharvarde(lösenordAgenttxt))
+                if (Validering.isOmrade(omradeAgenttxt))
+                    if (Validering.kollaTelefonnummerTextField(namnAgenttxt))
+                        if (Validering.kollaDatumTextField(anställningsdatumAgenttxt))
+                        if (Validering.inteSpace(namnAgenttxt))
+                            if (Validering.inteSpace(lösenordAgenttxt))
+                                if (Validering.inteSpace(omradeAgenttxt))
+                                    if (Validering.inteSpace(telefonAgenttxt))
+            
+        
 
+        
         try {
+            
+                    
+            int agentid = Integer.parseInt(AgentIDlabel.getText());
+            int omrade = Integer.parseInt(omradeAgenttxt.getText());
 
             String uppdatera = "Update Agent Set Anstallningsdatum='" + anställningsdatumAgenttxt.getText() + "',"
                     + " Losenord='" + lösenordAgenttxt.getText() + "',"
@@ -273,6 +287,10 @@ public class ÄndraInfoOmAgent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
 
         }
+        
+          catch(NumberFormatException e) {
+              JOptionPane.showMessageDialog(null, "Vänligen ange ett nummer i områdesrutan!");
+          }
     }//GEN-LAST:event_ändraInfoAgentKnappActionPerformed
 
     /**

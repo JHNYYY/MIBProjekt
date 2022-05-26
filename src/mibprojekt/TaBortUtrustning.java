@@ -98,36 +98,32 @@ public class TaBortUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void taBortUtrustningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortUtrustningsKnappActionPerformed
-        
+   
         String utrustningsNamn = taBortUtrustningsTextFält.getText();
-        
-            if (Validering.textFaltHarVarde(taBortUtrustningsTextFält))
-                      if (Validering.inteSpace(taBortUtrustningsTextFält))
+
+        if (Validering.textFaltHarVarde(taBortUtrustningsTextFält))
+            if (Validering.inteSpace(taBortUtrustningsTextFält))
                 
                 
 
         try {
-            
-            String fraga2 = "SELECT Benamning FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
-            String svar2 = idb.fetchSingle(fraga2);
-            
-            String fraga1 = "DELETE FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
-            String svar1 = idb.fetchSingle(fraga1);
-            
 
-            if (utrustningsNamn.equals(svar2)) {
-                JOptionPane.showMessageDialog(null, "Utrustningen har tagits bort!");
+                String fraga2 = "SELECT Benamning FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
+                String svar2 = idb.fetchSingle(fraga2);
+
+                String fraga1 = "DELETE FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
+                String svar1 = idb.fetchSingle(fraga1);
+
+                if (utrustningsNamn.equals(svar2)) {
+                    JOptionPane.showMessageDialog(null, "Utrustningen har tagits bort!");
+                } else if (utrustningsNamn.equals(svar1)) {
+                    JOptionPane.showMessageDialog(null, "Det finns ingen utrustning som heter så");
+
+                }
+
+            } catch (InfException e) {
+                JOptionPane.showMessageDialog(null, "Något gick fel!");
             }
-            
-            
-            else if (utrustningsNamn.equals(svar1)) {
-                JOptionPane.showMessageDialog(null, "Det finns ingen utrustning som heter så");
-
-            }
-
-        } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
-        }
     }//GEN-LAST:event_taBortUtrustningsKnappActionPerformed
 
     /**
