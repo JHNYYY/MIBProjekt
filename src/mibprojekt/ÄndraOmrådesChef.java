@@ -32,6 +32,7 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
         }
     }
         private void fyllRuta(){
+        //Fyller combobox med alla agenter från agent-tablet.
         String fraga = "SELECT Namn from Agent";
         ArrayList<String> allaAgenter;
         
@@ -159,6 +160,7 @@ public class ÄndraOmrådesChef extends javax.swing.JFrame {
             
             String valtOmradesID = idb.fetchSingle("SELECT Omrades_ID from Omrade WHERE Benamning='" + valdOmrade + "'");
             int omrade = Integer.parseInt(valtOmradesID);
+            //Raden ovan omvandlar String valtOmradesID till en int, så vi kan använda den för frågan nuvarandeChef.
             String agent_id = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn='" + valdAgent + "'");
             String nuvarandeChef = idb.fetchSingle("SELECT Agent_ID from omradeschef WHERE Omrade= '" + omrade + "'");
             String nuvarandeChefenNamn = idb.fetchSingle("Select Namn from Agent Where Agent_ID ='" + nuvarandeChef + "'");

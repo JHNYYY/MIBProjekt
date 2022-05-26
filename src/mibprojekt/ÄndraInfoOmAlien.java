@@ -239,7 +239,6 @@ private static InfDB idb;
                  + " Plats=" + txtPlats.getText() + ", "
                  + " Ansvarig_Agent=" + txtAnsvarigagent.getText()
                  + " where Alien_ID= " + labelAlienID.getText();
-         System.out.println(uppdatera);
          idb.update(uppdatera);
          JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          

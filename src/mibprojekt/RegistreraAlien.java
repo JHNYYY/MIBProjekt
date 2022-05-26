@@ -312,8 +312,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     + valdPlats + ", "
                     + valdAgent + ")";
             
-            System.out.println(uppdatera);
-
             idb.fetchSingle(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
          

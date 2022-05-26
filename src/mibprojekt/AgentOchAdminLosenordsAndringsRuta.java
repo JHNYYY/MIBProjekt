@@ -124,7 +124,7 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
 
     private void andralosenordsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andralosenordsknappActionPerformed
          
-        
+        //Lite valideringar som ser till att lösenord och anv.namn inte skrivs in felaktigt
         String anvandarnamn = anvandarnamnsRuta.getText();
         String gammaltLosenord = gammaltLosenordsRuta.getText();
         String nyttLosenord = nyttLosenordsRuta.getText();

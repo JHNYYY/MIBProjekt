@@ -26,6 +26,7 @@ public class SökInformationOmAgent extends javax.swing.JFrame {
     public SökInformationOmAgent() {
         initComponents();
         fyllRuta();
+        //Fyller comboboxen med alla agenter från agent-table.
         
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");

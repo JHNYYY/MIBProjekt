@@ -97,8 +97,7 @@ public class OmrådesChefSök extends javax.swing.JFrame {
         
         
         try {
-         // SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Namn Like '%') 
-         // SELECT Namn from Agent WHERE Omrade=1;
+        
         String fraga1 = "SELECT Namn FROM Agent WHERE Agent_ID IN(SELECT Omrades_ID FROM Omrade WHERE Omrades_ID=2)";
         String svar1 = idb.fetchSingle(fraga1);
         

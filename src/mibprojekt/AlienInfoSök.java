@@ -32,6 +32,7 @@ public class AlienInfoSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
+        //Metoden fyller comboboxen med namn från Alien-tablet.
         String fraga = "SELECT Namn from Alien";
         ArrayList<String> allaAliens;
         

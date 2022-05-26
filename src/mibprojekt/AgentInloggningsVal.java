@@ -15,7 +15,7 @@ import oru.inf.InfException;
  * @author johannilsson
  */
 public class AgentInloggningsVal extends javax.swing.JFrame {
-    
+// Klassen för inloggningsval efter inloggning av agentkonto.
     private static InfDB idb;
 
     /**
@@ -50,138 +50,137 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
         RegistreraUtrustning = new javax.swing.JButton();
         OmrådeschefSök = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        VisaRegistreringAlienKnapp.setBackground(new java.awt.Color(0, 153, 153));
+        VisaRegistreringAlienKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        VisaRegistreringAlienKnapp.setForeground(new java.awt.Color(204, 204, 204));
         VisaRegistreringAlienKnapp.setText("Registrera en alien");
         VisaRegistreringAlienKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VisaRegistreringAlienKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(VisaRegistreringAlienKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 284, 35));
 
         andraLosenOrdKnapp.setBackground(new java.awt.Color(204, 204, 255));
+        andraLosenOrdKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        andraLosenOrdKnapp.setForeground(new java.awt.Color(255, 255, 255));
         andraLosenOrdKnapp.setText("Ändra Lösenord");
         andraLosenOrdKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 andraLosenOrdKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(andraLosenOrdKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 56, 201, 35));
 
+        ÄndraInfoAlien.setBackground(new java.awt.Color(0, 153, 153));
+        ÄndraInfoAlien.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        ÄndraInfoAlien.setForeground(new java.awt.Color(204, 204, 204));
         ÄndraInfoAlien.setText("Ändra information om alien");
         ÄndraInfoAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ÄndraInfoAlienActionPerformed(evt);
             }
         });
+        getContentPane().add(ÄndraInfoAlien, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 284, 35));
 
+        PlatsSök.setBackground(new java.awt.Color(0, 153, 153));
+        PlatsSök.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        PlatsSök.setForeground(new java.awt.Color(204, 204, 204));
         PlatsSök.setText("Plats över aliens");
         PlatsSök.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlatsSökActionPerformed(evt);
             }
         });
+        getContentPane().add(PlatsSök, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 280, 35));
 
+        RegAlienAvRas.setBackground(new java.awt.Color(0, 153, 153));
+        RegAlienAvRas.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        RegAlienAvRas.setForeground(new java.awt.Color(204, 204, 204));
         RegAlienAvRas.setText("Sök Registrerade Aliens (Ras)");
         RegAlienAvRas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegAlienAvRasActionPerformed(evt);
             }
         });
+        getContentPane().add(RegAlienAvRas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 284, 35));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Kontoinställningar");
+        jLabel2.setText("AlienHantering");
         jLabel2.setToolTipText("Klicka på knapparna under för att ändra dina kontoinställningar.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 201, -1));
 
+        alienInfoSök.setBackground(new java.awt.Color(0, 153, 153));
+        alienInfoSök.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        alienInfoSök.setForeground(new java.awt.Color(204, 204, 204));
         alienInfoSök.setText("Sök information om Alien");
         alienInfoSök.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alienInfoSökActionPerformed(evt);
             }
         });
+        getContentPane().add(alienInfoSök, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 284, 36));
 
+        RegistreraUtrustning.setBackground(new java.awt.Color(0, 153, 153));
+        RegistreraUtrustning.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        RegistreraUtrustning.setForeground(new java.awt.Color(204, 204, 204));
         RegistreraUtrustning.setText("Registrera Utrustning");
         RegistreraUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegistreraUtrustningActionPerformed(evt);
             }
         });
+        getContentPane().add(RegistreraUtrustning, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 201, 35));
 
+        OmrådeschefSök.setBackground(new java.awt.Color(0, 153, 153));
+        OmrådeschefSök.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        OmrådeschefSök.setForeground(new java.awt.Color(204, 204, 204));
         OmrådeschefSök.setText("Sök områdeschef för kontor");
         OmrådeschefSök.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OmrådeschefSökActionPerformed(evt);
             }
         });
+        getContentPane().add(OmrådeschefSök, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 201, 35));
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 153));
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Kolla registrerade aliens mellan två datum");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 284, 36));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(VisaRegistreringAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(RegAlienAvRas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(andraLosenOrdKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
-                        .addGap(41, 41, 41))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(RegistreraUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PlatsSök, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(alienInfoSök, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ÄndraInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(OmrådeschefSök, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(andraLosenOrdKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VisaRegistreringAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RegAlienAvRas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PlatsSök, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegistreraUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OmrådeschefSök, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ÄndraInfoAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alienInfoSök, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mibprojekt/agenticon1.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 312, 104, -1));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Kontoinställningar");
+        jLabel4.setToolTipText("Klicka på knapparna under för att ändra dina kontoinställningar.");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 31, 201, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Kontor & Utrustningsval");
+        jLabel5.setToolTipText("Klicka på knapparna under för att ändra dina kontoinställningar.");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 201, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,6 +266,9 @@ public class AgentInloggningsVal extends javax.swing.JFrame {
     private javax.swing.JButton andraLosenOrdKnapp;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton ÄndraInfoAlien;
     // End of variables declaration//GEN-END:variables
 }

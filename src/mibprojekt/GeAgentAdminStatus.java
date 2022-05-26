@@ -25,6 +25,7 @@ public class GeAgentAdminStatus extends javax.swing.JFrame {
     public GeAgentAdminStatus() {
         initComponents();
         fyllRuta();
+        //fyllruta metoden fyller comboboxen med alla agenter från agenttablet.
         try {
             idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
         } catch (InfException ex) {

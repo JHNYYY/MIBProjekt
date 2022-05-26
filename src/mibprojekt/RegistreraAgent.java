@@ -183,7 +183,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      try
      {
-     // String namnet = Agent_IDtxt.getText();
      String fraga1 = "SELECT Agent_ID FROM Agent";
      ArrayList svar = idb.fetchRows(fraga1);
      int visadID = (svar.size() + 1);
