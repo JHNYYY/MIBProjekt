@@ -134,10 +134,11 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
             if (Validering.inteSpace(anvandarnamnsRuta))
                 if (Validering.inteSpaceLosenord(nyttLosenordsRuta))
                     if (Validering.inteSpaceLosenord(gammaltLosenordsRuta))
+                    if(Validering.isValidPassword(nyttLosenordsRuta)) 
         
             
         try {
-
+            
             String fraga1 = "SELECT Agent_ID FROM Agent where namn='" + anvandarnamn + "'";
             String svar1 = idb.fetchSingle(fraga1);
 
@@ -145,19 +146,28 @@ public class AgentOchAdminLosenordsAndringsRuta extends javax.swing.JFrame {
             String svar2 = idb.fetchSingle(fraga2);
             
 
+            
              if (gammaltLosenord.equals(svar2) && !gammaltLosenord.equals(nyttLosenord)) {
-                  JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
+                 JOptionPane.showMessageDialog(null, "Lösenordet har ändrats!");
                  idb.fetchSingle("UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + svar1);
 
             } else if (gammaltLosenord.equals(nyttLosenord)) {
                 JOptionPane.showMessageDialog(null, "Ville du inte byta lösenord?");
             } else {
                 JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord!");
+                
+                
             }
+             
+             
+             
+            
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            JOptionPane.showMessageDialog(null, "Någonting gick fel, prova igen!");
         }
+        
+                    
 
         
     }//GEN-LAST:event_andralosenordsknappActionPerformed

@@ -41,7 +41,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Agent_IDtxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         namnagenttxt = new javax.swing.JTextField();
         telefontxt = new javax.swing.JTextField();
@@ -59,7 +58,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         registreraAgentKnapp = new javax.swing.JButton();
         agentIDlabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Registrera en agent ");
@@ -128,16 +127,14 @@ public class RegistreraAgent extends javax.swing.JFrame {
                             .addComponent(anställningsdatumtxt)
                             .addComponent(telefontxt)
                             .addComponent(namnagenttxt)
-                            .addComponent(Agent_IDtxt)
                             .addComponent(lösenordsfälttxt, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(administratorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(områdeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(områdeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agentIDlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(registreraAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(agentIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registreraAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -147,9 +144,9 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Agent_IDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(agentIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -157,8 +154,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(telefontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agentIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,77 +203,65 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
     private void registreraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAgentKnappActionPerformed
         
-                  boolean alltokej=false;
-                  
-                    if (Validering.textFaltHarVarde(namnagenttxt)){
-                  
-                      if (Validering.kollaTelefonnummerTextField(telefontxt)){
-                  
-                        if (Validering.kollaDatumTextField(anställningsdatumtxt)){ 
-                  
-                        
-                              if (Validering.inteSpace(Agent_IDtxt)){
-                              if (Validering.inteSpace(namnagenttxt)){
-                              if (Validering.inteSpace(telefontxt))
-                                  if (Validering.inteSpace(anställningsdatumtxt)){
-                                  if (Validering.inteSpace(lösenordsfälttxt)){
-                                  
-                                  }
-                                  }
-                              }
-                              }
-                    
-                      }
+         boolean alltokej = false;
+
+        if (Validering.textFaltHarVarde(namnagenttxt)) {
+
+            if (Validering.kollaTelefonnummerTextField(telefontxt)) {
+
+                if (Validering.kollaDatumTextField(anställningsdatumtxt)) {
+
+                    if (Validering.inteSpace(namnagenttxt)) {
+                        if (Validering.inteSpace(telefontxt)) {
+                            if (Validering.inteSpace(anställningsdatumtxt)) {
+                                if (Validering.inteSpace(lösenordsfälttxt)) {
+
+                                }
+                            }
                         }
-                         }
-                            
-                      
-                   
-                    alltokej=true;
-                       
-                     if (alltokej==true){
-        try {
-            
-            
-            String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
-            
-            String uppdatera = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
-                    + agentIDlabel.getText() + ", '"
-                    + namnagenttxt.getText() + "', '"
-                    + telefontxt.getText() + "', '"
-                    + anställningsdatumtxt.getText() + "', '" 
-                    + lösenordsfälttxt.getText() + "', "
-                    + ValtOmradesID + ")";
-            
-            String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnagenttxt.getText() + "'";
-            String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
-        
+                    }
 
- 
-            if(administratorComboBox.getSelectedItem().toString().equals("Ja") && (alltokej==true) ) {
-                idb.fetchSingle(uppdatera);
-                idb.fetchSingle(admin);
-                JOptionPane.showMessageDialog(null, "Du har registrerat en agent med administratörsstatus!");
+                }
             }
-            
-            
-            else if(administratorComboBox.getSelectedItem().toString().equals("Nej") && (alltokej==true)){
-                JOptionPane.showMessageDialog(null, "Du har registrerat en agent utan administratörsstatus!");
-                idb.fetchSingle(uppdatera);
-                idb.fetchSingle(inteAdmin);
-            
-            }
-            
-            else {
-                JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
-            }
+        }
 
-        } catch (InfException e) {
-            System.out.println(e);
+        alltokej = true;
+
+        if (alltokej == true) {
+            try {
+
+                String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
+
+                String uppdatera = "INSERT INTO Agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Losenord, Omrade) VALUES("
+                        + agentIDlabel.getText() + ", '"
+                        + namnagenttxt.getText() + "', '"
+                        + telefontxt.getText() + "', '"
+                        + anställningsdatumtxt.getText() + "', '"
+                        + lösenordsfälttxt.getText() + "', "
+                        + ValtOmradesID + ")";
+
+                String admin = "UPDATE Agent SET Administrator='J' WHERE Namn='" + namnagenttxt.getText() + "'";
+                String inteAdmin = "UPDATE Agent SET Administrator='N' WHERE Namn='" + namnagenttxt.getText() + "'";
+
+                if (administratorComboBox.getSelectedItem().toString().equals("Ja") && (alltokej == true)) {
+                    idb.fetchSingle(uppdatera);
+                    idb.fetchSingle(admin);
+                    JOptionPane.showMessageDialog(null, "Du har registrerat en agent med administratörsstatus!");
+                } else if (administratorComboBox.getSelectedItem().toString().equals("Nej") && (alltokej == true)) {
+                    JOptionPane.showMessageDialog(null, "Du har registrerat en agent utan administratörsstatus!");
+                    idb.fetchSingle(uppdatera);
+                    idb.fetchSingle(inteAdmin);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
+                }
+
+            } catch (InfException e) {
+                System.out.println(e);
+
+            }
 
         }
-        
-      }
 
     }//GEN-LAST:event_registreraAgentKnappActionPerformed
 
@@ -317,7 +301,6 @@ public class RegistreraAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Agent_IDtxt;
     private javax.swing.JComboBox<String> administratorComboBox;
     private javax.swing.JLabel agentIDlabel;
     private javax.swing.JTextField anställningsdatumtxt;

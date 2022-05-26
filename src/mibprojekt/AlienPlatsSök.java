@@ -95,31 +95,38 @@ public class AlienPlatsSök extends javax.swing.JFrame {
 
     private void cbPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPlatsActionPerformed
      txtArea.setText("");
+     
+     ArrayList<HashMap<String, String>> soktaAliens1;
+     ArrayList<HashMap<String, String>> soktaAliens2;
+     ArrayList<HashMap<String, String>> soktaAliens3;
+     ArrayList<HashMap<String, String>> soktaAliens4;
+
      try
      {
+     
      String fraga1 ="Select Namn from Alien where Plats = 1";
-     String sok1 = idb.fetchSingle(fraga1);
+     soktaAliens1 = idb.fetchRows(fraga1);
      String fraga2 ="Select Namn from Alien where Plats = 2";
-     String sok2 = idb.fetchSingle(fraga2);
+     soktaAliens2 = idb.fetchRows(fraga2);
      String fraga3 ="Select Namn from Alien where Plats = 3";
-     String sok3 = idb.fetchSingle(fraga3);
+     soktaAliens3 = idb.fetchRows(fraga3);
      String fraga4 ="Select Namn from Alien where Plats = 4";
-     String sok4 = idb.fetchSingle(fraga4);
+     soktaAliens4 = idb.fetchRows(fraga4);
      if(cbPlats.getSelectedItem().toString().equals("Örebro"))
      {
-         txtArea.append(sok1);
+         txtArea.append("Namn: "+soktaAliens1);
      }
      else if(cbPlats.getSelectedItem().toString().equals("Västerås"))
      {
-         txtArea.append(sok2);
+         txtArea.append("Namn: "+soktaAliens2);
      }
      else if(cbPlats.getSelectedItem().toString().equals("Vilhelmina"))
      {
-         txtArea.append(sok3);
+         txtArea.append("Namn: " + soktaAliens3);
      }
      else if(cbPlats.getSelectedItem().toString().equals("Borås"))
      {
-         txtArea.append(sok4);
+         txtArea.append("Namn: "+soktaAliens4);
      }
                 
                 

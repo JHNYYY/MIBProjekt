@@ -135,6 +135,7 @@ public class AlienLosenordsAndringsRuta extends javax.swing.JFrame {
         if (Validering.textFaltHarVarde(alienNamnRuta))
         if (Validering.textLösenordHarVärde(alienNyttLösenordsRuta))
         if(Validering.textLösenordHarVärde(alienGammaltLösenordsRuta)) 
+            if(Validering.isValidPassword(alienNyttLösenordsRuta)) 
 
         try {
 
