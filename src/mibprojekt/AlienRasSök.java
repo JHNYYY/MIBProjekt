@@ -33,7 +33,7 @@ public class AlienRasSök extends javax.swing.JFrame {
     }
     private void fyllRuta()
     {
-       
+    //oanvänd metod, sparar ifall den behövs senare.
     }
 
     /**

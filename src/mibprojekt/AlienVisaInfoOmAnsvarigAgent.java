@@ -37,7 +37,7 @@ public class AlienVisaInfoOmAnsvarigAgent extends javax.swing.JFrame {
 
     private void fyllRuta() {
         
-      
+      //Oanvänd metod, sparar ifall den behövs senare.
     }
 
     /**

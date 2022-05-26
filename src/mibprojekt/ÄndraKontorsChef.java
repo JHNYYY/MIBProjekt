@@ -32,7 +32,8 @@ private InfDB idb;
         }
     }
         private void fyllRuta()
-    {
+    {   
+        //Fyller comboboxen med namn från agent-tablet.
         String fraga = "SELECT Namn from Agent";
         ArrayList<String> allaAgenter;
         

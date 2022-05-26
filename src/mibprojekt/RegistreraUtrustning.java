@@ -144,7 +144,6 @@ private static InfDB idb;
              
              String fraga2 = "INSERT INTO utrustning VALUES (" + nummer + ",'" + namnet + "')";
              JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + " som utrustning!");
-             System.out.println(fraga2);
              idb.fetchSingle(fraga2);
              
              } catch(Exception e) {
