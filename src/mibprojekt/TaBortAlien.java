@@ -97,12 +97,13 @@ public class TaBortAlien extends javax.swing.JFrame {
 
     private void taBortAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAlienKnappActionPerformed
          
-        String alienNamn = taBortAlienTextFält.getText();
+        if (Validering.textFaltHarVarde(taBortAlienTextFält))
+            if (Validering.inteSpace(taBortAlienTextFält))
         
         
 
         try {
-
+            String alienNamn = taBortAlienTextFält.getText();
             String fraga2 = "SELECT Namn FROM Alien WHERE Namn='" + alienNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             

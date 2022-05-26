@@ -32,6 +32,22 @@ public class Validering {
         
     }
     
+    
+      public static boolean losenordetharvarde(JTextField rutaAttKolla) {
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()) 
+        
+        {
+        JOptionPane.showMessageDialog(null, "Vänligen ange ett lösenord");
+        
+        resultat = false;
+        }
+        
+        return resultat;
+               
+        
+    }
     public static boolean isValidPassword(JPasswordField password) {
         boolean isValid = true;
         

@@ -44,10 +44,8 @@ private static InfDB idb;
         jLabel1 = new javax.swing.JLabel();
         registrerautrustningsknapp = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         skapaIDKnapp = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        idText = new javax.swing.JTextArea();
+        idlabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,8 +61,6 @@ private static InfDB idb;
 
         jLabel2.setText("Namn:");
 
-        jLabel3.setText("Generera ett oanvändt ID:");
-
         skapaIDKnapp.setText("Generera ID");
         skapaIDKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,9 +68,8 @@ private static InfDB idb;
             }
         });
 
-        idText.setColumns(20);
-        idText.setRows(5);
-        jScrollPane1.setViewportView(idText);
+        idlabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        idlabel.setText("....");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,51 +78,40 @@ private static InfDB idb;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jLabel3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(skapaIDKnapp)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(190, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(registrerautrustningsknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(268, 268, 268))
+                        .addGap(107, 107, 107)
+                        .addComponent(skapaIDKnapp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(idlabel))
+                            .addComponent(registrerautrustningsknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(59, 59, 59)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(skapaIDKnapp)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(registrerautrustningsknapp)
-                        .addGap(48, 48, 48))))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idlabel)
+                    .addComponent(skapaIDKnapp))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registrerautrustningsknapp)
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,12 +119,18 @@ private static InfDB idb;
 
     private void registrerautrustningsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrerautrustningsknappActionPerformed
              
-             String namnet = uNamn.getText();
+             
+        if (Validering.textFaltHarVarde(uNamn))
+            if (Validering.inteSpace(uNamn))
+                
+            
              
              
              try {
+                 
+             String namnet = uNamn.getText();
               
-             int nummer = Integer.parseInt(idText.getText());
+             int nummer = Integer.parseInt(idlabel.getText());
              
              String fraga2 = "INSERT INTO utrustning VALUES (" + nummer + ",'" + namnet + "')";
              JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + " som utrustning!");
@@ -164,7 +154,7 @@ private static InfDB idb;
      ArrayList svar = idb.fetchRows(fraga1);
      int visadID = (svar.size() + 1);
      
-     idText.setText(String.valueOf(visadID));
+     idlabel.setText(String.valueOf(visadID));
 
      }
         catch (InfException e)
@@ -210,11 +200,9 @@ private static InfDB idb;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea idText;
+    private javax.swing.JLabel idlabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton registrerautrustningsknapp;
     private javax.swing.JButton skapaIDKnapp;
     private javax.swing.JTextField uNamn;

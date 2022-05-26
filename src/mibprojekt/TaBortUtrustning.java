@@ -98,16 +98,20 @@ public class TaBortUtrustning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void taBortUtrustningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortUtrustningsKnappActionPerformed
+        
         String utrustningsNamn = taBortUtrustningsTextFält.getText();
         
-        
+            if (Validering.textFaltHarVarde(taBortUtrustningsTextFält))
+                      if (Validering.inteSpace(taBortUtrustningsTextFält))
+                
+                
 
         try {
-
+            
             String fraga2 = "SELECT Benamning FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             
-            String fraga1 = "DELETE FROM Utrustning WHERE Namn='" + utrustningsNamn + "'";
+            String fraga1 = "DELETE FROM Utrustning WHERE Benamning='" + utrustningsNamn + "'";
             String svar1 = idb.fetchSingle(fraga1);
             
 

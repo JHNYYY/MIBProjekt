@@ -108,12 +108,13 @@ public class TaBortAgent extends javax.swing.JFrame {
     private void taBortAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taBortAgentKnappActionPerformed
        
         
-        String agentNamn = taBortAgentNamnsFält.getText();
+        if (Validering.textFaltHarVarde(taBortAgentNamnsFält))
+            if (Validering.inteSpace(taBortAgentNamnsFält))
         
         
 
         try {
-
+            String agentNamn = taBortAgentNamnsFält.getText();
             String fraga2 = "SELECT Namn FROM Agent WHERE Namn='" + agentNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             
