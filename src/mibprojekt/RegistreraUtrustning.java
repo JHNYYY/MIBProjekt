@@ -162,81 +162,62 @@ private static InfDB idb;
 
     private void registrerautrustningsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrerautrustningsknappActionPerformed
              
-             
-        if (Validering.textFaltHarVarde(uNamn))
+               if (Validering.textFaltHarVarde(uNamn)) {
             if (Validering.inteSpace(uNamn))
                 
             
              
              
              try {
-                 
-             String namnet = uNamn.getText();
-              
-             int nummer = Integer.parseInt(idlabel.getText());
-             
 
-                 
-             if(comboboxvapentyp.getSelectedItem().toString().equals("Vapen")) {
-                 
-                 try {
-                     
-                 
-                 int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
-                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
-                 idb.fetchSingle(fraga1);
-                 String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
-                 idb.fetchSingle(fraga2);
-                 
-                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
-                         + "\nAntal Kaliber: " +txtrutaförvaldtyp.getText()+"");
-                 
-                 }
-                 
-                 catch(NumberFormatException e){
-                     JOptionPane.showMessageDialog(null, "Skriv in en siffra för kalibertypen!");
-                 }
+                String namnet = uNamn.getText();
 
-             }
-             
-             else if(comboboxvapentyp.getSelectedItem().toString().equals("Kommunikation")) {
-                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
-                         + "\nÖverföringsteknik: " +txtrutaförvaldtyp.getText()+"");
-                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
-                 idb.fetchSingle(fraga1);
-                 String fraga2 = "INSERT INTO Kommunikation VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
-                 idb.fetchSingle(fraga2);
-             }
-             
-             else if(comboboxvapentyp.getSelectedItem().toString().equals("Teknik")) {
-                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
-                         + "\nKraftkälla: " +txtrutaförvaldtyp.getText()+"");
-                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
-                 idb.fetchSingle(fraga1);
-                 String fraga2 = "INSERT INTO Teknik VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
-                 idb.fetchSingle(fraga2);
-             }
-             
-             else {
-                 JOptionPane.showMessageDialog(null, "Vänligen välj en utrustningstyp!");
-             }
-                 
-            
-             
-             } catch(InfException e) {
-                 System.out.println(e);
-             }
+                int nummer = Integer.parseInt(idlabel.getText());
 
-        
-             catch(NumberFormatException e) {
-                 JOptionPane.showMessageDialog(null, "Vänligen skriv in en siffra i kaliber");
-                 
-             }
-             
-             
-             
-             
-             
+                if (comboboxvapentyp.getSelectedItem().toString().equals("Vapen")) {
+
+                    try {
+
+                        int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
+                        String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                        idb.fetchSingle(fraga1);
+                        String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
+                        idb.fetchSingle(fraga2);
+
+                        JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
+                                + "\nAntal Kaliber: " + txtrutaförvaldtyp.getText() + "");
+
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(null, "Skriv in en siffra för kalibertypen!");
+                    }
+
+                } else if (comboboxvapentyp.getSelectedItem().toString().equals("Kommunikation")) {
+                    JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
+                            + "\nÖverföringsteknik: " + txtrutaförvaldtyp.getText() + "");
+                    String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                    idb.fetchSingle(fraga1);
+                    String fraga2 = "INSERT INTO Kommunikation VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
+                    idb.fetchSingle(fraga2);
+                } else if (comboboxvapentyp.getSelectedItem().toString().equals("Teknik")) {
+                    JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
+                            + "\nKraftkälla: " + txtrutaförvaldtyp.getText() + "");
+                    String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                    idb.fetchSingle(fraga1);
+                    String fraga2 = "INSERT INTO Teknik VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
+                    idb.fetchSingle(fraga2);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Vänligen välj en utrustningstyp!");
+                }
+
+            } catch (InfException e) {
+                System.out.println(e);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Vänligen skriv in en siffra i kaliber");
+
+            }
+        }
+
+
 
     }//GEN-LAST:event_registrerautrustningsknappActionPerformed
 

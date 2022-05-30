@@ -96,37 +96,42 @@ public class AlienPlatsSök extends javax.swing.JFrame {
     private void cbPlatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPlatsActionPerformed
      txtArea.setText("");
      
-     ArrayList<HashMap<String, String>> soktaAliens1;
-     ArrayList<HashMap<String, String>> soktaAliens2;
-     ArrayList<HashMap<String, String>> soktaAliens3;
-     ArrayList<HashMap<String, String>> soktaAliens4;
+     
 
      try
      {
      
-     String fraga1 ="Select Namn from Alien where Plats = 1";
-     soktaAliens1 = idb.fetchRows(fraga1);
-     String fraga2 ="Select Namn from Alien where Plats = 2";
-     soktaAliens2 = idb.fetchRows(fraga2);
-     String fraga3 ="Select Namn from Alien where Plats = 3";
-     soktaAliens3 = idb.fetchRows(fraga3);
-     String fraga4 ="Select Namn from Alien where Plats = 4";
-     soktaAliens4 = idb.fetchRows(fraga4);
+     String plats_id = "SELECT Plats_ID from Plats WHERE Benamning='" + cbPlats.getSelectedItem().toString() + "'";
+     String fraga1 ="Select Namn from Alien where Plats=(" + plats_id + ")";
+     System.out.println(plats_id);
+     System.out.println(fraga1);
+     
+     ArrayList<String> soktaAliens1 = idb.fetchColumn(fraga1);
+
+     
+     for(String namn: soktaAliens1) {
      if(cbPlats.getSelectedItem().toString().equals("Örebro"))
-     {
-         txtArea.append("Namn: "+soktaAliens1);
+     {   
+         txtArea.append(namn);
+         txtArea.append("\n");
      }
      else if(cbPlats.getSelectedItem().toString().equals("Västerås"))
      {
-         txtArea.append("Namn: "+soktaAliens2);
+         txtArea.append(namn);
+         txtArea.append("\n");
+         
      }
      else if(cbPlats.getSelectedItem().toString().equals("Vilhelmina"))
      {
-         txtArea.append("Namn: " + soktaAliens3);
+         txtArea.append(namn);
+         txtArea.append("\n");
      }
      else if(cbPlats.getSelectedItem().toString().equals("Borås"))
      {
-         txtArea.append("Namn: "+soktaAliens4);
+         txtArea.append(namn);
+         txtArea.append("\n");
+     }
+     
      }
                 
                 
