@@ -127,7 +127,7 @@ public class TaBortAgent extends javax.swing.JFrame {
             }
             
             
-            else if (agentNamn.equals(svar1)) {
+            else {
                 JOptionPane.showMessageDialog(null, "Det finns ingen agent som heter så");
 
             }

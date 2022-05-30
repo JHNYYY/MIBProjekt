@@ -63,7 +63,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Registrera en agent ");
 
-        jLabel2.setText("Agent_ID:");
+        jLabel2.setText("Agent-ID:");
 
         jLabel3.setText("Namn:");
 
@@ -183,6 +183,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      try
      {
+     // String namnet = Agent_IDtxt.getText();
      String fraga1 = "SELECT Agent_ID FROM Agent";
      ArrayList svar = idb.fetchRows(fraga1);
      int visadID = (svar.size() + 1);
@@ -227,9 +228,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
 
         alltokej = true;
 
-        if (alltokej == false) {
-            
-                    
+        if (alltokej == true) {
             try {
 
                 String ValtOmradesID = idb.fetchSingle("Select Omrades_ID from Omrade WHERE benamning = '" + områdeComboBox.getSelectedItem().toString() + "'");
@@ -254,7 +253,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
                     idb.fetchSingle(uppdatera);
                     idb.fetchSingle(inteAdmin);
 
-                } else if(alltokej==false) {
+                } else {
                     JOptionPane.showMessageDialog(null, "Du har inte lyckats registrera en admin!");
                 }
 
@@ -264,8 +263,7 @@ public class RegistreraAgent extends javax.swing.JFrame {
             }
 
         }
-       
-       
+
     }//GEN-LAST:event_registreraAgentKnappActionPerformed
 
     /**

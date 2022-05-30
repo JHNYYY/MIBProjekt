@@ -278,26 +278,24 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
     private void registreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienKnappActionPerformed
         
+             
         boolean alltokej=false;
                   
                     if (Validering.textFaltHarVarde(namnAlien)){
                   
                       if (Validering.kollaTelefonnummerTextField(telefonAlien)){
                   
-                        if (Validering.kollaDatumTextField(registreringsdatumAlien)){
-                            
-                          if(Validering.losenordetharvarde(LosenordAlien)) {
+                        if (Validering.kollaDatumTextField(registreringsdatumAlien)){ 
 
                       }
                         }
                          }
-                    }
                           
                       
                    
                     alltokej=true;
                        
-                     if (alltokej==false){
+                    
         try {
         
             String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
@@ -315,28 +313,23 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     + valdPlats + ", "
                     + valdAgent + ")";
             
-            if(alltokej==true) {
+            System.out.println(uppdatera);
+
             idb.fetchSingle(uppdatera);
             JOptionPane.showMessageDialog(null, "Ändringen lyckades!");
-            
-            }
-            else if(alltokej==false) {
-                JOptionPane.showMessageDialog(null, "Du har inte registrerat en alien!");
-            }
-            
          
         
         } catch (InfException e) {
             System.out.println(e);
         }
         
-        
-        
             
         
         
         
-       }                                            
+                                                 
+    
+                                                  
     }//GEN-LAST:event_registreraAlienKnappActionPerformed
 
     private void ÄndraPlatsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraPlatsComboBoxActionPerformed
