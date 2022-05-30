@@ -278,7 +278,6 @@ public class RegistreraAlien extends javax.swing.JFrame {
 
     private void registreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienKnappActionPerformed
         
-             
         boolean alltokej=false;
                   
                     if (Validering.textFaltHarVarde(namnAlien)){
@@ -295,7 +294,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
                    
                     alltokej=true;
                        
-                    
+                     if (alltokej==true){
         try {
         
             String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
@@ -327,9 +326,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         
         
         
-                                                 
-    
-                                                  
+       }                                            
     }//GEN-LAST:event_registreraAlienKnappActionPerformed
 
     private void ÄndraPlatsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraPlatsComboBoxActionPerformed

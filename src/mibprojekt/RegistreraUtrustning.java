@@ -6,6 +6,7 @@ package mibprojekt;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,8 +47,18 @@ private static InfDB idb;
         jLabel2 = new javax.swing.JLabel();
         skapaIDKnapp = new javax.swing.JButton();
         idlabel = new javax.swing.JLabel();
+        comboboxvapentyp = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        txtrutaförvaldtyp = new javax.swing.JTextField();
+        labelVisaTextOmTypVapen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        uNamn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uNamnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Registrera Utrustning ");
@@ -71,47 +82,79 @@ private static InfDB idb;
         idlabel.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         idlabel.setText("....");
 
+        comboboxvapentyp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Vapen", "Kommunikation", "Teknik" }));
+        comboboxvapentyp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxvapentypActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Välj typ:");
+
+        labelVisaTextOmTypVapen.setText(".");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(188, 188, 188)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(skapaIDKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(skapaIDKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(34, 34, 34))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(idlabel))
-                            .addComponent(registrerautrustningsknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(252, Short.MAX_VALUE))
+                                .addComponent(labelVisaTextOmTypVapen)
+                                .addGap(43, 43, 43)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idlabel)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(17, 17, 17))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(registrerautrustningsknapp, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                        .addComponent(txtrutaförvaldtyp))
+                                    .addGap(21, 21, 21))))))
+                .addContainerGap(197, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(131, 131, 131))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(uNamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(skapaIDKnapp)
+                    .addComponent(idlabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idlabel)
-                    .addComponent(skapaIDKnapp))
+                    .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtrutaförvaldtyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelVisaTextOmTypVapen))
+                .addGap(18, 18, 18)
                 .addComponent(registrerautrustningsknapp)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,12 +175,62 @@ private static InfDB idb;
               
              int nummer = Integer.parseInt(idlabel.getText());
              
-             String fraga2 = "INSERT INTO utrustning VALUES (" + nummer + ",'" + namnet + "')";
-             JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + " som utrustning!");
-             idb.fetchSingle(fraga2);
+
+                 
+             if(comboboxvapentyp.getSelectedItem().toString().equals("Vapen")) {
+                 
+                 try {
+                     
+                 
+                 int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
+                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                 idb.fetchSingle(fraga1);
+                 String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
+                 idb.fetchSingle(fraga2);
+                 
+                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
+                         + "\nAntal Kaliber: " +txtrutaförvaldtyp.getText()+"");
+                 
+                 }
+                 
+                 catch(NumberFormatException e){
+                     JOptionPane.showMessageDialog(null, "Skriv in en siffra för kalibertypen!");
+                 }
+
+             }
              
-             } catch(Exception e) {
+             else if(comboboxvapentyp.getSelectedItem().toString().equals("Kommunikation")) {
+                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
+                         + "\nÖverföringsteknik: " +txtrutaförvaldtyp.getText()+"");
+                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                 idb.fetchSingle(fraga1);
+                 String fraga2 = "INSERT INTO Kommunikation VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
+                 idb.fetchSingle(fraga2);
+             }
+             
+             else if(comboboxvapentyp.getSelectedItem().toString().equals("Teknik")) {
+                 JOptionPane.showMessageDialog(null, "Du har registrerat: " +uNamn.getText() + ""
+                         + "\nKraftkälla: " +txtrutaförvaldtyp.getText()+"");
+                 String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                 idb.fetchSingle(fraga1);
+                 String fraga2 = "INSERT INTO Teknik VALUES (" + nummer + ",'" + txtrutaförvaldtyp.getText() + "')";
+                 idb.fetchSingle(fraga2);
+             }
+             
+             else {
+                 JOptionPane.showMessageDialog(null, "Vänligen välj en utrustningstyp!");
+             }
+                 
+            
+             
+             } catch(InfException e) {
                  System.out.println(e);
+             }
+
+        
+             catch(NumberFormatException e) {
+                 JOptionPane.showMessageDialog(null, "Vänligen skriv in en siffra i kaliber");
+                 
              }
              
              
@@ -162,6 +255,27 @@ private static InfDB idb;
            JOptionPane.showMessageDialog(null, "Ett fel uppstod.");
         }
     }//GEN-LAST:event_skapaIDKnappActionPerformed
+
+    private void comboboxvapentypActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxvapentypActionPerformed
+    switch (comboboxvapentyp.getSelectedItem().toString()) {
+        case "Vapen":
+            labelVisaTextOmTypVapen.setText("Kaliber: ");
+            break;
+        case "Kommunikation":
+            labelVisaTextOmTypVapen.setText("Överföringsteknik: ");
+            break;
+        case "Teknik":
+            labelVisaTextOmTypVapen.setText("Kraftkälla: ");
+            break;
+        default:
+            JOptionPane.showMessageDialog(null, "Vänligen välj en vapentyp");
+            break;
+    }
+    }//GEN-LAST:event_comboboxvapentypActionPerformed
+
+    private void uNamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uNamnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uNamnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,11 +314,15 @@ private static InfDB idb;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboboxvapentyp;
     private javax.swing.JLabel idlabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel labelVisaTextOmTypVapen;
     private javax.swing.JButton registrerautrustningsknapp;
     private javax.swing.JButton skapaIDKnapp;
+    private javax.swing.JTextField txtrutaförvaldtyp;
     private javax.swing.JTextField uNamn;
     // End of variables declaration//GEN-END:variables
 
