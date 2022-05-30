@@ -103,8 +103,6 @@ public class AlienPlatsSök extends javax.swing.JFrame {
      
      String plats_id = "SELECT Plats_ID from Plats WHERE Benamning='" + cbPlats.getSelectedItem().toString() + "'";
      String fraga1 ="Select Namn from Alien where Plats=(" + plats_id + ")";
-     System.out.println(plats_id);
-     System.out.println(fraga1);
      
      ArrayList<String> soktaAliens1 = idb.fetchColumn(fraga1);
 

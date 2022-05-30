@@ -101,8 +101,18 @@ public class AlienRasSök extends javax.swing.JFrame {
         txtAreaVisaInfoRas.setText("");
         
         try {
-            
-        String fraga1 = "SELECT * FROM Worm GROUP BY Alien_ID";
+        
+        
+        String fraga1 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Worm)"; 
+        ArrayList<String> allaAvWorm = idb.fetchColumn(fraga1);
+
+        
+        String fraga2 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Squid)"; 
+        ArrayList<String> allaAvSquid = idb.fetchColumn(fraga2);
+        
+        String fraga3 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Boglodite)"; 
+        ArrayList<String> allaAvBoglodite = idb.fetchColumn(fraga3);
+        /* String fraga1 = "SELECT * FROM Worm GROUP BY Alien_ID";
         String sokt1 = idb.fetchSingle(fraga1);
         String svar1 = "SELECT Namn from Alien Where Alien_ID = "+sokt1;
         String resultat1 = idb.fetchSingle(svar1);
@@ -115,21 +125,33 @@ public class AlienRasSök extends javax.swing.JFrame {
         String fraga3 = "SELECT Alien_ID FROM Boglodite";
         String sokt3 = idb.fetchSingle(fraga3);
         String svar3 = "SELECT Namn from Alien Where Alien_ID = "+sokt3;
-        String resultat3 = idb.fetchSingle(svar3);
+        String resultat3 = idb.fetchSingle(svar3); */
         
+        
+        for(String namn: allaAvWorm) { 
         if(cbValjRasNamn.getSelectedItem().toString().equals("Worm")) {
-           txtAreaVisaInfoRas.append("Aliens: " +resultat1 + "\n" + "AlienID: " +sokt1);
+           txtAreaVisaInfoRas.append(namn);
+           txtAreaVisaInfoRas.append("\n");
+        }
         }
         
-        else if(cbValjRasNamn.getSelectedItem().toString().equals("Squid")) {
-            txtAreaVisaInfoRas.append("Aliens: " +resultat2 + "\n" + "AlienID: " +sokt2);
+        
+        for(String namn: allaAvSquid) {
+        if(cbValjRasNamn.getSelectedItem().toString().equals("Squid")) {
+            txtAreaVisaInfoRas.append(namn);
+            txtAreaVisaInfoRas.append("\n");
             
         }
         
-        else if (cbValjRasNamn.getSelectedItem().toString().equals("Boglodite")) {
-           txtAreaVisaInfoRas.append("Aliens: " +resultat3 + "\n" + "AlienID: " +sokt3);
+        }
+        
+        for(String namn: allaAvBoglodite) {
+        if(cbValjRasNamn.getSelectedItem().toString().equals("Boglodite")) {
+           txtAreaVisaInfoRas.append(namn);
+           txtAreaVisaInfoRas.append("\n");
            
             
+        }
         }
         
         } catch(InfException e) {
