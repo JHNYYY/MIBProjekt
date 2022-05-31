@@ -145,9 +145,9 @@ private static InfDB idb;
                     .addComponent(skapaIDKnapp)
                     .addComponent(idlabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtrutaförvaldtyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,9 +179,9 @@ private static InfDB idb;
                     try {
 
                         int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
-                        String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                        String fraga1 = "INSERT INTO Utrustning VALUES (" + idlabel.getText() + ",'" + txtrutaförvaldtyp.getText() + "')";
                         idb.fetchSingle(fraga1);
-                        String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
+                        String fraga2 = "INSERT INTO Vapen VALUES (" + idlabel.getText() + "," + txtrutaförvaldtyp.getText() + ")";
                         idb.fetchSingle(fraga2);
 
                         JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""

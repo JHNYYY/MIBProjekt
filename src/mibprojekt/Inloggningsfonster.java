@@ -59,7 +59,7 @@ public class Inloggningsfonster extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         losenordsFalt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +182,7 @@ public class Inloggningsfonster extends javax.swing.JFrame {
     }//GEN-LAST:event_losenordsFaltActionPerformed
 
     private void inloggningsKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inloggningsKnappActionPerformed
+      
         /* Gör så att man kan logga in */
 
         String fraga1 = "";
@@ -221,20 +222,25 @@ public class Inloggningsfonster extends javax.swing.JFrame {
             if (AgentCheckBox.isSelected() && losenordsFalt.getText().equals(svar2) && svar5.equals("N")) {
                 JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
                 new AgentInloggningsVal().setVisible(true);
+                
 
             } else if (AlienCheckBox.isSelected() && losenordsFalt.getText().equals(svar4)) {
                 JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
                 new AlienInloggningsVal().setVisible(true);
                 
+                
             } else if (AgentCheckBox.isSelected() && losenordsFalt.getText().equals(svar2) && svar5.equals("J")) {
                 JOptionPane.showMessageDialog(null, "Inloggningen lyckades!");
                 new AdministratorInloggningsVal().setVisible(true);
+               
 
             } else {
                 JOptionPane.showMessageDialog(null, "Fel användarnamn eller lösenord");
                 anvandarNamnsFalt.requestFocus();
 
             }
+            
+            dispose();
 
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Du har tryckt i fel kategori");
