@@ -282,6 +282,10 @@ private static InfDB idb;
                                         if (Validering.inteSpace(txtRegistreringsdatum))
                                             if (Validering.inteSpace(txtAnsvarigagent))
                                                 if (Validering.inteSpace(txtTelefon))
+                                                    if(Validering.arDetHeltal(valdRastxtfält))
+                                                        if(Validering.arDetHeltal(txtPlats))
+                                                            if(Validering.arDetHeltal(txtAnsvarigagent))
+                                                            
                                             
         
         try {

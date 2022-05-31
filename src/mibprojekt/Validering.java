@@ -236,8 +236,29 @@ public class Validering {
     }
  
                
+        public static boolean arDetHeltal(JTextField rutaAttKolla) {
+        boolean resultatet = true;
+        
+        try {
+        String strangen = rutaAttKolla.getText();
+        Integer.parseInt(strangen);
+        
+        
+         }catch (NumberFormatException e){
+         
+         JOptionPane.showMessageDialog(null,"Vänligen ange ett heltal");
+         resultatet=false;
+         }
+        return resultatet; 
+               
         
     }
+    }
+
+ 
+               
+        
+    
      
      //public static boolean kollaStrangar(String Strang1, String Strang2){
         // boolean strangKoll = false;
