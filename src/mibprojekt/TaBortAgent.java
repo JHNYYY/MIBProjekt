@@ -111,29 +111,35 @@ public class TaBortAgent extends javax.swing.JFrame {
         if (Validering.textFaltHarVarde(taBortAgentNamnsFält))
             if (Validering.inteSpace(taBortAgentNamnsFält))
         
-        
-
+            
+            
+            
         try {
             String agentNamn = taBortAgentNamnsFält.getText();
             String fraga2 = "SELECT Namn FROM Agent WHERE Namn='" + agentNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             
             String fraga1 = "DELETE FROM Agent WHERE Namn='" + agentNamn + "'";
+            String fraga3 = ("ALTER table omradeschef DROP FOREIGN KEY Agent_ID WHERE Agent_ID ="
+                    + "(SELECT Agent_ID from Agent WHERE namn =" + taBortAgentNamnsFält.getText() + ")");
             String svar1 = idb.fetchSingle(fraga1);
-            
+            System.out.println(fraga3);
+           
 
             if (agentNamn.equals(svar2)) {
                 JOptionPane.showMessageDialog(null, "Agenten har tagits bort!");
             }
             
             
-            else {
-                JOptionPane.showMessageDialog(null, "Det finns ingen agent som heter så");
+            else if (agentNamn.equals(svar1)) {
+                JOptionPane.showMessageDialog(null, "Det finns ingen Agent som heter så");
 
             }
 
+          
+
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println(e);
         }
           
 

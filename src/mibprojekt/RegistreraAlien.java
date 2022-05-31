@@ -66,6 +66,7 @@ public class RegistreraAlien extends javax.swing.JFrame {
         rasLabel = new javax.swing.JLabel();
         valdRas = new javax.swing.JTextField();
         cbRas = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -204,6 +205,9 @@ public class RegistreraAlien extends javax.swing.JFrame {
         });
         getContentPane().add(cbRas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 130, 40));
 
+        jLabel3.setText("Välj Ras:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 100, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -228,34 +232,37 @@ public class RegistreraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_OkKnappAnsvarigAgentActionPerformed
 
     private void registreraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraAlienKnappActionPerformed
-        
-             
-        boolean alltokej=false;
-                  
-                    if (Validering.textFaltHarVarde(namnAlien)){
-                  
-                      if (Validering.kollaTelefonnummerTextField(telefonAlien)){
-                  
-                        if (Validering.kollaDatumTextField(registreringsdatumAlien)){ 
 
-                      }
+        boolean alltokej = false;
+
+        if (Validering.textFaltHarVarde(namnAlien)) {
+
+            if (Validering.kollaTelefonnummerTextField(telefonAlien)) {
+
+                if (Validering.kollaDatumTextField(registreringsdatumAlien)) {
+                    if (Validering.arDetHeltal(valdRas)) {
+                        if (Validering.textFaltHarVarde(txtPlatsAgent)) {
+                            if (Validering.textFaltHarVarde(txtAnsvarigAgent)) {
+
+                            }
                         }
-                         }
-                          
-                      
-                   
-                    alltokej=true;
-                       
-                    
+
+                    }
+                }
+            }
+
+        }
+
+        alltokej = true;
+
         try {
-        
+
             String valdPlats = idb.fetchSingle("SELECT Plats_ID from Plats WHERE benamning = '" + txtPlatsAgent.getText() + "'");
-            
-                    
-            String valdAgent = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn = '" + txtAnsvarigAgent.getText() + "'"); 
-            
+
+            String valdAgent = idb.fetchSingle("SELECT Agent_ID from Agent WHERE Namn = '" + txtAnsvarigAgent.getText() + "'");
+
             String uppdatera = "INSERT INTO Alien (Alien_ID, Registreringsdatum, Losenord, Namn, "
-                    + "Telefon, Plats, Ansvarig_Agent) VALUES(" 
+                    + "Telefon, Plats, Ansvarig_Agent) VALUES("
                     + alienIDlabel.getText() + ", '"
                     + registreringsdatumAlien.getText() + "', '"
                     + LosenordAlien.getText() + "', '"
@@ -263,44 +270,28 @@ public class RegistreraAlien extends javax.swing.JFrame {
                     + telefonAlien.getText() + "', "
                     + valdPlats + ", "
                     + valdAgent + ")";
-            
-            //int antal = Integer.parseInt(valdRas.getText());
 
-            //String uppdateraBog = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES(" + alienIDlabel.getText() + ", " + valdRas.getText() +")";
-            String uppdateraSquid = "INSERT INTO squid (Alien_ID, Antal_Armar) VALUES (" + alienIDlabel.getText() + ", " + valdRas.getText() +")";
-            String uppdateraWorm = "Insert INTO worm (Alien_ID) VALUES (" + alienIDlabel.getText() + ")";
-                // System.out.println(uppdateraBog);
-                 System.out.println(uppdatera);
-            if(cbRas.getSelectedItem().toString().equals("Boglodite"))
-                    {
-                    idb.fetchSingle(uppdatera);
-                    idb.fetchSingle("INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES(" + alienIDlabel.getText() + ", " + valdRas.getText() +")");
-                    
-                    }
-                    else if(cbRas.getSelectedItem().toString().equals("Squid"))
-                    {
-                        idb.update(uppdatera);
-                        idb.update(uppdateraSquid);
-                    }
-                    else if(cbRas.getSelectedItem().toString().equals("Worm"))
-                    {
-                        idb.update(uppdatera);
-                        idb.update(uppdateraWorm);
-                     
-                    }
-         
-        
+            System.out.println(uppdatera);
+            if (cbRas.getSelectedItem().toString().equals("Boglodite")) {
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle("INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES(" + alienIDlabel.getText() + ", " + valdRas.getText() + ")");
+                JOptionPane.showMessageDialog(null, "Du har registrerat en Boglodite");
+            } else if (cbRas.getSelectedItem().toString().equals("Squid")) {
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle("INSERT INTO squid (Alien_ID, Antal_Armar) VALUES (" + alienIDlabel.getText() + ", " + valdRas.getText() + ")");
+                JOptionPane.showMessageDialog(null, "Du har registrerat en Squid");
+            } else if (cbRas.getSelectedItem().toString().equals("Worm")) {
+                idb.fetchSingle(uppdatera);
+                idb.fetchSingle("Insert INTO worm (Alien_ID) VALUES (" + alienIDlabel.getText() + ")");
+                JOptionPane.showMessageDialog(null, "Du har registrerat en Worm");
+
+            }
+
         } catch (InfException e) {
             System.out.println(e);
         }
-        
-            
-        
-        
-        
-                                                 
-    
-                                                  
+
+
     }//GEN-LAST:event_registreraAlienKnappActionPerformed
 
     private void ÄndraPlatsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraPlatsComboBoxActionPerformed
@@ -340,9 +331,13 @@ if(cbRas.getSelectedItem().toString().equals("Boglodite")) {
              rasLabel.setText("Antal armar: ");
          }
        
-        else {
+        else if(cbRas.getSelectedItem().toString().equals("Worm")){
             valdRas.setVisible(false);
             rasLabel.setText("");
+        }
+
+        else {
+            JOptionPane.showMessageDialog(null, "Vänligen välj en ras!");
         }
     }//GEN-LAST:event_cbRasActionPerformed
 
@@ -395,6 +390,7 @@ if(cbRas.getSelectedItem().toString().equals("Boglodite")) {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField namnAlien;
     private javax.swing.JLabel rasLabel;
