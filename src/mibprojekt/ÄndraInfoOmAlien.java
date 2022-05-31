@@ -271,6 +271,7 @@ private static InfDB idb;
                
         
         if (Validering.textFaltHarVarde(txtNamn))
+          if (Validering.textFaltHarVarde(valdRastxtfält))
             if (Validering.losenordetharvarde(txtLosenord))
                 if (Validering.isPlats(txtPlats))
                     if (Validering.kollaDatumTextField(txtRegistreringsdatum))
@@ -278,6 +279,7 @@ private static InfDB idb;
                             if (Validering.kollaTelefonnummerTextField(txtTelefon))
                             if (Validering.inteSpace(txtLosenord))
                                 if (Validering.inteSpace(txtNamn))
+                                    if (Validering.inteSpace(valdRastxtfält))
                                     if (Validering.inteSpace(txtPlats))
                                         if (Validering.inteSpace(txtRegistreringsdatum))
                                             if (Validering.inteSpace(txtAnsvarigagent))
