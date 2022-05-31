@@ -41,10 +41,16 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        registreraUtrustningsknapp = new javax.swing.JToggleButton();
+        platsöveraliensknapp = new javax.swing.JToggleButton();
+        rassökknapp = new javax.swing.JToggleButton();
+        sökinfoalienknapp = new javax.swing.JToggleButton();
+        områdeschefsökkontor = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
         setForeground(new java.awt.Color(204, 255, 204));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AndraLosenordAdminKnapp.setBackground(new java.awt.Color(204, 204, 255));
         AndraLosenordAdminKnapp.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,12 +60,14 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 AndraLosenordAdminKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(AndraLosenordAdminKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 145, 35));
 
         TextKontoInstallningar.setBackground(new java.awt.Color(255, 255, 255));
         TextKontoInstallningar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         TextKontoInstallningar.setForeground(new java.awt.Color(255, 255, 255));
         TextKontoInstallningar.setText("Kontoinställningar");
         TextKontoInstallningar.setToolTipText("Klicka på knapparna under för att ändra dina kontoinställningar.");
+        getContentPane().add(TextKontoInstallningar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 65, 203, -1));
 
         TaBortAlienKnapp.setBackground(new java.awt.Color(0, 153, 153));
         TaBortAlienKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -70,6 +78,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 TaBortAlienKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(TaBortAlienKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 183, 177, -1));
 
         TaBortUtrustningsKnapp.setBackground(new java.awt.Color(0, 153, 153));
         TaBortUtrustningsKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -80,6 +89,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 TaBortUtrustningsKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(TaBortUtrustningsKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 211, 177, -1));
 
         SökInfoAgentKnapp.setBackground(new java.awt.Color(0, 153, 153));
         SökInfoAgentKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -90,6 +100,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 SökInfoAgentKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(SökInfoAgentKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 99, 200, -1));
 
         ÄndraInfoAlienKnapp.setBackground(new java.awt.Color(0, 153, 153));
         ÄndraInfoAlienKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -100,6 +111,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 ÄndraInfoAlienKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(ÄndraInfoAlienKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 127, 200, -1));
 
         RegistreraAgentKnapp.setBackground(new java.awt.Color(0, 153, 153));
         RegistreraAgentKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -110,6 +122,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 RegistreraAgentKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(RegistreraAgentKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 239, 177, -1));
 
         RegistreraAlienKnapp.setBackground(new java.awt.Color(0, 153, 153));
         RegistreraAlienKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -120,6 +133,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 RegistreraAlienKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(RegistreraAlienKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 267, 177, -1));
 
         ÄndraInfoAgentKnapp.setBackground(new java.awt.Color(0, 153, 153));
         ÄndraInfoAgentKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -130,6 +144,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 ÄndraInfoAgentKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(ÄndraInfoAgentKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 323, -1, -1));
 
         TaBortAgentKnapp.setBackground(new java.awt.Color(0, 153, 153));
         TaBortAgentKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -140,6 +155,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 TaBortAgentKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(TaBortAgentKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 155, 177, -1));
 
         ÄndraOmrådeschefsKnapp.setBackground(new java.awt.Color(0, 153, 153));
         ÄndraOmrådeschefsKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -150,6 +166,7 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 ÄndraOmrådeschefsKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(ÄndraOmrådeschefsKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 127, 177, -1));
 
         ÄndraKontorsChefsKnapp.setBackground(new java.awt.Color(0, 153, 153));
         ÄndraKontorsChefsKnapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -160,101 +177,76 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
                 ÄndraKontorsChefsKnappActionPerformed(evt);
             }
         });
+        getContentPane().add(ÄndraKontorsChefsKnapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 99, 177, -1));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Användarhantering");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 65, 166, 28));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Användarinformation");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 65, 166, 28));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mibprojekt/agenticon1.png"))); // NOI18N
         jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 379, 101, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                        .addGap(24, 24, 24))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ÄndraInfoAlienKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(SökInfoAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(ÄndraInfoAgentKnapp)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(RegistreraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(RegistreraAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TaBortUtrustningsKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ÄndraOmrådeschefsKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ÄndraKontorsChefsKnapp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(235, 235, 235)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TaBortAgentKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                                    .addComponent(TaBortAlienKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AndraLosenordAdminKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextKontoInstallningar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(17, 17, 17))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ÄndraKontorsChefsKnapp)
-                            .addComponent(SökInfoAgentKnapp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ÄndraOmrådeschefsKnapp)
-                            .addComponent(ÄndraInfoAlienKnapp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TaBortAgentKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TaBortAlienKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TaBortUtrustningsKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RegistreraAgentKnapp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TextKontoInstallningar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AndraLosenordAdminKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142)))
-                .addComponent(RegistreraAlienKnapp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ÄndraInfoAgentKnapp)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        registreraUtrustningsknapp.setBackground(new java.awt.Color(0, 153, 153));
+        registreraUtrustningsknapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        registreraUtrustningsknapp.setForeground(new java.awt.Color(204, 204, 204));
+        registreraUtrustningsknapp.setText("Registrera Utrustning");
+        registreraUtrustningsknapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registreraUtrustningsknappActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registreraUtrustningsknapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 295, 177, -1));
+
+        platsöveraliensknapp.setBackground(new java.awt.Color(0, 153, 153));
+        platsöveraliensknapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        platsöveraliensknapp.setForeground(new java.awt.Color(204, 204, 204));
+        platsöveraliensknapp.setText("Plats över aliens");
+        platsöveraliensknapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                platsöveraliensknappActionPerformed(evt);
+            }
+        });
+        getContentPane().add(platsöveraliensknapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 183, 193, -1));
+
+        rassökknapp.setBackground(new java.awt.Color(0, 153, 153));
+        rassökknapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        rassökknapp.setForeground(new java.awt.Color(204, 204, 204));
+        rassökknapp.setText("Sök registrerade aliens (ras)");
+        rassökknapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rassökknappActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rassökknapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 211, 193, -1));
+
+        sökinfoalienknapp.setBackground(new java.awt.Color(0, 153, 153));
+        sökinfoalienknapp.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        sökinfoalienknapp.setForeground(new java.awt.Color(204, 204, 204));
+        sökinfoalienknapp.setText("Sök info om alien");
+        sökinfoalienknapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sökinfoalienknappActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sökinfoalienknapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 239, 193, -1));
+
+        områdeschefsökkontor.setBackground(new java.awt.Color(0, 153, 153));
+        områdeschefsökkontor.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        områdeschefsökkontor.setForeground(new java.awt.Color(204, 204, 204));
+        områdeschefsökkontor.setText("Sök områdeschef för kontor");
+        områdeschefsökkontor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                områdeschefsökkontorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(områdeschefsökkontor, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 267, 193, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,6 +295,26 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
         new RegistreraAlien().setVisible(true);
     }//GEN-LAST:event_RegistreraAlienKnappActionPerformed
 
+    private void registreraUtrustningsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registreraUtrustningsknappActionPerformed
+        new RegistreraUtrustning().setVisible(true);
+    }//GEN-LAST:event_registreraUtrustningsknappActionPerformed
+
+    private void platsöveraliensknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platsöveraliensknappActionPerformed
+         new AlienPlatsSök().setVisible(true);
+    }//GEN-LAST:event_platsöveraliensknappActionPerformed
+
+    private void rassökknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rassökknappActionPerformed
+        new AlienRasSök().setVisible(true);
+    }//GEN-LAST:event_rassökknappActionPerformed
+
+    private void sökinfoalienknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sökinfoalienknappActionPerformed
+        new AlienInfoSök().setVisible(true);
+    }//GEN-LAST:event_sökinfoalienknappActionPerformed
+
+    private void områdeschefsökkontorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_områdeschefsökkontorActionPerformed
+        new OmrådesChefSök().setVisible(true);
+    }//GEN-LAST:event_områdeschefsökkontorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +362,11 @@ public class AdministratorInloggningsVal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JToggleButton områdeschefsökkontor;
+    private javax.swing.JToggleButton platsöveraliensknapp;
+    private javax.swing.JToggleButton rassökknapp;
+    private javax.swing.JToggleButton registreraUtrustningsknapp;
+    private javax.swing.JToggleButton sökinfoalienknapp;
     private javax.swing.JToggleButton ÄndraInfoAgentKnapp;
     private javax.swing.JToggleButton ÄndraInfoAlienKnapp;
     private javax.swing.JToggleButton ÄndraKontorsChefsKnapp;

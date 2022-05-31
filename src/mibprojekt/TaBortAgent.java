@@ -115,23 +115,30 @@ public class TaBortAgent extends javax.swing.JFrame {
             
             
         try {
+            
+           
             String agentNamn = taBortAgentNamnsFält.getText();
             String fraga2 = "SELECT Namn FROM Agent WHERE Namn='" + agentNamn + "'";
             String svar2 = idb.fetchSingle(fraga2);
             
             String fraga1 = "DELETE FROM Agent WHERE Namn='" + agentNamn + "'";
-            String fraga3 = ("ALTER table omradeschef DROP FOREIGN KEY Agent_ID WHERE Agent_ID ="
-                    + "(SELECT Agent_ID from Agent WHERE namn =" + taBortAgentNamnsFält.getText() + ")");
-            String svar1 = idb.fetchSingle(fraga1);
-            System.out.println(fraga3);
+    
+            
+            
+            String tabortAgent = "SELECT Agent_ID from Agent WHERE namn ='" + taBortAgentNamnsFält.getText() +"'";
+            String svartaBortAgent = idb.fetchSingle(tabortAgent);
+            String fraga3 = "DELETE FROM omradeschef WHERE Agent_ID=" + svartaBortAgent + "";
+            
            
 
             if (agentNamn.equals(svar2)) {
                 JOptionPane.showMessageDialog(null, "Agenten har tagits bort!");
+                 idb.fetchSingle(fraga3);
+                 idb.fetchSingle(fraga1);
             }
             
             
-            else if (agentNamn.equals(svar1)) {
+            else if (!agentNamn.equals(svar2)) {
                 JOptionPane.showMessageDialog(null, "Det finns ingen Agent som heter så");
 
             }

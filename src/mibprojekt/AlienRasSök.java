@@ -101,14 +101,13 @@ public class AlienRasSök extends javax.swing.JFrame {
         txtAreaVisaInfoRas.setText("");
 
         try {
-
-            String fraga1 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Worm)";
+            String fraga1 = "SELECT Namn from Alien JOIN Worm on Alien.Alien_ID=Worm.Alien_ID";
             ArrayList<String> allaAvWorm = idb.fetchColumn(fraga1);
 
-            String fraga2 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Squid)";
+            String fraga2 = "SELECT Namn from Alien JOIN Squid on Alien.Alien_ID=Squid.Alien_ID";
             ArrayList<String> allaAvSquid = idb.fetchColumn(fraga2);
 
-            String fraga3 = "SELECT Namn FROM Alien WHERE Alien_ID=(SELECT Alien_ID from Boglodite)";
+            String fraga3 = "SELECT Namn from Alien JOIN Boglodite on Alien.Alien_ID=Boglodite.Alien_ID";
             ArrayList<String> allaAvBoglodite = idb.fetchColumn(fraga3);
 
             for (String namn : allaAvWorm) {
@@ -136,7 +135,7 @@ public class AlienRasSök extends javax.swing.JFrame {
             }
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Något gick fel!");
+            System.out.println(e);
         }
 
 
