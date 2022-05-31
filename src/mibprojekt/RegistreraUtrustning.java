@@ -145,9 +145,9 @@ private static InfDB idb;
                     .addComponent(skapaIDKnapp)
                     .addComponent(idlabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(comboboxvapentyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtrutaförvaldtyp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,8 +161,8 @@ private static InfDB idb;
     }// </editor-fold>//GEN-END:initComponents
 
     private void registrerautrustningsknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrerautrustningsknappActionPerformed
-             
-               if (Validering.textFaltHarVarde(uNamn)) {
+            
+        if (Validering.textFaltHarVarde(uNamn)) {
             if (Validering.inteSpace(uNamn))
                 
             
@@ -171,25 +171,18 @@ private static InfDB idb;
              try {
 
                 String namnet = uNamn.getText();
-
                 int nummer = Integer.parseInt(idlabel.getText());
 
                 if (comboboxvapentyp.getSelectedItem().toString().equals("Vapen")) {
+                    int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
+                    String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
+                    idb.fetchSingle(fraga1);
 
-                    try {
+                    String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
+                    idb.fetchSingle(fraga2);
 
-                        int nummer1 = Integer.parseInt(txtrutaförvaldtyp.getText());
-                        String fraga1 = "INSERT INTO Utrustning VALUES (" + nummer + ",'" + namnet + "')";
-                        idb.fetchSingle(fraga1);
-                        String fraga2 = "INSERT INTO Vapen VALUES (" + nummer + "," + txtrutaförvaldtyp.getText() + ")";
-                        idb.fetchSingle(fraga2);
-
-                        JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
-                                + "\nAntal Kaliber: " + txtrutaförvaldtyp.getText() + "");
-
-                    } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "Skriv in en siffra för kalibertypen!");
-                    }
+                    JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
+                            + "\nAntal Kaliber: " + txtrutaförvaldtyp.getText() + "");
 
                 } else if (comboboxvapentyp.getSelectedItem().toString().equals("Kommunikation")) {
                     JOptionPane.showMessageDialog(null, "Du har registrerat: " + uNamn.getText() + ""
@@ -216,6 +209,7 @@ private static InfDB idb;
 
             }
         }
+
 
 
 
